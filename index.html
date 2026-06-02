@@ -45,20 +45,28 @@
   .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: var(--gold); transition: width var(--transition); }
   .nav-links a:hover { color: var(--gold); }
   .nav-links a:hover::after { width: 100%; }
-  .nav-cta { background: var(--gold); color: var(--navy) !important; padding: 8px 16px; font-weight: 700 !important; letter-spacing: 0.12em !important; text-transform: uppercase; font-size: 0.66rem !important; border: none; cursor: pointer; text-decoration: none; transition: background var(--transition), color var(--transition); white-space: nowrap; }
+  .nav-cta { background: var(--gold); color: var(--navy) !important; padding: 8px 16px; font-weight: 700 !important; letter-spacing: 0.12em !important; font-size: 0.66rem !important; border: none; cursor: pointer; text-decoration: none; transition: background var(--transition); white-space: nowrap; }
   .nav-cta::after { display: none !important; }
-  .nav-cta:hover { background: var(--gold-light) !important; color: var(--navy) !important; }
+  .nav-cta:hover { background: var(--gold-light) !important; }
   .burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; flex-shrink: 0; }
   .burger span { display: block; width: 24px; height: 2px; background: var(--white); transition: all 0.3s; }
 
   /* HERO */
-  #home { position: relative; min-height: 100vh; display: flex; align-items: center; overflow: hidden; background: var(--navy); }
-  .hero-bg { position: absolute; inset: 0; background: linear-gradient(160deg, rgba(13,27,42,0.85) 40%, rgba(13,27,42,0.4) 100%), url('https://i0.wp.com/diamondexp.nz/wp-content/uploads/2024/05/IMG_1272.jpg?resize=1400%2C800&ssl=1') center/cover no-repeat; transform: scale(1.04); animation: heroZoom 18s ease-in-out infinite alternate; }
-  @keyframes heroZoom { from { transform: scale(1.04); } to { transform: scale(1.12); } }
-  .hero-geo { position: absolute; bottom: 0; left: 0; right: 0; height: 160px; overflow: hidden; }
-  .hero-geo svg { display: block; width: 100%; height: 100%; }
+  #home {
+    position: relative; min-height: 100vh; display: flex; align-items: center; overflow: hidden;
+    background: linear-gradient(160deg, #0a1628 0%, #0d2040 40%, #1a3a5c 70%, #1e4a6e 100%);
+  }
+  .hero-mountains {
+    position: absolute; bottom: 0; left: 0; right: 0; z-index: 1;
+  }
+  .hero-mountains svg { display: block; width: 100%; }
+  .hero-photo {
+    position: absolute; inset: 0; z-index: 0;
+    background: url('images/hero.jpg') center 40%/cover no-repeat;
+    opacity: 0.45;
+  }
   .hero-content { position: relative; z-index: 2; padding: 120px 10vw 80px; max-width: 900px; }
-  .hero-eyebrow { font-family: var(--font-body); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 14px; opacity: 0; animation: fadeUp 0.8s 0.3s forwards; }
+  .hero-eyebrow { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 14px; opacity: 0; animation: fadeUp 0.8s 0.3s forwards; }
   .hero-eyebrow::before { content: ''; display: block; width: 40px; height: 1px; background: var(--gold); }
   .hero-title { font-family: var(--font-display); font-size: clamp(3rem, 7vw, 6.5rem); font-weight: 300; line-height: 1.05; color: var(--white); margin-bottom: 1.8rem; opacity: 0; animation: fadeUp 0.9s 0.5s forwards; }
   .hero-title em { font-style: italic; color: var(--gold-light); }
@@ -85,34 +93,10 @@
   .section-title--white { color: var(--white); }
   .section-body { font-size: 0.9rem; font-weight: 300; line-height: 1.9; color: var(--text-muted); max-width: 560px; }
 
-  /* PRODUCTS */
-  #products { background: var(--navy); position: relative; overflow: hidden; }
-  #products::before { content: ''; position: absolute; top: -120px; right: -120px; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle, rgba(201,168,76,0.07) 0%, transparent 70%); pointer-events: none; }
-  .products-header { max-width: 700px; margin-bottom: 4rem; }
-  .products-header .section-body { color: var(--ice-dim); }
-  .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2px; }
-  .product-card { background: var(--navy-mid); padding: 2.5rem 2rem; border: 1px solid rgba(201,168,76,0.12); position: relative; overflow: hidden; transition: all var(--transition); cursor: default; }
-  .product-card::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--gold); transition: width var(--transition); }
-  .product-card:hover { background: rgba(201,168,76,0.05); border-color: rgba(201,168,76,0.3); transform: translateY(-4px); }
-  .product-card:hover::after { width: 100%; }
-  .product-card--featured { border-color: rgba(201,168,76,0.4); background: rgba(201,168,76,0.06); }
-  .product-badge { display: inline-block; font-size: 0.58rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--navy); background: var(--gold); padding: 4px 10px; margin-bottom: 1.2rem; }
-  .product-name { font-family: var(--font-display); font-size: 1.5rem; font-weight: 400; color: var(--white); margin-bottom: 0.5rem; line-height: 1.2; }
-  .product-time { font-size: 0.7rem; color: var(--gold); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 1.5rem; font-weight: 500; }
-  .product-price { font-family: var(--font-display); font-size: 2.6rem; font-weight: 300; color: var(--gold-light); line-height: 1; margin-bottom: 0.3rem; }
-  .product-price span { font-size: 1rem; color: var(--ice-dim); font-family: var(--font-body); font-weight: 300; }
-  .product-guests { font-size: 0.72rem; color: var(--ice-dim); margin-bottom: 1.8rem; font-weight: 300; }
-  .product-features { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; margin-bottom: 2rem; }
-  .product-features li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.78rem; color: var(--ice-dim); font-weight: 300; line-height: 1.5; }
-  .product-features li::before { content: '✦'; color: var(--gold); font-size: 0.6rem; margin-top: 3px; flex-shrink: 0; }
-  .product-book { display: inline-block; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(201,168,76,0.3); padding-bottom: 2px; transition: all var(--transition); }
-  .product-book:hover { color: var(--gold-light); border-color: var(--gold-light); }
-  .products-note { margin-top: 2rem; font-size: 0.72rem; color: var(--text-muted); font-style: italic; font-weight: 300; }
-
   /* ABOUT */
   #about { background: var(--off-white); display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
   .about-images { position: relative; height: 560px; }
-  .about-img { position: absolute; border: 4px solid var(--white); box-shadow: 0 20px 60px rgba(13,27,42,0.15); object-fit: cover; overflow: hidden; }
+  .about-img { position: absolute; border: 4px solid var(--white); box-shadow: 0 20px 60px rgba(13,27,42,0.15); overflow: hidden; }
   .about-img img { display: block; width: 100%; height: 100%; object-fit: cover; }
   .about-img--main { width: 72%; height: 75%; top: 0; left: 0; }
   .about-img--accent { width: 52%; height: 52%; bottom: 0; right: 0; border: 6px solid var(--gold); }
@@ -141,10 +125,10 @@
   .team-card-socials a:hover { color: var(--gold-light); }
   .team-modal-bg { position: fixed; inset: 0; background: rgba(13,27,42,0.85); backdrop-filter: blur(8px); z-index: 200; display: flex; align-items: center; justify-content: center; padding: 2rem; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
   .team-modal-bg.open { opacity: 1; pointer-events: all; }
-  .team-modal { background: var(--white); max-width: 700px; width: 100%; display: grid; grid-template-columns: 260px 1fr; gap: 0; overflow: hidden; position: relative; transform: translateY(20px); transition: transform 0.4s ease; }
+  .team-modal { background: var(--white); max-width: 700px; width: 100%; display: grid; grid-template-columns: 260px 1fr; overflow: hidden; position: relative; transform: translateY(20px); transition: transform 0.4s ease; }
   .team-modal-bg.open .team-modal { transform: translateY(0); }
   .team-modal-img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
-  .team-modal-content { padding: 2.5rem; }
+  .team-modal-content { padding: 2.5rem; overflow-y: auto; }
   .team-modal-name { font-family: var(--font-display); font-size: 2rem; font-weight: 300; color: var(--navy); margin-bottom: 0.25rem; }
   .team-modal-role { font-size: 0.68rem; color: var(--gold); letter-spacing: 0.2em; text-transform: uppercase; font-weight: 600; margin-bottom: 0.5rem; display: block; }
   .team-modal-quals { font-size: 0.72rem; color: var(--text-muted); font-style: italic; margin-bottom: 1.2rem; line-height: 1.5; }
@@ -152,15 +136,44 @@
   .team-modal-close { position: absolute; top: 1rem; right: 1rem; background: var(--navy); color: var(--white); border: none; width: 36px; height: 36px; font-size: 1.1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
   .team-modal-close:hover { background: var(--gold); color: var(--navy); }
 
-  /* NZ EXPERIENCES */
-  #nzexp { background: var(--off-white); }
-  .nzexp-header { margin-bottom: 3rem; }
-  .nzexp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
-  .nzexp-text .section-body { margin-bottom: 1.5rem; }
-  .nzexp-img { width: 100%; height: 420px; object-fit: cover; display: block; }
-  .nzexp-highlights { list-style: none; display: flex; flex-direction: column; gap: 0.8rem; margin-top: 1.5rem; }
-  .nzexp-highlights li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.82rem; color: var(--text-muted); font-weight: 300; line-height: 1.5; }
-  .nzexp-highlights li::before { content: '✦'; color: var(--gold); font-size: 0.6rem; margin-top: 3px; flex-shrink: 0; }
+  /* QUEENSTOWNEXP */
+  #qtexp { background: var(--navy); position: relative; overflow: hidden; }
+  .qtexp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+  .qtexp-images { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .qtexp-img { width: 100%; object-fit: cover; display: block; }
+  .qtexp-img--tall { grid-row: span 2; height: 100%; object-fit: cover; }
+  .qtexp-img--short { height: 200px; object-fit: cover; }
+  .qtexp-text .section-body { color: var(--ice-dim); margin-bottom: 1.5rem; }
+  .qtexp-highlights { list-style: none; display: flex; flex-direction: column; gap: 0.8rem; margin-top: 1.5rem; }
+  .qtexp-highlights li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.82rem; color: var(--ice-dim); font-weight: 300; line-height: 1.5; }
+  .qtexp-highlights li::before { content: '✦'; color: var(--gold); font-size: 0.6rem; margin-top: 3px; flex-shrink: 0; }
+
+  /* QT PRICING */
+  #qtpricing { background: var(--white); position: relative; overflow: hidden; }
+  .products-header { max-width: 700px; margin-bottom: 4rem; }
+  .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2px; }
+  .product-card { background: var(--off-white); padding: 2.5rem 2rem; border: 1px solid rgba(201,168,76,0.15); position: relative; overflow: hidden; transition: all var(--transition); cursor: default; }
+  .product-card::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--gold); transition: width var(--transition); }
+  .product-card:hover { border-color: rgba(201,168,76,0.4); transform: translateY(-4px); box-shadow: 0 12px 40px rgba(13,27,42,0.08); }
+  .product-card:hover::after { width: 100%; }
+  .product-card--featured { border-color: rgba(201,168,76,0.4); background: var(--navy); }
+  .product-card--featured .product-name,
+  .product-card--featured .product-price { color: var(--white); }
+  .product-card--featured .product-time,
+  .product-card--featured .product-guests,
+  .product-card--featured .product-features li { color: var(--ice-dim); }
+  .product-badge { display: inline-block; font-size: 0.58rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--navy); background: var(--gold); padding: 4px 10px; margin-bottom: 1.2rem; }
+  .product-name { font-family: var(--font-display); font-size: 1.5rem; font-weight: 400; color: var(--navy); margin-bottom: 0.5rem; line-height: 1.2; }
+  .product-time { font-size: 0.7rem; color: var(--gold); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 1.5rem; font-weight: 500; }
+  .product-price { font-family: var(--font-display); font-size: 2.6rem; font-weight: 300; color: var(--navy); line-height: 1; margin-bottom: 0.3rem; }
+  .product-price span { font-size: 1rem; color: var(--text-muted); font-family: var(--font-body); font-weight: 300; }
+  .product-guests { font-size: 0.72rem; color: var(--text-muted); margin-bottom: 1.8rem; font-weight: 300; }
+  .product-features { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; margin-bottom: 2rem; }
+  .product-features li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.78rem; color: var(--text-muted); font-weight: 300; line-height: 1.5; }
+  .product-features li::before { content: '✦'; color: var(--gold); font-size: 0.6rem; margin-top: 3px; flex-shrink: 0; }
+  .product-book { display: inline-block; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(201,168,76,0.3); padding-bottom: 2px; transition: all var(--transition); }
+  .product-book:hover { color: var(--gold-light); border-color: var(--gold-light); }
+  .products-note { margin-top: 2rem; font-size: 0.72rem; color: var(--gold); font-style: italic; font-weight: 300; }
 
   /* FAQ */
   #faq { background: var(--navy); display: grid; grid-template-columns: 1fr 1.4fr; gap: 6rem; align-items: start; }
@@ -180,7 +193,7 @@
   .faq-answer p { font-size: 0.82rem; color: var(--ice-dim); line-height: 1.8; font-weight: 300; padding-bottom: 1.4rem; }
 
   /* CONTACT */
-  #contact { background: var(--white); display: grid; grid-template-columns: 1fr 1.2fr; gap: 6rem; align-items: start; }
+  #contact { background: var(--off-white); display: grid; grid-template-columns: 1fr 1.2fr; gap: 6rem; align-items: start; }
   .contact-info h2 { margin-bottom: 1rem; }
   .contact-channels { display: flex; flex-direction: column; gap: 1.2rem; margin-top: 2.5rem; }
   .contact-channel { display: flex; align-items: center; gap: 1rem; text-decoration: none; color: var(--text); transition: color 0.2s; }
@@ -190,7 +203,7 @@
   .channel-icon svg { width: 18px; height: 18px; stroke: var(--white); fill: none; stroke-width: 1.5; }
   .channel-label { font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 600; color: var(--text-muted); display: block; margin-bottom: 2px; }
   .channel-value { font-family: var(--font-display); font-size: 1.1rem; }
-  .contact-form { background: var(--off-white); padding: 3rem; box-shadow: 0 8px 40px rgba(13,27,42,0.08); }
+  .contact-form { background: var(--white); padding: 3rem; box-shadow: 0 8px 40px rgba(13,27,42,0.08); }
   .form-title { font-family: var(--font-display); font-size: 1.6rem; font-weight: 300; color: var(--navy); margin-bottom: 0.4rem; }
   .form-sub { font-size: 0.78rem; color: var(--text-muted); margin-bottom: 2rem; font-weight: 300; }
   .form-group { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1rem; }
@@ -210,7 +223,7 @@
   footer { background: var(--navy); padding: 3rem 8vw; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(201,168,76,0.15); flex-wrap: wrap; gap: 1.5rem; }
   .footer-logo { font-family: var(--font-display); font-size: 1.3rem; color: var(--white); font-weight: 300; }
   .footer-logo span { color: var(--gold); font-weight: 600; }
-  .footer-links { display: flex; gap: 2rem; list-style: none; }
+  .footer-links { display: flex; gap: 2rem; list-style: none; flex-wrap: wrap; }
   .footer-links a { font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ice-dim); text-decoration: none; transition: color 0.2s; font-weight: 500; }
   .footer-links a:hover { color: var(--gold); }
   .footer-copy { font-size: 0.7rem; color: var(--text-muted); font-weight: 300; }
@@ -225,10 +238,7 @@
   .reveal.visible { opacity: 1; transform: translateY(0); }
 
   /* MOBILE */
-  @media (max-width: 1100px) {
-    .nav-links { gap: 1.2rem; }
-    .nav-links a { font-size: 0.62rem; }
-  }
+  @media (max-width: 1100px) { .nav-links { gap: 1.2rem; } .nav-links a { font-size: 0.62rem; } }
   @media (max-width: 900px) {
     .nav-links { display: none; }
     .nav-links.open { display: flex; flex-direction: column; gap: 0; position: fixed; top: 72px; left: 0; right: 0; background: var(--navy); padding: 1rem 1.5rem 1.5rem; border-top: 1px solid rgba(201,168,76,0.2); z-index: 99; }
@@ -241,7 +251,8 @@
     .team-grid { grid-template-columns: repeat(3, 1fr); }
     .team-modal { grid-template-columns: 1fr; }
     .team-modal-img { height: 260px; }
-    .nzexp-grid { grid-template-columns: 1fr; }
+    .qtexp-grid { grid-template-columns: 1fr; }
+    .qtexp-images { grid-template-columns: 1fr 1fr; }
   }
   @media (max-width: 640px) {
     nav { padding: 0 1.2rem; }
@@ -249,9 +260,10 @@
     .hero-content { padding: 100px 6vw 60px; }
     .team-grid { grid-template-columns: repeat(2, 1fr); }
     footer { flex-direction: column; text-align: center; }
-    .footer-links { flex-wrap: wrap; justify-content: center; }
+    .footer-links { justify-content: center; }
     .about-pillars { grid-template-columns: 1fr; }
     .products-grid { grid-template-columns: 1fr; }
+    .qtexp-images { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -263,10 +275,10 @@
     <span class="nav-logo-text">Diamond<span>Exp</span></span>
   </a>
   <ul class="nav-links" id="navLinks">
-    <li><a href="#products">Experiences</a></li>
     <li><a href="#about">About</a></li>
-    <li><a href="#team">Our Team</a></li>
-    <li><a href="#nzexp">NZ Experiences</a></li>
+    <li><a href="#team">Our Pros</a></li>
+    <li><a href="#qtexp">QueenstownExp</a></li>
+    <li><a href="#qtpricing">QT Pricing</a></li>
     <li><a href="#faq">FAQ</a></li>
     <li><a href="#contact" class="nav-cta">Contact</a></li>
   </ul>
@@ -277,11 +289,17 @@
 
 <!-- HERO -->
 <section id="home">
-  <div class="hero-bg"></div>
-  <div class="hero-geo">
-    <svg viewBox="0 0 1440 160" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0,160 L0,90 L120,40 L280,95 L440,20 L600,80 L720,30 L880,85 L1040,15 L1200,70 L1320,35 L1440,60 L1440,160 Z" fill="#ffffff" fill-opacity="1"/>
-      <path d="M0,160 L0,110 L200,65 L360,115 L540,55 L700,100 L850,45 L1000,95 L1160,50 L1300,90 L1440,70 L1440,160 Z" fill="#0d1b2a" fill-opacity="0.5"/>
+  <div class="hero-photo"></div>
+  <div class="hero-mountains">
+    <svg viewBox="0 0 1440 220" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Background mountain range -->
+      <path d="M0,220 L0,160 L80,110 L160,140 L260,70 L360,120 L440,50 L540,100 L620,40 L720,90 L800,30 L900,80 L980,20 L1080,75 L1160,35 L1260,85 L1340,45 L1440,80 L1440,220 Z" fill="rgba(255,255,255,0.04)"/>
+      <!-- Mid mountain range -->
+      <path d="M0,220 L0,175 L100,135 L200,160 L320,105 L420,145 L520,90 L640,130 L740,80 L840,125 L940,70 L1040,115 L1140,75 L1240,120 L1340,85 L1440,110 L1440,220 Z" fill="rgba(255,255,255,0.06)"/>
+      <!-- Foreground snow line -->
+      <path d="M0,220 L0,195 L120,165 L240,185 L360,155 L480,175 L600,148 L720,168 L840,145 L960,165 L1080,142 L1200,162 L1320,150 L1440,165 L1440,220 Z" fill="rgba(232,240,247,0.08)"/>
+      <!-- White base -->
+      <path d="M0,220 L0,210 L200,195 L400,205 L600,192 L800,202 L1000,190 L1200,200 L1440,192 L1440,220 Z" fill="rgba(255,255,255,0.05)"/>
     </svg>
   </div>
   <div class="hero-content">
@@ -291,7 +309,7 @@
     </h1>
     <p class="hero-sub">Premium private ski &amp; snowboard instruction at The Remarkables and Coronet Peak in Queenstown, and Niseko, Japan. Choose an instructor that's right for you, connect before you arrive, and make every run fun.</p>
     <div class="hero-actions">
-      <a href="#products" class="btn-primary">View Experiences</a>
+      <a href="#qtexp" class="btn-primary">Explore Queenstown</a>
       <a href="https://wa.me/6421754626" class="btn-outline" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.116.553 4.103 1.523 5.828L.044 23.956l6.286-1.648A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.895 0-3.67-.512-5.19-1.403l-.373-.22-3.833 1.003 1.021-3.737-.243-.386A9.937 9.937 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
         WhatsApp Us
@@ -304,79 +322,15 @@
   </div>
 </section>
 
-<!-- PRODUCTS -->
-<section id="products">
-  <div class="products-header reveal">
-    <div class="section-eyebrow">Queenstown, NZ</div>
-    <h2 class="section-title section-title--white">Diamond Pro <em>snow experiences</em></h2>
-    <p class="section-body">Private coaching and lessons with world-class Diamond Pro instructors. Tailored to your goals, your group, your adventure.</p>
-  </div>
-  <div class="products-grid">
-    <div class="product-card product-card--featured reveal">
-      <div class="product-badge">Most Popular</div>
-      <div class="product-name">Performance Coaching</div>
-      <div class="product-time">9:00am – 3:30pm · Full Day</div>
-      <div class="product-price">$1,500 <span>NZD*</span></div>
-      <div class="product-guests">Up to 4 guests · Multi-day pricing available</div>
-      <ul class="product-features">
-        <li>8:30am VIP meet &amp; greet — tickets &amp; rental assistance</li>
-        <li>Performance coaching with a Diamond Pro Instructor</li>
-        <li>Priority Lift Line access all day</li>
-        <li>Pre-arrival connection with your instructor</li>
-        <li>Multi-day pricing available for 2 days &amp; 3+ days</li>
-      </ul>
-      <a href="#contact" class="product-book">Enquire &amp; Book →</a>
-    </div>
-    <div class="product-card reveal">
-      <div class="product-name">6hr Private Lesson</div>
-      <div class="product-time">9:00am – 3:30pm · Full Day</div>
-      <div class="product-price">$1,225 <span>NZD*</span></div>
-      <div class="product-guests">Up to 6 guests</div>
-      <ul class="product-features">
-        <li>6-hour private lesson with a Diamond Pro Instructor</li>
-        <li>Priority Lift Line access</li>
-        <li>Meet your instructor before the mountain</li>
-      </ul>
-      <a href="#contact" class="product-book">Enquire &amp; Book →</a>
-    </div>
-    <div class="product-card reveal">
-      <div class="product-name">3hr Private Lesson</div>
-      <div class="product-time">9:00am–12:00pm or 12:30–3:30pm</div>
-      <div class="product-price">$775 <span>NZD*</span></div>
-      <div class="product-guests">Up to 6 guests</div>
-      <ul class="product-features">
-        <li>3-hour private lesson with a Diamond Pro Instructor</li>
-        <li>Flexible morning or afternoon start times</li>
-        <li>Priority Lift Line access</li>
-        <li>Connect with your instructor prior to lesson</li>
-      </ul>
-      <a href="#contact" class="product-book">Enquire &amp; Book →</a>
-    </div>
-    <div class="product-card reveal">
-      <div class="product-name">Mountain Transfers</div>
-      <div class="product-time">Door-to-door service</div>
-      <div class="product-price">$350 <span>NZD*</span></div>
-      <div class="product-guests">Up to 4 guests · +$75 per extra person (up to 12)</div>
-      <ul class="product-features">
-        <li>Door-to-door pick-up &amp; drop-off</li>
-        <li>Stress-free start to your snow day</li>
-        <li>Flexible to your schedule</li>
-      </ul>
-      <a href="#contact" class="product-book">Enquire &amp; Book →</a>
-    </div>
-  </div>
-  <p class="products-note reveal">*Prices are indicative of NZSki products. Final price &amp; availability confirmed on booking.</p>
-</section>
-
 <!-- ABOUT -->
 <section id="about">
   <div class="about-images reveal">
     <div class="about-gold-block"></div>
     <div class="about-img about-img--main">
-      <img src="https://i0.wp.com/diamondexp.nz/wp-content/uploads/2024/05/IMG_1272.jpg?resize=800%2C600&ssl=1" alt="Skiing at Queenstown" loading="lazy" />
+      <img src="images/team-niseko.jpg" alt="Diamond Pro team on the mountain" loading="lazy" />
     </div>
     <div class="about-img about-img--accent">
-      <img src="https://i0.wp.com/diamondexp.nz/wp-content/uploads/2024/05/IMG_0202.jpg?resize=600%2C600&ssl=1" alt="DiamondExp instructor" loading="lazy" />
+      <img src="images/niseko-powder.jpg" alt="Powder skiing Niseko" loading="lazy" />
     </div>
   </div>
   <div class="about-content reveal">
@@ -409,7 +363,7 @@
   <div class="team-header reveal">
     <div>
       <div class="section-eyebrow">The People</div>
-      <h2 class="section-title">Meet our <em>Diamond Pros</em></h2>
+      <h2 class="section-title">Meet our <em>NZ Diamond Pros</em></h2>
     </div>
     <p class="section-body">A collective of world-class instructors. Click any card to learn more and connect before your big day on the mountain.</p>
   </div>
@@ -493,16 +447,16 @@
   </div>
 </div>
 
-<!-- NZ EXPERIENCES -->
-<section id="nzexp">
-  <div class="nzexp-header reveal">
+<!-- QUEENSTOWNEXP -->
+<section id="qtexp">
+  <div class="reveal" style="margin-bottom:3rem">
     <div class="section-eyebrow">New Zealand</div>
-    <h2 class="section-title">NZ <em>Experiences</em></h2>
+    <h2 class="section-title section-title--white">Queenstown<em>Exp</em></h2>
   </div>
-  <div class="nzexp-grid">
-    <div class="nzexp-text reveal">
+  <div class="qtexp-grid">
+    <div class="qtexp-text reveal">
       <p class="section-body">Queenstown is New Zealand's adventure capital and home to two world-class ski mountains — The Remarkables and Coronet Peak. Whether you're a first-timer or an experienced rider, our Diamond Pro instructors know every run, every condition, and every hidden gem on the mountain.</p>
-      <ul class="nzexp-highlights">
+      <ul class="qtexp-highlights">
         <li>The Remarkables — freeride paradise with beginner to expert terrain</li>
         <li>Coronet Peak — iconic rollercoaster terrain and night skiing</li>
         <li>Season runs mid-June through early October</li>
@@ -511,12 +465,78 @@
         <li>Our Pros also operate in Niseko, Japan during the northern winter</li>
       </ul>
       <br/>
-      <a href="#contact" class="btn-primary" style="margin-top:1rem">Plan Your Trip →</a>
+      <a href="#qtpricing" class="btn-primary" style="margin-top:1.5rem;display:inline-block">View QT Pricing →</a>
     </div>
-    <div class="reveal">
-      <img class="nzexp-img" src="https://i0.wp.com/diamondexp.nz/wp-content/uploads/2024/05/IMG_0202.jpg?resize=800%2C600&ssl=1" alt="The Remarkables Queenstown" loading="lazy" />
+    <div class="qtexp-images reveal">
+      <img class="qtexp-img qtexp-img--tall" src="images/qt-sunset.jpg" alt="The Remarkables at sunset" loading="lazy" />
+      <img class="qtexp-img qtexp-img--short" src="images/qt1.jpg" alt="Queenstown skiing" loading="lazy" />
+      <img class="qtexp-img qtexp-img--short" src="images/qt2.jpg" alt="Group skiing Queenstown" loading="lazy" />
     </div>
   </div>
+</section>
+
+<!-- QT PRICING -->
+<section id="qtpricing">
+  <div class="products-header reveal">
+    <div class="section-eyebrow">The Remarkables &amp; Coronet Peak</div>
+    <h2 class="section-title">QT <em>Pricing</em></h2>
+    <p class="section-body">Private coaching and lessons with world-class Diamond Pro instructors. Tailored to your goals, your group, your adventure.</p>
+  </div>
+  <div class="products-grid">
+    <div class="product-card product-card--featured reveal">
+      <div class="product-badge">Most Popular</div>
+      <div class="product-name">Performance Coaching</div>
+      <div class="product-time">9:00am – 3:30pm · Full Day</div>
+      <div class="product-price">$1,500 <span>NZD*</span></div>
+      <div class="product-guests">Up to 4 guests · Multi-day pricing available</div>
+      <ul class="product-features">
+        <li>8:30am VIP meet &amp; greet — tickets &amp; rental assistance</li>
+        <li>Performance coaching with a Diamond Pro Instructor</li>
+        <li>Priority Lift Line access all day</li>
+        <li>Pre-arrival connection with your instructor</li>
+        <li>Multi-day pricing available for 2 days &amp; 3+ days</li>
+      </ul>
+      <a href="#contact" class="product-book">Enquire →</a>
+    </div>
+    <div class="product-card reveal">
+      <div class="product-name">6hr Private Lesson</div>
+      <div class="product-time">9:00am – 3:30pm · Full Day</div>
+      <div class="product-price">$1,225 <span>NZD*</span></div>
+      <div class="product-guests">Up to 6 guests</div>
+      <ul class="product-features">
+        <li>6-hour private lesson with a Diamond Pro Instructor</li>
+        <li>Priority Lift Line access</li>
+        <li>Meet your instructor before the mountain</li>
+      </ul>
+      <a href="#contact" class="product-book">Enquire →</a>
+    </div>
+    <div class="product-card reveal">
+      <div class="product-name">3hr Private Lesson</div>
+      <div class="product-time">9:00am–12:00pm or 12:30–3:30pm</div>
+      <div class="product-price">$775 <span>NZD*</span></div>
+      <div class="product-guests">Up to 6 guests</div>
+      <ul class="product-features">
+        <li>3-hour private lesson with a Diamond Pro Instructor</li>
+        <li>Flexible morning or afternoon start times</li>
+        <li>Priority Lift Line access</li>
+        <li>Connect with your instructor prior to lesson</li>
+      </ul>
+      <a href="#contact" class="product-book">Enquire →</a>
+    </div>
+    <div class="product-card reveal">
+      <div class="product-name">Mountain Transfers</div>
+      <div class="product-time">Door-to-door service</div>
+      <div class="product-price">$350 <span>NZD*</span></div>
+      <div class="product-guests">Up to 4 guests · +$75 per extra person (up to 12)</div>
+      <ul class="product-features">
+        <li>Door-to-door pick-up &amp; drop-off</li>
+        <li>Stress-free start to your snow day</li>
+        <li>Flexible to your schedule</li>
+      </ul>
+      <a href="#contact" class="product-book">Enquire →</a>
+    </div>
+  </div>
+  <p class="products-note reveal">*Prices are indicative of NZSki products. Final price &amp; availability confirmed on booking.</p>
 </section>
 
 <!-- FAQ -->
@@ -601,7 +621,6 @@
       </div>
     </div>
   </div>
-
   <div class="contact-form reveal">
     <div id="formWrap">
       <p class="form-title">Contact Us</p>
@@ -663,10 +682,10 @@
 <footer>
   <div class="footer-logo">Diamond<span>Exp</span> &nbsp;·&nbsp; Queenstown &amp; Niseko</div>
   <ul class="footer-links">
-    <li><a href="#products">Experiences</a></li>
     <li><a href="#about">About</a></li>
-    <li><a href="#team">Our Team</a></li>
-    <li><a href="#nzexp">NZ Experiences</a></li>
+    <li><a href="#team">Our Pros</a></li>
+    <li><a href="#qtexp">QueenstownExp</a></li>
+    <li><a href="#qtpricing">QT Pricing</a></li>
     <li><a href="#faq">FAQ</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -679,7 +698,6 @@
 </a>
 
 <script>
-// Email obfuscation
 (function() {
   const u = 'ash', d = 'diamondexp.nz';
   const addr = u + '@' + d;
@@ -688,7 +706,6 @@
   if (el && disp) { el.href = 'mailto:' + addr; disp.textContent = addr; }
 })();
 
-// Team data
 const team = [
   { name: 'Ash Johns', role: 'Ski Instructor', quals: "NZSIA L3 Ski · PSIE LPT · Children's L2 · L1 Race · Freeride L1 · Telemark L1 · AST L2", bio: 'With 20+ seasons of coaching experience across New Zealand, Jackson Hole, Whistler Blackcomb, and now Queenstown and Niseko Japan, skiing is my way of life. I love sharing my passion with all levels and look forward to making your mountain experience unforgettable.', img: 'https://i0.wp.com/diamondexp.nz/wp-content/uploads/2024/05/IMG_0416-scaled-e1716333609748-873x1024.jpg?resize=400%2C500&ssl=1', socials: [{ label: 'Instagram', url: 'https://www.instagram.com/skimanz/' }, { label: 'Facebook', url: 'https://www.facebook.com/ash.johns.5' }] },
   { name: 'Tama Mitchell', role: 'Ski & Snowboard Instructor', quals: 'NZSIA L2 Ski · L1 Snowboard · L1 Kids · L1 Freeride', bio: 'A dedicated local instructor based at The Remarkables and Coronet Peak, and also teaching in Niseko, Japan. My passion for skiing grew from a deep connection to the mountain lifestyle — freedom, adventure, and the outdoors. I aim to empower clients with greater confidence and an adventurous spirit both on the slopes and in life.', img: 'https://i0.wp.com/diamondexp.nz/wp-content/uploads/2024/10/Tama.jpg?resize=400%2C500&ssl=1', socials: [{ label: 'Instagram', url: 'https://www.instagram.com/tama.paewai/' }] },
@@ -697,7 +714,6 @@ const team = [
   { name: 'Eden Kate Brown', role: 'Ski & Snowboard Instructor', quals: 'NZSIA L2 Ski · L1 Snowboard · Kids Cert · Freeride Cert', bio: "Originally from the UK, I moved to NZ in 2019 to be a ski instructor and haven't looked back — 10 seasons and counting across Queenstown and Niseko, Japan. With a background in psychology and teaching, I combine learning science with a deep love of snowsports to help every guest overcome fears, build skills, and have the time of their lives.", img: 'https://i0.wp.com/diamondexp.nz/wp-content/uploads/2024/05/Eden.jpg?resize=400%2C500&ssl=1', socials: [{ label: 'Instagram', url: 'https://www.instagram.com/edenbr0wn1/' }] }
 ];
 
-// Team modal
 const modal = document.getElementById('teamModal');
 const modalClose = document.getElementById('modalClose');
 document.querySelectorAll('.team-card').forEach(card => {
@@ -719,7 +735,6 @@ modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 function closeModal() { modal.classList.remove('open'); document.body.style.overflow = ''; }
 
-// FAQ
 document.querySelectorAll('.faq-question').forEach(btn => {
   btn.addEventListener('click', () => {
     const item = btn.parentElement;
@@ -729,13 +744,11 @@ document.querySelectorAll('.faq-question').forEach(btn => {
   });
 });
 
-// Burger
 const burger = document.getElementById('burger');
 const navLinks = document.getElementById('navLinks');
 burger.addEventListener('click', () => navLinks.classList.toggle('open'));
 navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
 
-// Scroll reveal
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry, i) => {
     if (entry.isIntersecting) {
@@ -746,13 +759,11 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.12 });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-// Contact form
 const form = document.getElementById('contactForm');
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
   const btn = form.querySelector('.form-submit');
-  btn.textContent = 'Sending…';
-  btn.disabled = true;
+  btn.textContent = 'Sending…'; btn.disabled = true;
   try {
     const res = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } });
     if (res.ok) {
