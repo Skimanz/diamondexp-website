@@ -1,0 +1,1723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>DiamondExp.nz – Ski and Snowboard Experiences in Queenstown New Zealand</title>
+<meta name="description" content="Premium private ski and snowboard lessons at The Remarkables & Coronet Peak, Queenstown. Choose your expert instructor and connect before you hit the mountain." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --navy: #0d1b2a;
+    --navy-mid: #1a2f45;
+    --ice: #e8f0f7;
+    --ice-dim: #b8cfe0;
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --white: #ffffff;
+    --off-white: #f5f7f9;
+    --text: #1a1a2e;
+    --text-muted: #5a6a7a;
+    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-body: 'Montserrat', sans-serif;
+    --transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--white);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ─── NAV ──────────────────────────────────────── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5vw;
+    height: 72px;
+    background: rgba(13, 27, 42, 0.96);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(201, 168, 76, 0.2);
+    transition: height var(--transition);
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+
+  .nav-logo img {
+    height: 38px;
+    width: auto;
+    filter: brightness(0) invert(1);
+  }
+
+  .nav-logo-text {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--white);
+    letter-spacing: 0.05em;
+  }
+
+  .nav-logo-text span { color: var(--gold); }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ice-dim);
+    text-decoration: none;
+    transition: color var(--transition);
+    position: relative;
+  }
+
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px; left: 0;
+    width: 0; height: 1px;
+    background: var(--gold);
+    transition: width var(--transition);
+  }
+
+  .nav-links a:hover { color: var(--gold); }
+  .nav-links a:hover::after { width: 100%; }
+
+  .nav-cta {
+    background: var(--gold);
+    color: var(--navy) !important;
+    padding: 8px 18px;
+    font-weight: 700 !important;
+    letter-spacing: 0.12em !important;
+    text-transform: uppercase;
+    font-size: 0.68rem !important;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background var(--transition), color var(--transition);
+  }
+
+  .nav-cta::after { display: none !important; }
+  .nav-cta:hover { background: var(--gold-light) !important; color: var(--navy) !important; }
+
+  .burger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 4px;
+  }
+
+  .burger span {
+    display: block;
+    width: 24px; height: 2px;
+    background: var(--white);
+    transition: all 0.3s;
+  }
+
+  /* ─── HERO ─────────────────────────────────────── */
+  #home {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: var(--navy);
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(160deg, rgba(13,27,42,0.85) 40%, rgba(13,27,42,0.4) 100%),
+      url('https://i0.wp.com/diamondexp.nz/wp-content/uploads/2024/05/IMG_1272.jpg?resize=1400%2C800&ssl=1') center/cover no-repeat;
+    transform: scale(1.04);
+    animation: heroZoom 18s ease-in-out infinite alternate;
+  }
+
+  @keyframes heroZoom {
+    from { transform: scale(1.04); }
+    to   { transform: scale(1.12); }
+  }
+
+  /* Mountain geometry overlay */
+  .hero-geo {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 160px;
+    overflow: hidden;
+  }
+
+  .hero-geo svg { display: block; width: 100%; height: 100%; }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 120px 10vw 80px;
+    max-width: 900px;
+  }
+
+  .hero-eyebrow {
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.3s forwards;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 40px; height: 1px;
+    background: var(--gold);
+  }
+
+  .hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 7vw, 6.5rem);
+    font-weight: 300;
+    line-height: 1.05;
+    color: var(--white);
+    margin-bottom: 1.8rem;
+    opacity: 0;
+    animation: fadeUp 0.9s 0.5s forwards;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+
+  .hero-sub {
+    font-size: 0.88rem;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--ice-dim);
+    max-width: 540px;
+    margin-bottom: 2.5rem;
+    opacity: 0;
+    animation: fadeUp 0.9s 0.7s forwards;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeUp 0.9s 0.9s forwards;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--navy);
+    padding: 14px 32px;
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 2px solid var(--gold);
+    transition: all var(--transition);
+    cursor: pointer;
+  }
+
+  .btn-primary:hover {
+    background: transparent;
+    color: var(--gold);
+  }
+
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    color: var(--white);
+    padding: 14px 32px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.3);
+    transition: all var(--transition);
+  }
+
+  .btn-outline:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+
+  .btn-outline svg { width: 16px; height: 16px; }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    opacity: 0;
+    animation: fadeIn 1s 1.3s forwards;
+  }
+
+  .hero-scroll span {
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ice-dim);
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 48px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.4; transform: scaleY(1); }
+    50%       { opacity: 1;   transform: scaleY(0.6); transform-origin: top; }
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+
+  /* ─── SECTION COMMONS ───────────────────────────── */
+  section { padding: 100px 8vw; }
+
+  .section-eyebrow {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-eyebrow::before {
+    content: '';
+    display: block;
+    width: 30px; height: 1px;
+    background: var(--gold);
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 300;
+    line-height: 1.15;
+    color: var(--navy);
+    margin-bottom: 1.5rem;
+  }
+
+  .section-title em { font-style: italic; color: var(--gold); }
+
+  .section-title--white { color: var(--white); }
+
+  .section-body {
+    font-size: 0.9rem;
+    font-weight: 300;
+    line-height: 1.9;
+    color: var(--text-muted);
+    max-width: 560px;
+  }
+
+  /* ─── PRODUCTS ──────────────────────────────────── */
+  #products {
+    background: var(--navy);
+    position: relative;
+    overflow: hidden;
+  }
+
+  #products::before {
+    content: '';
+    position: absolute;
+    top: -120px; right: -120px;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,168,76,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .products-header {
+    max-width: 700px;
+    margin-bottom: 4rem;
+  }
+
+  .products-header .section-body { color: var(--ice-dim); }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2px;
+  }
+
+  .product-card {
+    background: var(--navy-mid);
+    padding: 2.5rem 2rem;
+    border: 1px solid rgba(201,168,76,0.12);
+    position: relative;
+    overflow: hidden;
+    transition: all var(--transition);
+    cursor: default;
+  }
+
+  .product-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 0; height: 2px;
+    background: var(--gold);
+    transition: width var(--transition);
+  }
+
+  .product-card:hover {
+    background: rgba(201,168,76,0.05);
+    border-color: rgba(201,168,76,0.3);
+    transform: translateY(-4px);
+  }
+
+  .product-card:hover::after { width: 100%; }
+
+  .product-card--featured {
+    border-color: rgba(201,168,76,0.4);
+    background: rgba(201,168,76,0.06);
+  }
+
+  .product-badge {
+    display: inline-block;
+    font-size: 0.58rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--navy);
+    background: var(--gold);
+    padding: 4px 10px;
+    margin-bottom: 1.2rem;
+  }
+
+  .product-name {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+  }
+
+  .product-time {
+    font-size: 0.7rem;
+    color: var(--gold);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+  }
+
+  .product-price {
+    font-family: var(--font-display);
+    font-size: 2.6rem;
+    font-weight: 300;
+    color: var(--gold-light);
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+
+  .product-price span {
+    font-size: 1rem;
+    color: var(--ice-dim);
+    font-family: var(--font-body);
+    font-weight: 300;
+  }
+
+  .product-guests {
+    font-size: 0.72rem;
+    color: var(--ice-dim);
+    margin-bottom: 1.8rem;
+    font-weight: 300;
+  }
+
+  .product-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    margin-bottom: 2rem;
+  }
+
+  .product-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.78rem;
+    color: var(--ice-dim);
+    font-weight: 300;
+    line-height: 1.5;
+  }
+
+  .product-features li::before {
+    content: '✦';
+    color: var(--gold);
+    font-size: 0.6rem;
+    margin-top: 3px;
+    flex-shrink: 0;
+  }
+
+  .product-book {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(201,168,76,0.3);
+    padding-bottom: 2px;
+    transition: all var(--transition);
+  }
+
+  .product-book:hover {
+    color: var(--gold-light);
+    border-color: var(--gold-light);
+  }
+
+  .products-note {
+    margin-top: 2rem;
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    font-style: italic;
+    font-weight: 300;
+  }
+
+  /* ─── ABOUT ─────────────────────────────────────── */
+  #about {
+    background: var(--off-white);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+  }
+
+  .about-images {
+    position: relative;
+    height: 560px;
+  }
+
+  .about-img {
+    position: absolute;
+    border: 4px solid var(--white);
+    box-shadow: 0 20px 60px rgba(13,27,42,0.15);
+    object-fit: cover;
+    overflow: hidden;
+  }
+
+  .about-img img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+  .about-img--main {
+    width: 72%; height: 75%;
+    top: 0; left: 0;
+  }
+
+  .about-img--accent {
+    width: 52%; height: 52%;
+    bottom: 0; right: 0;
+    border: 6px solid var(--gold);
+  }
+
+  .about-gold-block {
+    position: absolute;
+    top: 50%; left: 60%;
+    transform: translate(-50%, -50%);
+    width: 80px; height: 80px;
+    background: var(--gold);
+    z-index: 0;
+  }
+
+  .about-content .section-title { margin-bottom: 1.5rem; }
+
+  .about-pillars {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+  }
+
+  .about-pillar {
+    border-left: 2px solid var(--gold);
+    padding-left: 1rem;
+  }
+
+  .about-pillar h4 {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--navy);
+    margin-bottom: 0.4rem;
+  }
+
+  .about-pillar p {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  /* ─── TEAM ──────────────────────────────────────── */
+  #team {
+    background: var(--white);
+  }
+
+  .team-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 4rem;
+    gap: 2rem;
+  }
+
+  .team-header .section-body { max-width: 400px; }
+
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.5rem;
+  }
+
+  .team-card {
+    position: relative;
+    cursor: pointer;
+  }
+
+  .team-card-img {
+    width: 100%;
+    aspect-ratio: 3/4;
+    overflow: hidden;
+    background: var(--ice);
+    position: relative;
+  }
+
+  .team-card-img img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    transition: transform 0.6s ease;
+    filter: grayscale(20%);
+  }
+
+  .team-card:hover .team-card-img img {
+    transform: scale(1.06);
+    filter: grayscale(0%);
+  }
+
+  .team-card-overlay {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    background: linear-gradient(to top, rgba(13,27,42,0.95) 0%, transparent 100%);
+    padding: 2rem 1rem 1rem;
+    transform: translateY(4px);
+    transition: transform var(--transition);
+  }
+
+  .team-card:hover .team-card-overlay { transform: translateY(0); }
+
+  .team-card-name {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--white);
+    display: block;
+  }
+
+  .team-card-role {
+    font-size: 0.65rem;
+    color: var(--gold);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 0.8rem;
+    display: block;
+  }
+
+  .team-card-bio {
+    font-size: 0.72rem;
+    color: var(--ice-dim);
+    line-height: 1.6;
+    font-weight: 300;
+    display: none;
+  }
+
+  .team-card-socials {
+    display: flex;
+    gap: 10px;
+    margin-top: 0.8rem;
+  }
+
+  .team-card-socials a {
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s;
+  }
+
+  .team-card-socials a:hover { color: var(--gold-light); }
+
+  /* expanded modal */
+  .team-modal-bg {
+    position: fixed;
+    inset: 0;
+    background: rgba(13,27,42,0.85);
+    backdrop-filter: blur(8px);
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+  }
+
+  .team-modal-bg.open {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .team-modal {
+    background: var(--white);
+    max-width: 700px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 0;
+    overflow: hidden;
+    position: relative;
+    transform: translateY(20px);
+    transition: transform 0.4s ease;
+  }
+
+  .team-modal-bg.open .team-modal { transform: translateY(0); }
+
+  .team-modal-img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
+
+  .team-modal-content { padding: 2.5rem; }
+
+  .team-modal-name {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--navy);
+    margin-bottom: 0.25rem;
+  }
+
+  .team-modal-role {
+    font-size: 0.68rem;
+    color: var(--gold);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+
+  .team-modal-quals {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    font-style: italic;
+    margin-bottom: 1.2rem;
+    line-height: 1.5;
+  }
+
+  .team-modal-bio {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+  }
+
+  .team-modal-close {
+    position: absolute;
+    top: 1rem; right: 1rem;
+    background: var(--navy);
+    color: var(--white);
+    border: none;
+    width: 36px; height: 36px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+  }
+
+  .team-modal-close:hover { background: var(--gold); color: var(--navy); }
+
+  /* ─── FAQ ───────────────────────────────────────── */
+  #faq {
+    background: var(--navy);
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 6rem;
+    align-items: start;
+  }
+
+  #faq .section-title { color: var(--white); }
+
+  #faq .section-body { color: var(--ice-dim); margin-top: 1rem; }
+
+  .faq-list { display: flex; flex-direction: column; gap: 0; }
+
+  .faq-item {
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    overflow: hidden;
+  }
+
+  .faq-question {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 1.4rem 0;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 400;
+    color: var(--white);
+    transition: color var(--transition);
+  }
+
+  .faq-question:hover { color: var(--gold); }
+
+  .faq-icon {
+    flex-shrink: 0;
+    width: 20px; height: 20px;
+    position: relative;
+    color: var(--gold);
+  }
+
+  .faq-icon::before, .faq-icon::after {
+    content: '';
+    position: absolute;
+    background: currentColor;
+    transition: transform 0.3s, opacity 0.3s;
+  }
+
+  .faq-icon::before { width: 12px; height: 1px; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+  .faq-icon::after  { width: 1px; height: 12px; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+
+  .faq-item.open .faq-icon::after { transform: translate(-50%, -50%) rotate(90deg); opacity: 0; }
+
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.3s;
+  }
+
+  .faq-item.open .faq-answer { max-height: 200px; }
+
+  .faq-answer p {
+    font-size: 0.82rem;
+    color: var(--ice-dim);
+    line-height: 1.8;
+    font-weight: 300;
+    padding-bottom: 1.4rem;
+  }
+
+  /* ─── CONTACT ───────────────────────────────────── */
+  #contact {
+    background: var(--off-white);
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 6rem;
+    align-items: start;
+  }
+
+  .contact-info h2 { margin-bottom: 1rem; }
+
+  .contact-channels {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    margin-top: 2.5rem;
+  }
+
+  .contact-channel {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+    color: var(--text);
+    transition: color 0.2s;
+  }
+
+  .contact-channel:hover { color: var(--gold); }
+
+  .channel-icon {
+    width: 44px; height: 44px;
+    background: var(--navy);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: background 0.2s;
+  }
+
+  .contact-channel:hover .channel-icon { background: var(--gold); }
+
+  .channel-icon svg { width: 18px; height: 18px; stroke: var(--white); fill: none; stroke-width: 1.5; }
+
+  .channel-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--text-muted);
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  .channel-value {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+  }
+
+  .contact-form {
+    background: var(--white);
+    padding: 3rem;
+    box-shadow: 0 8px 40px rgba(13,27,42,0.08);
+  }
+
+  .form-title {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    font-weight: 300;
+    color: var(--navy);
+    margin-bottom: 0.4rem;
+  }
+
+  .form-sub {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+    font-weight: 300;
+  }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    margin-bottom: 1rem;
+  }
+
+  .form-group.full { grid-column: 1 / -1; }
+
+  .form-group label {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    border: 1px solid #dde3ea;
+    padding: 12px 14px;
+    font-family: var(--font-body);
+    font-size: 0.84rem;
+    font-weight: 300;
+    color: var(--text);
+    background: var(--white);
+    transition: border-color 0.2s;
+    outline: none;
+    -webkit-appearance: none;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--gold);
+  }
+
+  .form-group textarea { resize: vertical; min-height: 120px; }
+
+  .form-submit {
+    width: 100%;
+    background: var(--navy);
+    color: var(--white);
+    border: 2px solid var(--navy);
+    padding: 14px;
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all var(--transition);
+    margin-top: 0.5rem;
+  }
+
+  .form-submit:hover {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--navy);
+  }
+
+  .form-success {
+    display: none;
+    text-align: center;
+    padding: 2rem;
+    color: var(--navy);
+  }
+
+  .form-success .check {
+    width: 48px; height: 48px;
+    background: var(--gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    font-size: 1.4rem;
+    color: var(--navy);
+  }
+
+  /* ─── FOOTER ────────────────────────────────────── */
+  footer {
+    background: var(--navy);
+    padding: 3rem 8vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(201,168,76,0.15);
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .footer-logo {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    color: var(--white);
+    font-weight: 300;
+  }
+
+  .footer-logo span { color: var(--gold); font-weight: 600; }
+
+  .footer-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .footer-links a {
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ice-dim);
+    text-decoration: none;
+    transition: color 0.2s;
+    font-weight: 500;
+  }
+
+  .footer-links a:hover { color: var(--gold); }
+
+  .footer-copy {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    font-weight: 300;
+  }
+
+  /* ─── WHATSAPP FLOAT ────────────────────────────── */
+  .wa-float {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 90;
+    background: #25D366;
+    color: white;
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .wa-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 28px rgba(37,211,102,0.5);
+  }
+
+  .wa-float svg { width: 28px; height: 28px; fill: white; }
+
+  /* ─── SCROLL REVEAL ─────────────────────────────── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ─── MOBILE ─────────────────────────────────────── */
+  @media (max-width: 1024px) {
+    .team-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  @media (max-width: 860px) {
+    #about { grid-template-columns: 1fr; gap: 3rem; }
+    .about-images { height: 380px; }
+    #faq { grid-template-columns: 1fr; gap: 3rem; }
+    #contact { grid-template-columns: 1fr; gap: 3rem; }
+    .team-header { flex-direction: column; align-items: flex-start; }
+    .team-grid { grid-template-columns: repeat(2, 1fr); }
+    .team-modal { grid-template-columns: 1fr; }
+    .team-modal-img { height: 260px; }
+  }
+
+  @media (max-width: 640px) {
+    nav { padding: 0 1.2rem; }
+    .nav-links { display: none; }
+    .nav-links.open { 
+      display: flex; flex-direction: column; gap: 0;
+      position: fixed; top: 72px; left: 0; right: 0;
+      background: var(--navy); padding: 1rem 1.5rem 1.5rem;
+      border-top: 1px solid rgba(201,168,76,0.2);
+    }
+    .burger { display: flex; }
+    section { padding: 70px 6vw; }
+    .hero-content { padding: 100px 6vw 60px; }
+    .team-grid { grid-template-columns: repeat(2, 1fr); }
+    .form-row { grid-template-columns: 1fr; }
+    footer { flex-direction: column; text-align: center; }
+    .footer-links { flex-wrap: wrap; justify-content: center; }
+    .about-pillars { grid-template-columns: 1fr; }
+    .products-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#home" class="nav-logo">
+    <span class="nav-logo-text">Diamond<span>Exp</span></span>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#products">Experiences</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#team">Our Team</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#contact" class="nav-cta">Book Now</a></li>
+  </ul>
+  <button class="burger" id="burger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-geo">
+    <svg viewBox="0 0 1440 160" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,160 L0,90 L120,40 L280,95 L440,20 L600,80 L720,30 L880,85 L1040,15 L1200,70 L1320,35 L1440,60 L1440,160 Z" fill="#ffffff" fill-opacity="1"/>
+      <path d="M0,160 L0,110 L200,65 L360,115 L540,55 L700,100 L850,45 L1000,95 L1160,50 L1300,90 L1440,70 L1440,160 Z" fill="#0d1b2a" fill-opacity="0.5"/>
+    </svg>
+  </div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Queenstown, New Zealand</div>
+    <h1 class="hero-title">
+      Your <em>extraordinary</em><br>mountain experience
+    </h1>
+    <p class="hero-sub">Premium private ski & snowboard coaching at The Remarkables and Coronet Peak. Choose your expert instructor, connect before you arrive, and make every run count.</p>
+    <div class="hero-actions">
+      <a href="#products" class="btn-primary">View Experiences</a>
+      <a href="https://wa.me/6421754626" class="btn-outline" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.116.553 4.103 1.523 5.828L.044 23.956l6.286-1.648A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.895 0-3.67-.512-5.19-1.403l-.373-.22-3.833 1.003 1.021-3.737-.243-.386A9.937 9.937 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        WhatsApp Us
+      </a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="products">
+  <div class="products-header reveal">
+    <div class="section-eyebrow">The Remarkables &amp; Coronet Peak</div>
+    <h2 class="section-title section-title--white">Premium <em>snow experiences</em></h2>
+    <p class="section-body">Private coaching and lessons with world-class instructors. Tailored to your goals, your group, your adventure.</p>
+  </div>
+  <div class="products-grid">
+
+    <div class="product-card product-card--featured reveal">
+      <div class="product-badge">Most Popular</div>
+      <div class="product-name">Performance Coaching</div>
+      <div class="product-time">9:00am – 3:30pm · Full Day</div>
+      <div class="product-price">$1,500 <span>NZD*</span></div>
+      <div class="product-guests">Up to 4 guests · Multi-day pricing available</div>
+      <ul class="product-features">
+        <li>8:30am VIP meet &amp; greet — tickets &amp; rental assistance</li>
+        <li>Performance coaching with a DiamondExp Pro</li>
+        <li>Priority Lift Line access all day</li>
+        <li>Pre-arrival connection with your instructor</li>
+        <li>Multi-day: 2 days $1,300 · 3+ days $1,220 per day</li>
+      </ul>
+      <a href="#contact" class="product-book">Enquire &amp; Book →</a>
+    </div>
+
+    <div class="product-card reveal">
+      <div class="product-name">6hr Private Lesson</div>
+      <div class="product-time">9:00am – 3:30pm · Full Day</div>
+      <div class="product-price">$1,225 <span>NZD*</span></div>
+      <div class="product-guests">Up to 6 guests</div>
+      <ul class="product-features">
+        <li>6-hour private lesson with a DiamondExp Instructor</li>
+        <li>Priority Lift Line access</li>
+        <li>Meet your instructor before the mountain</li>
+      </ul>
+      <a href="#contact" class="product-book">Enquire &amp; Book →</a>
+    </div>
+
+    <div class="product-card reveal">
+      <div class="product-name">3hr Private Lesson</div>
+      <div class="product-time">9:00am–12:00pm or 12:30–3:30pm</div>
+      <div class="product-price">$775 <span>NZD*</span></div>
+      <div class="product-guests">Up to 6 guests</div>
+      <ul class="product-features">
+        <li>3-hour private lesson with a DiamondExp Instructor</li>
+        <li>Flexible morning or afternoon start times</li>
+        <li>Priority Lift Line access</li>
+        <li>Connect with your instructor prior to lesson</li>
+      </ul>
+      <a href="#contact" class="product-book">Enquire &amp; Book →</a>
+    </div>
+
+    <div class="product-card reveal">
+      <div class="product-name">Mountain Transfers</div>
+      <div class="product-time">Door-to-door service</div>
+      <div class="product-price">$350 <span>NZD*</span></div>
+      <div class="product-guests">Up to 4 guests · +$75 per extra person (up to 12)</div>
+      <ul class="product-features">
+        <li>Door-to-door pick-up &amp; drop-off</li>
+        <li>Stress-free start to your snow day</li>
+        <li>Flexible to your schedule</li>
+      </ul>
+      <a href="#contact" class="product-book">Enquire &amp; Book →</a>
+    </div>
+
+  </div>
+  <p class="products-note reveal">*Prices are indicative of NZSki products. Final price &amp; availability confirmed on booking.</p>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-images reveal">
+    <div class="about-gold-block"></div>
+    <div class="about-img about-img--main">
+      <img src="https://i0.wp.com/diamondexp.nz/wp-content/uploads/2024/05/IMG_1272.jpg?resize=800%2C600&ssl=1" alt="Skiing at Queenstown" loading="lazy" />
+    </div>
+    <div class="about-img about-img--accent">
+      <img src="https://i0.wp.com/diamondexp.nz/wp-content/uploads/2024/05/IMG_0202.jpg?resize=600%2C600&ssl=1" alt="DiamondExp instructor" loading="lazy" />
+    </div>
+  </div>
+  <div class="about-content reveal">
+    <div class="section-eyebrow">About DiamondExp</div>
+    <h2 class="section-title">Passion for <em>the mountains</em></h2>
+    <p class="section-body">At DiamondExp, our instructors are seasoned professionals with years of experience in skiing and snowboarding. We've assembled a team from around the globe — united by a love of the mountains and a commitment to giving you the very best experience possible.</p>
+    <div class="about-pillars">
+      <div class="about-pillar">
+        <h4>Choose Your Pro</h4>
+        <p>Select your instructor and connect with them before you even reach the mountain.</p>
+      </div>
+      <div class="about-pillar">
+        <h4>All Levels Welcome</h4>
+        <p>First-timers to seasoned skiers — we tailor every session to you.</p>
+      </div>
+      <div class="about-pillar">
+        <h4>Wrap-Around Service</h4>
+        <p>Rentals, transport, dining tips — we handle the details so you can enjoy.</p>
+      </div>
+      <div class="about-pillar">
+        <h4>World-Class Mountains</h4>
+        <p>Operating at The Remarkables and Coronet Peak, Queenstown's finest terrain.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="team">
+  <div class="team-header reveal">
+    <div>
+      <div class="section-eyebrow">The People</div>
+      <h2 class="section-title">Meet our <em>pros</em></h2>
+    </div>
+    <p class="section-body">A collective of world-class instructors. Click any card to learn more and connect before your big day on the mountain.</p>
+  </div>
+
+  <div class="team-grid" id="teamGrid">
+
+    <div class="team-card reveal" data-index="0">
+      <div class="team-card-img">
+        <img src="https://i0.wp.com/diamondexp.nz/wp-content/uploads/2024/05/IMG_0416-scaled-e1716333609748-873x1024.jpg?resize=400%2C500&ssl=1" alt="Ash Johns" loading="lazy" />
+        <div class="team-card-overlay">
+          <span class="team-card-name">Ash Johns</span>
+          <span class="team-card-role">Ski Instructor</span>
+          <div class="team-card-socials">
+            <a href="https://www.instagram.com/skimanz/" target="_blank">Instagram</a>
+            <a href="https://www.facebook.com/ash.johns.5" target="_blank">Facebook</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="team-card reveal" data-index="1">
+      <div class="team-card-img">
+        <img src="https://i0.wp.com/diamondexp.nz/wp-content/uploads/2024/10/Tama.jpg?resize=400%2C500&ssl=1" alt="Tama Mitchell" loading="lazy" />
+        <div class="team-card-overlay">
+          <span class="team-card-name">Tama Mitchell</span>
+          <span class="team-card-role">Ski &amp; Snowboard Instructor</span>
+          <div class="team-card-socials">
+            <a href="https://www.instagram.com/tama.paewai/" target="_blank">Instagram</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="team-card reveal" data-index="2">
+      <div class="team-card-img">
+        <img src="https://i0.wp.com/diamondexp.nz/wp-content/uploads/2024/05/AndreaMorello.webp?resize=400%2C500&ssl=1" alt="Andrea Morello" loading="lazy" />
+        <div class="team-card-overlay">
+          <span class="team-card-name">Andrea Morello</span>
+          <span class="team-card-role">Snowboard &amp; Ski Instructor</span>
+          <div class="team-card-socials">
+            <a href="https://www.instagram.com/and.morre/" target="_blank">Instagram</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="team-card reveal" data-index="3">
+      <div class="team-card-img">
+        <img src="https://i0.wp.com/diamondexp.nz/wp-content/uploads/2024/06/IMG_9053.jpg?resize=400%2C500&ssl=1" alt="Larry Xu" loading="lazy" />
+        <div class="team-card-overlay">
+          <span class="team-card-name">Larry Xu</span>
+          <span class="team-card-role">Ski &amp; Snowboard Instructor</span>
+          <div class="team-card-socials">
+            <a href="https://www.facebook.com/larry.xu.10" target="_blank">Facebook</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="team-card reveal" data-index="4">
+      <div class="team-card-img">
+        <img src="https://i0.wp.com/diamondexp.nz/wp-content/uploads/2024/05/Eden.jpg?resize=400%2C500&ssl=1" alt="Eden Kate Brown" loading="lazy" />
+        <div class="team-card-overlay">
+          <span class="team-card-name">Eden Kate Brown</span>
+          <span class="team-card-role">Ski &amp; Snowboard Instructor</span>
+          <div class="team-card-socials">
+            <a href="https://www.instagram.com/edenbr0wn1/" target="_blank">Instagram</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- TEAM MODAL -->
+<div class="team-modal-bg" id="teamModal">
+  <div class="team-modal">
+    <img class="team-modal-img" id="modalImg" src="" alt="" />
+    <div class="team-modal-content">
+      <h3 class="team-modal-name" id="modalName"></h3>
+      <span class="team-modal-role" id="modalRole"></span>
+      <p class="team-modal-quals" id="modalQuals"></p>
+      <p class="team-modal-bio" id="modalBio"></p>
+      <div class="team-card-socials" id="modalSocials"></div>
+    </div>
+    <button class="team-modal-close" id="modalClose">✕</button>
+  </div>
+</div>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="reveal">
+    <div class="section-eyebrow">Questions</div>
+    <h2 class="section-title section-title--white">Frequently<br><em>asked</em></h2>
+    <p class="section-body">Everything you need to know about your DiamondExp experience. Still have questions? Get in touch — we'd love to help.</p>
+    <br />
+    <a href="https://wa.me/6421754626" class="btn-primary" target="_blank" rel="noopener">Chat on WhatsApp</a>
+  </div>
+  <div class="faq-list reveal">
+    <div class="faq-item">
+      <button class="faq-question">Do you provide transport?
+        <span class="faq-icon"></span>
+      </button>
+      <div class="faq-answer"><p>Yes — we can help with transfers to and from the mountain. We work with transport providers to suit your requirements and can arrange door-to-door pick-up and drop-off from your accommodation.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">What about rental equipment?
+        <span class="faq-icon"></span>
+      </button>
+      <div class="faq-answer"><p>We recommend hiring your equipment on the mountain so you can swap out depending on fit and conditions. Rentals are available at the base buildings at both The Remarkables and Coronet Peak.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">Should we consider premium rentals?
+        <span class="faq-icon"></span>
+      </button>
+      <div class="faq-answer"><p>Absolutely — equipment can make a significant difference to your progression and enjoyment. Premium rental gear can be swapped based on conditions and your experience level, giving you the best possible feel on snow.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">Which mountain should we choose?
+        <span class="faq-icon"></span>
+      </button>
+      <div class="faq-answer"><p>Both are incredible. The Remarkables is the home of freeride — excellent beginner terrain plus challenging off-piste. Coronet Peak offers amazing rollercoaster terrain. We can advise on the best choice for your ability and goals.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">What is the DiamondExp difference?
+        <span class="faq-icon"></span>
+      </button>
+      <div class="faq-answer"><p>We know and love Queenstown, and we tailor every experience to what you want to get out of your time here — from local dining recommendations to what to pack. Just reach out and we'll provide that wrap-around service that makes your trip truly one-of-a-kind.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">When does the season run?
+        <span class="faq-icon"></span>
+      </button>
+      <div class="faq-answer"><p>The season typically runs from mid-June through to early October. Availability is limited so we recommend getting in touch early to secure your preferred dates and instructor.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-info reveal">
+    <div class="section-eyebrow">Get In Touch</div>
+    <h2 class="section-title">Let's plan your <em>adventure</em></h2>
+    <p class="section-body">Ready to experience the mountains with DiamondExp? Reach out and we'll help you choose the right package, instructor, and dates for an unforgettable trip.</p>
+    <div class="contact-channels">
+      <a href="https://wa.me/6421754626" class="contact-channel" target="_blank" rel="noopener">
+        <div class="channel-icon">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" fill="white"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.116.553 4.103 1.523 5.828L.044 23.956l6.286-1.648A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.895 0-3.67-.512-5.19-1.403l-.373-.22-3.833 1.003 1.021-3.737-.243-.386A9.937 9.937 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z" fill="white"/></svg>
+        </div>
+        <div>
+          <span class="channel-label">WhatsApp</span>
+          <span class="channel-value">+64 21 754 626</span>
+        </div>
+      </a>
+      <a href="mailto:info@diamondexp.nz" class="contact-channel">
+        <div class="channel-icon">
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+        </div>
+        <div>
+          <span class="channel-label">Email</span>
+          <span class="channel-value">info@diamondexp.nz</span>
+        </div>
+      </a>
+      <div class="contact-channel" style="cursor:default">
+        <div class="channel-icon">
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div>
+          <span class="channel-label">Location</span>
+          <span class="channel-value">Queenstown, New Zealand</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact-form reveal">
+    <div id="formWrap">
+      <p class="form-title">Book an Experience</p>
+      <p class="form-sub">Fill in the details below and we'll be in touch within 24 hours.</p>
+      <!-- Replace YOUR_FORM_ID with your Formspree form ID -->
+      <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" name="first_name" required placeholder="Jane" />
+          </div>
+          <div class="form-group">
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" name="last_name" required placeholder="Smith" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" required placeholder="jane@example.com" />
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone / WhatsApp</label>
+          <input type="tel" id="phone" name="phone" placeholder="+64 21 123 456" />
+        </div>
+        <div class="form-group">
+          <label for="experience">Experience Interested In</label>
+          <select id="experience" name="experience">
+            <option value="">Select an experience…</option>
+            <option>Performance Coaching – $1,500</option>
+            <option>6hr Private Lesson – $1,225</option>
+            <option>3hr Private Lesson – $775</option>
+            <option>Mountain Transfers – $350</option>
+            <option>Not sure – help me choose</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="guests">Number of Guests</label>
+          <select id="guests" name="guests">
+            <option value="">Select…</option>
+            <option>1</option><option>2</option><option>3</option>
+            <option>4</option><option>5</option><option>6</option>
+            <option>7+</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="dates">Preferred Dates</label>
+          <input type="text" id="dates" name="dates" placeholder="e.g. July 15–17, 2025" />
+        </div>
+        <div class="form-group">
+          <label for="message">Anything else?</label>
+          <textarea id="message" name="message" placeholder="Tell us about your experience level, goals, or any questions…"></textarea>
+        </div>
+        <button type="submit" class="form-submit">Send Enquiry</button>
+      </form>
+    </div>
+    <div class="form-success" id="formSuccess">
+      <div class="check">✓</div>
+      <h3 style="font-family:var(--font-display);font-size:1.6rem;font-weight:300;color:var(--navy);margin-bottom:0.5rem">Enquiry Received!</h3>
+      <p style="font-size:0.84rem;color:var(--text-muted);font-weight:300">Thanks for reaching out. We'll be in touch within 24 hours to confirm your DiamondExp experience.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Diamond<span>Exp</span> &nbsp;·&nbsp; Queenstown, NZ</div>
+  <ul class="footer-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#products">Experiences</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#team">Our Team</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <p class="footer-copy">DiamondExp © 2024. All rights reserved.</p>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/6421754626" class="wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.116.553 4.103 1.523 5.828L.044 23.956l6.286-1.648A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.895 0-3.67-.512-5.19-1.403l-.373-.22-3.833 1.003 1.021-3.737-.243-.386A9.937 9.937 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+</a>
+
+<script>
+// ─── Team data ───────────────────────────────────────────────
+const team = [
+  {
+    name: 'Ash Johns',
+    role: 'Ski Instructor',
+    quals: 'NZSIA L3 Ski · PSIE LPT · Children\'s L2 · L1 Race · Freeride L1 · Telemark L1 · AST L2',
+    bio: 'With 20+ seasons of coaching experience across New Zealand, Jackson Hole, Whistler Blackcomb, and now Queenstown and Niseko Japan, skiing is my way of life. I love sharing my passion with all levels and look forward to making your mountain experience unforgettable.',
+    img: 'https://i0.wp.com/diamondexp.nz/wp-content/uploads/2024/05/IMG_0416-scaled-e1716333609748-873x1024.jpg?resize=400%2C500&ssl=1',
+    socials: [
+      { label: 'Instagram', url: 'https://www.instagram.com/skimanz/' },
+      { label: 'Facebook', url: 'https://www.facebook.com/ash.johns.5' }
+    ]
+  },
+  {
+    name: 'Tama Mitchell',
+    role: 'Ski & Snowboard Instructor',
+    quals: 'NZSIA L2 Ski · L1 Snowboard · L1 Kids · L1 Freeride',
+    bio: 'A dedicated local instructor based at The Remarkables and Coronet Peak, and also teaching in Niseko, Japan. My passion for skiing grew from a deep connection to the mountain lifestyle — freedom, adventure, and the outdoors. I aim to empower clients with greater confidence and an adventurous spirit both on the slopes and in life.',
+    img: 'https://i0.wp.com/diamondexp.nz/wp-content/uploads/2024/10/Tama.jpg?resize=400%2C500&ssl=1',
+    socials: [
+      { label: 'Instagram', url: 'https://www.instagram.com/tama.paewai/' }
+    ]
+  },
+  {
+    name: 'Andrea Morello',
+    role: 'Snowboard & Ski Instructor',
+    quals: 'SBINZ L3 · NZSIA L1 · Adaptive Cert · Kids Cert',
+    bio: 'An Italian snowboarder chasing snow around the globe — fell in love with the sport 20 years ago in Italy. I\'ve been based at The Remarkables since 2017 with seasons in Canada and Japan. I speak fluent Italian and English, and love guiding guests from their first turns to steep off-piste powder runs.',
+    img: 'https://i0.wp.com/diamondexp.nz/wp-content/uploads/2024/05/AndreaMorello.webp?resize=400%2C500&ssl=1',
+    socials: [
+      { label: 'Instagram', url: 'https://www.instagram.com/and.morre/' }
+    ]
+  },
+  {
+    name: 'Larry Xu',
+    role: 'Ski & Snowboard Instructor',
+    quals: 'CSIA L3 Ski · CASI L2 Snowboard · CADS L1 Adaptive · AST 1',
+    bio: 'A Chinese-Canadian skier and snowboarder who teaches in both Mandarin and English. With experience in Canada, Japan, and now Queenstown, my background in engineering and adaptive skiing means I can support guests of all ability levels and neurodiverse needs. I\'d love to meet you on the mountain!',
+    img: 'https://i0.wp.com/diamondexp.nz/wp-content/uploads/2024/06/IMG_9053.jpg?resize=400%2C500&ssl=1',
+    socials: [
+      { label: 'Facebook', url: 'https://www.facebook.com/larry.xu.10' }
+    ]
+  },
+  {
+    name: 'Eden Kate Brown',
+    role: 'Ski & Snowboard Instructor',
+    quals: 'NZSIA L2 Ski · L1 Snowboard · Kids Cert · Freeride Cert',
+    bio: 'Originally from the UK, I moved to NZ in 2019 to be a ski instructor and haven\'t looked back — 10 seasons and counting across Queenstown and Niseko, Japan. With a background in psychology and teaching, I combine learning science with a deep love of snowsports to help every guest overcome fears, build skills, and have the time of their lives.',
+    img: 'https://i0.wp.com/diamondexp.nz/wp-content/uploads/2024/05/Eden.jpg?resize=400%2C500&ssl=1',
+    socials: [
+      { label: 'Instagram', url: 'https://www.instagram.com/edenbr0wn1/' }
+    ]
+  }
+];
+
+// Team modal
+const modal = document.getElementById('teamModal');
+const modalClose = document.getElementById('modalClose');
+
+document.querySelectorAll('.team-card').forEach(card => {
+  card.addEventListener('click', () => {
+    const i = parseInt(card.dataset.index);
+    const m = team[i];
+    document.getElementById('modalImg').src = m.img;
+    document.getElementById('modalImg').alt = m.name;
+    document.getElementById('modalName').textContent = m.name;
+    document.getElementById('modalRole').textContent = m.role;
+    document.getElementById('modalQuals').textContent = m.quals;
+    document.getElementById('modalBio').textContent = m.bio;
+    document.getElementById('modalSocials').innerHTML = m.socials
+      .map(s => `<a href="${s.url}" target="_blank">${s.label}</a>`).join('');
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  });
+});
+
+modalClose.addEventListener('click', closeModal);
+modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+function closeModal() {
+  modal.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// FAQ accordion
+document.querySelectorAll('.faq-question').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
+
+// Burger nav
+const burger = document.getElementById('burger');
+const navLinks = document.getElementById('navLinks');
+burger.addEventListener('click', () => {
+  navLinks.classList.toggle('open');
+});
+navLinks.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => navLinks.classList.remove('open'));
+});
+
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Contact form (Formspree AJAX)
+const form = document.getElementById('contactForm');
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const btn = form.querySelector('.form-submit');
+  btn.textContent = 'Sending…';
+  btn.disabled = true;
+
+  try {
+    const res = await fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    });
+    if (res.ok) {
+      document.getElementById('formWrap').style.display = 'none';
+      document.getElementById('formSuccess').style.display = 'block';
+    } else {
+      btn.textContent = 'Try Again';
+      btn.disabled = false;
+    }
+  } catch {
+    btn.textContent = 'Try Again';
+    btn.disabled = false;
+  }
+});
+</script>
+</body>
+</html>
