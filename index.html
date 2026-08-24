@@ -365,7 +365,7 @@
   <div class="team-grid" id="teamGrid">
     <div class="team-card reveal" data-index="0">
       <div class="team-card-img">
-        <img src="images/team-niseko.jpg" alt="Ash Johns and the Diamond Pro team" loading="lazy" />
+        <img src="images/Ash-profile-pic.jpg" alt="Ash Johns" loading="lazy" />
         <div class="team-card-overlay">
           <span class="team-card-name">Ash Johns</span>
           <span class="team-card-role">Ski Instructor</span>
@@ -378,7 +378,7 @@
     </div>
     <div class="team-card reveal" data-index="1">
       <div class="team-card-img">
-        <img src="images/team-niseko.jpg" alt="Tama Mitchell and the Diamond Pro team" loading="lazy" />
+        <img src="images/Tama-profile-pic.jpg" alt="Tama Mitchell" loading="lazy" />
         <div class="team-card-overlay">
           <span class="team-card-name">Tama Mitchell</span>
           <span class="team-card-role">Ski &amp; Snowboard Instructor</span>
@@ -390,7 +390,7 @@
     </div>
     <div class="team-card reveal" data-index="2">
       <div class="team-card-img">
-        <img src="images/team-niseko.jpg" alt="Andrea Morello and the Diamond Pro team" loading="lazy" />
+        <img src="images/AndreaMorello.jpg" alt="Andrea Morello" loading="lazy" />
         <div class="team-card-overlay">
           <span class="team-card-name">Andrea Morello</span>
           <span class="team-card-role">Snowboard &amp; Ski Instructor</span>
@@ -414,7 +414,7 @@
     </div>
     <div class="team-card reveal" data-index="4">
       <div class="team-card-img">
-        <img src="images/team-niseko.jpg" alt="Eden Kate Brown and the Diamond Pro team" loading="lazy" />
+        <img src="images/Eden.jpg" alt="Eden Kate Brown" loading="lazy" />
         <div class="team-card-overlay">
           <span class="team-card-name">Eden Kate Brown</span>
           <span class="team-card-role">Ski &amp; Snowboard Instructor</span>
@@ -700,7 +700,13 @@
   if (el && disp) { el.href = 'mailto:' + addr; disp.textContent = addr; }
 })();
 
-const teamImage = 'images/team-niseko.jpg';
+const teamImages = [
+  'images/Ash-profile-pic.jpg',
+  'images/Tama-profile-pic.jpg',
+  'images/AndreaMorello.jpg',
+  'images/team-niseko.jpg',
+  'images/Eden.jpg'
+];
 const team = [
   { name: 'Ash Johns', role: 'Ski Instructor', quals: "NZSIA L3 Ski · PSIE LPT · Children's L2 · L1 Race · Freeride L1 · Telemark L1 · AST L2", bio: 'With 20+ seasons of coaching experience across New Zealand, Jackson Hole, Whistler Blackcomb, and now Queenstown and Niseko Japan, skiing is my way of life. I love sharing my passion with all levels and look forward to making your mountain experience unforgettable.', img: 'https://i0.wp.com/diamondexp.nz/wp-content/uploads/2024/05/IMG_0416-scaled-e1716333609748-873x1024.jpg?resize=400%2C500&ssl=1', socials: [{ label: 'Instagram', url: 'https://www.instagram.com/skimanz/' }, { label: 'Facebook', url: 'https://www.facebook.com/ash.johns.5' }] },
   { name: 'Tama Mitchell', role: 'Ski & Snowboard Instructor', quals: 'NZSIA L2 Ski · L1 Snowboard · L1 Kids · L1 Freeride', bio: 'A dedicated local instructor based at The Remarkables and Coronet Peak, and also teaching in Niseko, Japan. My passion for skiing grew from a deep connection to the mountain lifestyle — freedom, adventure, and the outdoors. I aim to empower clients with greater confidence and an adventurous spirit both on the slopes and in life.', img: 'https://i0.wp.com/diamondexp.nz/wp-content/uploads/2024/10/Tama.jpg?resize=400%2C500&ssl=1', socials: [{ label: 'Instagram', url: 'https://www.instagram.com/tama.paewai/' }] },
@@ -709,7 +715,7 @@ const team = [
   { name: 'Eden Kate Brown', role: 'Ski & Snowboard Instructor', quals: 'NZSIA L2 Ski · L1 Snowboard · Kids Cert · Freeride Cert', bio: "Originally from the UK, I moved to NZ in 2019 to be a ski instructor and haven't looked back — 10 seasons and counting across Queenstown and Niseko, Japan. With a background in psychology and teaching, I combine learning science with a deep love of snowsports to help every guest overcome fears, build skills, and have the time of their lives.", img: 'https://i0.wp.com/diamondexp.nz/wp-content/uploads/2024/05/Eden.jpg?resize=400%2C500&ssl=1', socials: [{ label: 'Instagram', url: 'https://www.instagram.com/edenbr0wn1/' }] }
 ];
 
-team.forEach(member => { member.img = teamImage; });
+team.forEach((member, index) => { member.img = teamImages[index]; });
 
 const modal = document.getElementById('teamModal');
 const modalClose = document.getElementById('modalClose');
