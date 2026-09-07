@@ -3,3 +3,1109 @@
 .destination-nz,.nz-hero{background-image:url('images/new-zealand-coaching.jpg')}
 .race-profile{display:grid;grid-template-columns:.8fr 1.2fr;gap:7vw;background:var(--navy);color:white}.race-profile h2{font-size:clamp(2.4rem,3.8vw,3.8rem)}.race-profile .race-intro,.race-copy p{font-size:.84rem;line-height:1.9;color:#c5d2df;margin-top:1.4rem}.race-copy{border-left:2px solid var(--gold);padding-left:2rem}.race-coaching-photo{display:block;width:100%;height:230px;object-fit:cover;object-position:center 45%;margin-bottom:1.6rem;border-top:2px solid var(--gold)}.race-copy p:first-child{margin-top:0}@media(max-width:800px){.race-profile{grid-template-columns:1fr}.race-copy{border-left:0;border-top:2px solid var(--gold);padding:1.5rem 0 0}}
 .contact-page{min-height:calc(100vh - 74px);display:grid;grid-template-columns:.85fr 1.15fr;background:var(--navy);padding:6rem 8vw;gap:7vw;align-items:start}.contact-intro{color:white;padding-top:2rem}.contact-intro h1{font-size:clamp(3rem,5vw,5rem)}.contact-intro>p:not(.eyebrow){color:#c5d2df;font-size:.86rem;line-height:1.9;margin-top:1.5rem}.contact-points{display:grid;gap:.8rem;margin-top:2.5rem}.contact-points span{border-left:2px solid var(--gold);padding-left:1rem;color:#c5d2df;font-size:.75rem}.enquiry-form{background:var(--cream);padding:2.8rem;display:grid;grid-template-columns:1fr 1fr;gap:1rem}.enquiry-form h2,.enquiry-form>p,.enquiry-form label:last-of-type,.enquiry-form button{grid-column:1/-1}.enquiry-form h2{font:500 2rem var(--display)}.enquiry-form>p{font-size:.72rem;color:var(--muted)}.enquiry-form label{display:grid;gap:.4rem;font-size:.62rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}.enquiry-form input,.enquiry-form select,.enquiry-form textarea{width:100%;border:1px solid #d6dde3;background:white;padding:.8rem;font:300 .8rem var(--body);letter-spacing:0;text-transform:none}.enquiry-form textarea{min-height:130px;resize:vertical}.enquiry-form button{border:0;background:var(--gold);color:var(--navy);padding:1rem;font:600 .68rem var(--body);letter-spacing:.16em;text-transform:uppercase;cursor:pointer}@media(max-width:850px){.contact-page{grid-template-columns:1fr;padding:5rem 7vw}.enquiry-form{grid-template-columns:1fr}.enquiry-form label{grid-column:1/-1}}@media(max-width:500px){.enquiry-form{padding:1.7rem}}
+.race-coaching-photo{height:360px;object-position:center 68%}
+.whatsapp-button{display:inline-flex;align-items:center;gap:.65rem;align-self:flex-start;color:white;border:1px solid #ffffff55;padding:.85rem 1.15rem;text-decoration:none;font-size:.68rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;transition:border-color .2s,color .2s}.whatsapp-button:hover{border-color:var(--gold);color:var(--gold)}.whatsapp-button svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}.choose-destination{display:block;margin-top:2rem}
+.wa-float{position:fixed;right:24px;bottom:24px;z-index:1000;width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#25d366;color:white;box-shadow:0 8px 24px #0003;transition:transform .2s,box-shadow .2s}.wa-float:hover{transform:translateY(-3px);box-shadow:0 12px 30px #0004}.wa-float svg{width:30px;height:30px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}@media(max-width:600px){.wa-float{right:16px;bottom:16px;width:52px;height:52px}}
+.wa-float svg,.whatsapp-button svg{display:none}.wa-float::before,.whatsapp-button::before{content:'';display:block;flex:0 0 auto;background:url('images/whatsapp.svg') center/contain no-repeat}.wa-float::before{width:31px;height:31px}.whatsapp-button::before{width:18px;height:18px}
+.service-overview{display:grid;grid-template-columns:.85fr 1.15fr;gap:7vw;align-items:center;background:#edf2f6}.service-overview-heading>p:not(.eyebrow){max-width:520px;margin-top:1.4rem;color:var(--muted);font-size:.86rem;line-height:1.9}.service-pillars{display:grid;grid-template-columns:1fr 1fr;gap:2rem}.service-pillars article{border-left:2px solid var(--gold);padding-left:1.1rem}.service-pillars h3{font-size:1.2rem}.service-pillars p{margin-top:.45rem;color:var(--muted);font-size:.76rem;line-height:1.65}@media(max-width:850px){.service-overview{grid-template-columns:1fr}.service-pillars{margin-top:1rem}}@media(max-width:560px){.service-pillars{grid-template-columns:1fr}}
+h1{font-size:clamp(2.7rem,4.9vw,5.1rem)}h2{font-size:clamp(2.25rem,3.8vw,3.75rem)}h3{font-size:1.3rem}.race-profile h2{font-size:clamp(2.15rem,3.4vw,3.4rem)}.contact-intro h1{font-size:clamp(2.7rem,4.5vw,4.5rem)}.service-pillars h3{font-size:1.1rem}
+
+/* Ash Johns Ski home */
+.brand-ski{display:inline-flex;align-items:baseline;gap:.08em}.brand-ski small{margin-left:.55em;color:#c5d2df;font:600 .48rem var(--body);letter-spacing:.28em;text-transform:uppercase}.home-page{background:var(--navy)}.home-header{position:absolute;top:0;left:0;right:0;z-index:20;background:linear-gradient(#08121ed9,transparent);border-bottom:1px solid #ffffff20}.home-hero{min-height:100vh;display:grid;grid-template-columns:.83fr 1.17fr;background:var(--navy);color:white}.home-hero-copy{position:relative;display:flex;flex-direction:column;justify-content:center;padding:9rem 6vw 5rem;overflow:hidden}.home-hero-copy:before{content:'';position:absolute;width:30rem;height:30rem;right:-15rem;bottom:-15rem;border:1px solid #c9a84c26;border-radius:50%;box-shadow:0 0 0 5rem #c9a84c0a,0 0 0 10rem #c9a84c08}.home-hero-copy>*{position:relative}.home-hero-copy h1{max-width:780px;font-size:clamp(3.25rem,5.4vw,6rem);letter-spacing:-.025em}.home-hero-copy h1 em{display:inline-block}.home-hero-lead{max-width:570px;margin:1.8rem 0 2rem;color:#c5d2df;font-size:.9rem;line-height:1.85}.home-hero-actions{display:flex;align-items:center;gap:1.6rem;flex-wrap:wrap}.home-hero-actions .whatsapp-button{margin:0}.text-link{color:white;text-decoration:none;font-size:.65rem;font-weight:600;letter-spacing:.13em;text-transform:uppercase}.text-link span{color:var(--gold);margin-left:.45rem}.experience-mark{display:flex;align-items:center;gap:1rem;margin-top:4rem}.experience-mark:before{content:'';width:42px;height:1px;background:var(--gold)}.experience-mark strong{font:400 2.6rem var(--display);color:var(--gold)}.experience-mark span{color:#9fb0bf;font-size:.59rem;line-height:1.6;letter-spacing:.12em;text-transform:uppercase}.home-destinations{display:grid;grid-template-columns:1fr 1fr;min-width:0}.home-destination{position:relative;isolation:isolate;display:flex;flex-direction:column;justify-content:space-between;min-width:0;padding:7rem 3.2vw 4rem;color:white;text-decoration:none;background-position:center;background-size:cover;overflow:hidden}.home-destination:before{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,#08121e45 10%,#08121e08 43%,#08121eef 100%);transition:background .4s}.home-destination:after{content:'';position:absolute;inset:0;z-index:-2;background:inherit;background-position:center;background-size:cover;transition:transform .8s cubic-bezier(.16,1,.3,1)}.home-destination:hover:after{transform:scale(1.045)}.home-destination:hover:before{background:linear-gradient(180deg,#08121e58 10%,#08121e10 40%,#08121efa 100%)}.home-destination-japan{background-image:url('images/japan-action.jpg')}.home-destination-nz{background-image:url('images/new-zealand-coaching.jpg')}.destination-season{font-size:.58rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase}.home-destination div{display:flex;flex-direction:column;align-items:flex-start}.home-destination small,.home-destination b{color:var(--gold);font-size:.62rem;font-weight:600;letter-spacing:.17em;text-transform:uppercase}.home-destination strong{font:300 clamp(2.7rem,4.5vw,4.8rem) var(--display);line-height:1;margin:.45rem 0 1.3rem}.home-destination b{padding-bottom:.35rem;border-bottom:1px solid #c9a84c70}.home-destination b span{display:inline-block;margin-left:.4rem;transition:transform .25s}.home-destination:hover b span{transform:translateX(5px)}.home-about{display:grid;grid-template-columns:.92fr 1.08fr;align-items:stretch;background:white;padding:9rem 8vw;gap:8vw}.home-about-image{position:relative;height:690px}.home-about-image:before{content:'';position:absolute;inset:-18px 18px 18px -18px;border:1px solid var(--gold);z-index:0}.home-about-image img{position:relative;z-index:1;width:100%;height:100%;object-fit:cover;object-position:center 35%}.photo-caption{position:absolute;z-index:2;right:-24px;bottom:28px;display:flex;flex-direction:column;background:var(--navy);color:white;padding:1rem 1.4rem;border-left:3px solid var(--gold)}.photo-caption span{font:500 1.05rem var(--display)}.photo-caption small{margin-top:.25rem;color:var(--gold);font-size:.52rem;letter-spacing:.16em;text-transform:uppercase}.home-about-copy{display:flex;flex-direction:column;justify-content:center}.home-about-copy h2{font-size:clamp(2.75rem,4.2vw,4.4rem)}.home-about-copy>p:not(.eyebrow){color:var(--muted);font-size:.87rem;line-height:1.95;margin-top:1.4rem}.home-about-copy .about-lead{color:var(--navy)!important;font:400 1.45rem/1.55 var(--display)!important}.home-about-copy .qualifications{font-size:.74rem!important}.home-services{display:grid;grid-template-columns:.72fr 1.28fr;gap:7vw;padding:8rem 8vw;background:#edf2f6}.home-services-intro h2{font-size:clamp(2.5rem,3.8vw,4rem)}.home-services-intro>p:not(.eyebrow){max-width:420px;margin-top:1.4rem;color:var(--muted);font-size:.83rem;line-height:1.85}.home-service-grid{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid #c9a84c70;border-left:1px solid #c9a84c70}.home-service-grid article{min-height:215px;padding:2rem;border-right:1px solid #c9a84c70;border-bottom:1px solid #c9a84c70;background:#ffffffa6;transition:background .25s,transform .25s}.home-service-grid article:hover{background:white;transform:translateY(-3px)}.home-service-grid article>span{color:var(--gold);font-size:.58rem;font-weight:600;letter-spacing:.14em}.home-service-grid h3{margin-top:2.3rem;font-size:1.25rem}.home-service-grid p{margin-top:.65rem;color:var(--muted);font-size:.75rem;line-height:1.7}.home-closing{display:flex;align-items:center;justify-content:space-between;gap:3rem;padding:6rem 8vw;background:linear-gradient(90deg,#0d1b2af5,#0d1b2ac9),url('images/2026-01-23-japan-ash-on-backcountry-ridge-shiribetsu.jpg') center 42%/cover;color:white}.home-closing h2{max-width:820px}.home-closing .button{flex:0 0 auto}.home-footer .brand-ski small{color:#8998a6}.visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:1050px){.home-hero{grid-template-columns:1fr}.home-hero-copy{min-height:78vh;padding-top:9rem}.home-destinations{min-height:72vh}.home-about{gap:6vw}.home-about-image{height:610px}.home-services{grid-template-columns:1fr}.home-services-intro{max-width:680px}}
+@media(max-width:720px){.brand-ski small{display:inline}.home-hero-copy{min-height:80vh;padding:8.5rem 7vw 4rem}.home-hero-copy h1{font-size:clamp(3rem,13vw,4.5rem)}.home-destinations{grid-template-columns:1fr}.home-destination{min-height:68vh;padding:6rem 8vw 3rem}.home-about{grid-template-columns:1fr;padding:6rem 7vw;gap:4.5rem}.home-about-image{height:570px}.photo-caption{right:-8px}.home-services{padding:6rem 7vw}.home-service-grid{grid-template-columns:1fr}.home-closing{align-items:flex-start;flex-direction:column;padding:5rem 7vw}.home-footer{gap:1.2rem}.experience-mark{margin-top:3rem}}
+@media(max-width:460px){.home-hero-copy h1{font-size:2.85rem}.home-hero-actions{align-items:flex-start;flex-direction:column}.home-about-image{height:480px}.home-service-grid article{min-height:185px}.home-destination{min-height:60vh}.home-footer .brand-ski small{display:inline}}
+/* Professional credentials within the homepage profile */
+.about-credentials {
+  display: flex;
+  gap: 0;
+  margin-top: 2rem;
+  border-top: 1px solid #d9dee2;
+  border-bottom: 1px solid #d9dee2;
+}
+
+.about-credentials span {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 1rem 1.2rem;
+  border-right: 1px solid #d9dee2;
+}
+
+.about-credentials span:first-child {
+  padding-left: 0;
+}
+
+.about-credentials span:last-child {
+  border-right: 0;
+}
+
+.about-credentials strong {
+  color: var(--gold);
+  font: 500 1.55rem var(--display);
+}
+
+.about-credentials small {
+  margin-top: 0.2rem;
+  color: var(--muted);
+  font-size: 0.52rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 460px) {
+  .about-credentials span {
+    padding: 0.8rem 0.65rem;
+  }
+
+  .about-credentials strong {
+    font-size: 1.3rem;
+  }
+}
+
+/* CV-inspired site palette and mountain signature */
+:root {
+  --navy: #0d527d;
+  --navy2: #2b83b4;
+  --gold: #f4ae35;
+  --cream: #eff7fb;
+  --muted: #587185;
+}
+
+body {
+  background: #f5f9fc;
+}
+
+.site-header,
+.home-page,
+.home-hero,
+.dark,
+.race-profile,
+.contact-page {
+  background-color: var(--navy);
+}
+
+.site-header {
+  background: #0b466bf5;
+}
+
+.home-header {
+  background: linear-gradient(#0a4269eb, transparent);
+}
+
+.home-hero-copy {
+  background: linear-gradient(145deg, #0a4269 0%, #12608e 58%, #2b83b4 100%);
+}
+
+.home-hero-copy::before {
+  border-color: #f4ae353d;
+  box-shadow: 0 0 0 5rem #f4ae350c, 0 0 0 10rem #f4ae3508;
+}
+
+.home-about {
+  background: #f3f8fc;
+}
+
+.home-services,
+.service-overview,
+.seasons {
+  background: #dceef8;
+}
+
+.booking {
+  background: var(--gold);
+}
+
+.home-closing {
+  background: linear-gradient(90deg, #0a4269f2, #287facd6), url('images/2026-01-23-japan-ash-on-backcountry-ridge-shiribetsu.jpg') center 42%/cover;
+}
+
+footer,
+.home-footer {
+  background: #083653;
+}
+
+.mountain-strip {
+  position: relative;
+  height: 164px;
+  overflow: hidden;
+  background: #c5e4f3;
+  border-bottom: 12px solid #083653;
+}
+
+.mountain-strip::before,
+.mountain-strip::after,
+.mountain-strip span {
+  content: '';
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
+.mountain-strip::before {
+  top: 14px;
+  background: #99cbe2;
+  clip-path: polygon(0 66%, 7% 34%, 13% 58%, 24% 20%, 31% 60%, 41% 37%, 48% 65%, 57% 25%, 64% 59%, 73% 39%, 80% 64%, 89% 22%, 96% 55%, 100% 42%, 100% 100%, 0 100%);
+}
+
+.mountain-strip span {
+  top: 30px;
+  background: #2379a5;
+  clip-path: polygon(0 66%, 8% 38%, 17% 71%, 27% 20%, 37% 67%, 48% 35%, 57% 70%, 66% 27%, 76% 67%, 86% 29%, 94% 65%, 100% 43%, 100% 100%, 0 100%);
+}
+
+.mountain-strip::after {
+  top: 55px;
+  background: #0b466b;
+  clip-path: polygon(0 61%, 10% 35%, 21% 72%, 32% 40%, 43% 78%, 54% 36%, 65% 74%, 76% 42%, 87% 77%, 96% 43%, 100% 57%, 100% 100%, 0 100%);
+}
+
+.mountain-strip-small {
+  height: 110px;
+  border-bottom-width: 8px;
+}
+
+.home-about-copy .about-emphasis {
+  color: #2b83b4 !important;
+  font: italic 600 1.12rem/1.7 var(--display) !important;
+}
+
+.home-about-copy .about-emphasis span {
+  color: var(--navy);
+  font-style: normal;
+}
+
+.home-about-copy .about-final {
+  color: #647c8f !important;
+  font: italic 500 1rem/1.7 var(--display) !important;
+}
+
+.about-credentials {
+  border-color: #aed2e6;
+}
+
+.about-credentials span {
+  border-color: #aed2e6;
+}
+
+.about-credentials strong {
+  color: var(--gold);
+}
+
+.nav-cta,
+.button-gold,
+.enquiry-form button {
+  background: var(--gold);
+}
+
+@media (max-width: 720px) {
+  .mountain-strip {
+    height: 120px;
+  }
+
+  .mountain-strip-small {
+    height: 86px;
+  }
+}
+
+@media (max-width: 540px) {
+  .about-credentials {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .about-credentials span:nth-child(2) {
+    border-right: 0;
+  }
+
+  .about-credentials span:nth-child(-n+2) {
+    border-bottom: 1px solid #aed2e6;
+  }
+}
+
+.price-table thead th {
+  vertical-align: top;
+}
+
+.rate-dates {
+  display: block;
+  min-height: 3.8em;
+  margin-top: 0.55rem;
+  color: #d5e9f4;
+  font-size: 0.58rem;
+  font-weight: 400;
+  line-height: 1.55;
+  letter-spacing: 0.04em;
+  text-transform: none;
+}
+
+.pricing-enquiry {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.pricing-enquiry .button {
+  border: 1px solid white;
+  background: var(--navy2);
+  color: white;
+  box-shadow: 0 0 0 1px var(--navy2);
+}
+
+.japan-why {
+  display: grid;
+  grid-template-columns: 0.72fr 1.28fr;
+  gap: 7vw;
+  background: #f3f8fc;
+}
+
+.japan-page .section {
+  padding-top: 4.5rem;
+  padding-bottom: 4.5rem;
+}
+
+.nz-page .section {
+  padding-top: 4.5rem;
+  padding-bottom: 4.5rem;
+}
+
+.qt-pricing {
+  background: #f3f8fc;
+}
+
+.qt-pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 2.5rem;
+  border-top: 1px solid #acd1e5;
+  border-left: 1px solid #acd1e5;
+}
+
+.qt-pricing-grid article {
+  min-height: 430px;
+  padding: 2rem;
+  border-right: 1px solid #acd1e5;
+  border-bottom: 1px solid #acd1e5;
+  background: white;
+}
+
+.qt-product-image {
+  display: block;
+  width: calc(100% + 4rem);
+  aspect-ratio: 16 / 9;
+  margin: -2rem -2rem 1.6rem;
+  object-fit: cover;
+  object-position: center;
+}
+
+.qt-pricing-grid article:nth-child(3) .qt-product-image {
+  object-position: center 38%;
+}
+
+.qt-pricing-grid article:nth-child(5) .qt-product-image {
+  object-position: center 45%;
+}
+
+.qt-pricing-grid .qt-price-featured {
+  background: var(--navy);
+  color: white;
+}
+
+.qt-price-featured > small {
+  display: inline-block;
+  margin-bottom: 1.2rem;
+  padding: 0.4rem 0.6rem;
+  background: var(--gold);
+  color: var(--navy);
+  font-size: 0.52rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.qt-pricing-grid h3 {
+  min-height: 2.5rem;
+}
+
+.qt-pricing-grid .qt-time {
+  min-height: 3rem;
+  color: #2380b0;
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.qt-pricing-grid strong {
+  display: block;
+  margin: 1rem 0 0.25rem;
+  color: var(--navy);
+  font: 500 2rem var(--display);
+}
+
+.qt-pricing-grid strong span {
+  color: var(--muted);
+  font: 400 0.68rem var(--body);
+}
+
+.qt-pricing-grid article > p:not(.qt-time),
+.qt-pricing-grid li {
+  color: var(--muted);
+  font-size: 0.68rem;
+  line-height: 1.65;
+}
+
+.qt-pricing-grid ul {
+  margin: 1.3rem 0 0 1rem;
+}
+
+.qt-pricing-grid li {
+  margin-bottom: 0.45rem;
+}
+
+.qt-pricing-grid .qt-price-featured strong,
+.qt-pricing-grid .qt-price-featured h3 {
+  color: white;
+}
+
+.qt-pricing-grid .qt-price-featured p,
+.qt-pricing-grid .qt-price-featured li,
+.qt-pricing-grid .qt-price-featured strong span {
+  color: #d4e5ee;
+}
+
+.qt-price-note {
+  margin-top: 1rem;
+  color: var(--muted);
+  font-size: 0.68rem;
+  font-style: italic;
+}
+
+.career-story {
+  padding: 7rem 8vw;
+  background: #0d527d;
+  color: white;
+}
+
+.home-profile {
+  background: #f3f8fc;
+}
+
+.home-profile .home-about,
+.home-profile .home-services,
+.home-profile .career-story {
+  background: transparent;
+}
+
+.home-profile .home-about {
+  padding-top: 6rem;
+  padding-bottom: 5rem;
+}
+
+.home-profile .home-services,
+.home-profile .career-story {
+  margin: 0 8vw;
+  padding: 5rem 0;
+  border-top: 1px solid #acd1e5;
+}
+
+.home-profile .career-story {
+  color: var(--navy);
+  padding-top: 3rem;
+}
+
+.home-profile .career-heading > p:last-child,
+.home-profile .career-grid p {
+  color: var(--muted);
+}
+
+.home-profile .career-grid article {
+  overflow: hidden;
+  border-color: #acd1e5;
+  background: white;
+}
+
+.home-profile .career-grid h3 {
+  color: var(--navy);
+}
+
+.home-service-grid .primary-service {
+  background: var(--navy);
+  color: white;
+}
+
+.home-service-grid .primary-service:hover {
+  background: #14658f;
+}
+
+.home-service-grid .primary-service h3 {
+  color: white;
+}
+
+.home-service-grid .primary-service p {
+  color: #d4e5ee;
+}
+
+.career-heading {
+  display: block;
+  margin-bottom: 3rem;
+}
+
+.career-heading .eyebrow {
+  align-self: start;
+}
+
+.career-heading h2 {
+  max-width: 720px;
+}
+
+.career-heading > p:last-child {
+  color: #d4e5ee;
+  font-size: 0.82rem;
+  line-height: 1.85;
+}
+
+.career-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+}
+
+.career-grid article {
+  background: #ffffff0b;
+  border: 1px solid #ffffff2e;
+}
+
+.career-grid img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.career-grid article:nth-child(1) img {
+  object-position: center 50%;
+}
+
+.career-grid article > div {
+  padding: 1.7rem;
+}
+
+.career-grid article span {
+  color: var(--gold);
+  font-size: 0.55rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.career-grid h3 {
+  margin-top: 1rem;
+  color: white;
+  font-size: 1.45rem;
+}
+
+.career-grid p {
+  margin-top: 0.7rem;
+  color: #d4e5ee;
+  font-size: 0.72rem;
+  line-height: 1.75;
+}
+
+@media (max-width: 1200px) {
+  .career-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .career-heading {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .career-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .career-grid article {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+  }
+
+  .career-grid img {
+    height: 100%;
+    aspect-ratio: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .career-story {
+    padding: 5rem 7vw;
+  }
+
+  .home-profile .home-about {
+    padding-top: 5rem;
+    padding-bottom: 4rem;
+  }
+
+  .home-profile .home-services,
+  .home-profile .career-story {
+    margin: 0 7vw;
+    padding: 4rem 0;
+  }
+
+  .career-heading,
+  .career-grid article {
+    grid-template-columns: 1fr;
+  }
+
+  .career-grid img {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+/* Wider profile copy with a one-third portrait */
+.home-profile .home-about {
+  grid-template-columns: minmax(280px, 1fr) minmax(0, 2fr);
+  gap: 6vw;
+}
+
+.about-benefits {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 1.7rem;
+  border-top: 1px solid #acd1e5;
+  border-bottom: 1px solid #acd1e5;
+}
+
+.about-benefits span {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  border-right: 1px solid #acd1e5;
+}
+
+.about-benefits span:first-child {
+  padding-left: 0;
+}
+
+.about-benefits span:last-child {
+  border-right: 0;
+}
+
+.about-benefits strong {
+  color: var(--navy);
+  font: 500 1.3rem var(--display);
+}
+
+.about-benefits small {
+  margin-top: 0.25rem;
+  color: var(--muted);
+  font-size: 0.56rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 720px) {
+  .home-profile .home-about {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 500px) {
+  .about-benefits {
+    grid-template-columns: 1fr;
+  }
+
+  .about-benefits span,
+  .about-benefits span:first-child {
+    padding: 0.85rem 0;
+    border-right: 0;
+    border-bottom: 1px solid #acd1e5;
+  }
+
+  .about-benefits span:last-child {
+    border-bottom: 0;
+  }
+}
+
+.contact-body {
+  background: #eaf5fb;
+}
+
+.contact-footer {
+  min-height: 88px;
+  padding-top: 1.35rem;
+  padding-bottom: 1.35rem;
+  border-top: 1px solid #ffffff1f;
+}
+
+.home-hero .whatsapp-button {
+  border-color: white;
+  padding: 0.8rem 1rem;
+}
+
+.home-hero .whatsapp-button::before {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background-color: #25d366;
+  background-size: 14px;
+}
+
+.booking-enquiry-button {
+  display: inline-flex;
+  align-items: center;
+  min-height: 48px;
+  padding: 0.8rem 1.2rem;
+  border: 1px solid white;
+  color: white;
+  text-decoration: none;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.booking-enquiry-button:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.hero-whatsapp-icon {
+  width: 42px;
+  height: 42px;
+  margin-left: -0.8rem;
+  border-radius: 50%;
+  background: #25d366 url('images/whatsapp.svg') center/22px no-repeat;
+  box-shadow: 0 5px 15px #0003;
+  transition: transform 0.2s;
+}
+
+.hero-whatsapp-icon:hover {
+  transform: translateY(-2px);
+}
+
+.footer-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.footer-social {
+  display: inline-block;
+  width: 27px;
+  height: 27px;
+  border: 1px solid #ffffff55;
+  border-radius: 50%;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.footer-social:hover {
+  border-color: var(--gold);
+  transform: translateY(-2px);
+}
+
+.whatsapp-link {
+  background: #25d366 url('images/whatsapp.svg') center/14px no-repeat;
+  border-color: #25d366;
+}
+
+.email-link {
+  border-color: #2f80c1;
+  background: #2f80c1 url('images/email.svg') center/14px no-repeat;
+}
+
+.instagram-link {
+  border-color: #d13b83;
+  background-image: url('images/instagram.svg'), linear-gradient(135deg, #6a35b1 5%, #d13b83 48%, #f49a38 100%);
+  background-position: center, center;
+  background-size: 14px, cover;
+  background-repeat: no-repeat;
+}
+
+.nav-whatsapp {
+  width: 34px;
+  height: 34px;
+  flex: 0 0 34px;
+  border-radius: 50%;
+  background: #25d366 url('images/whatsapp.svg') center/17px no-repeat;
+  transition: transform 0.2s;
+}
+
+.nav-whatsapp:hover {
+  transform: translateY(-2px);
+}
+
+.enquiry-form input:not([type="hidden"]),
+.enquiry-form select {
+  height: 48px;
+  min-height: 48px;
+}
+
+@media (max-width: 600px) {
+  .site-header nav a.nav-whatsapp,
+  .site-header nav a.nav-whatsapp:not(.nav-cta) {
+    display: block;
+    align-self: flex-end;
+    width: 38px;
+    height: 38px;
+    margin-top: 0.8rem;
+    padding: 0;
+    border: 0;
+    background-size: 19px;
+  }
+}
+
+/* Integrated contact experience */
+.contact-hero {
+  min-height: 42vh;
+  display: grid;
+  grid-template-columns: 0.72fr 0.92fr 1.18fr;
+  background: var(--navy);
+  color: white;
+}
+
+.contact-hero-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 3.5rem 7vw;
+  background: linear-gradient(135deg, #0b466b, #155f8b);
+}
+
+.contact-hero-copy h1 {
+  max-width: 680px;
+  font-size: clamp(3rem, 5vw, 5.2rem);
+}
+
+.contact-hero-copy h1 em {
+  color: var(--gold);
+  font-weight: 400;
+}
+
+.contact-hero-copy > p:not(.eyebrow) {
+  max-width: 650px;
+  margin-top: 1.5rem;
+  color: #d4e5ee;
+  font-size: 0.86rem;
+  line-height: 1.85;
+}
+
+.contact-hero-image {
+  min-height: 340px;
+  background: linear-gradient(90deg, #0b466b35, transparent), url('images/2026-03-20-japan-ash-with-ski-guest-and-mount-yotei.jpg') center 42%/cover;
+}
+
+.contact-hero .enquiry-form {
+  align-content: center;
+  padding: 2.5rem 3vw;
+  background: linear-gradient(225deg, #0b466b, #155f8b);
+  color: white;
+}
+
+.contact-hero .enquiry-form h2 {
+  color: white;
+}
+
+.contact-hero .enquiry-form > p,
+.contact-hero .enquiry-form label {
+  color: #d4e5ee;
+}
+
+.contact-page {
+  min-height: 0;
+  display: block;
+  padding: 3.5rem 8vw;
+  background: #eaf5fb;
+}
+
+.contact-details h2 {
+  font-size: clamp(2.35rem, 3.6vw, 3.7rem);
+}
+
+.contact-details h2 em {
+  color: var(--gold);
+  font-weight: 400;
+}
+
+.contact-details > p:not(.eyebrow) {
+  margin-top: 1.4rem;
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.85;
+}
+
+.contact-page .contact-points span {
+  color: var(--muted);
+}
+
+.contact-page .enquiry-form {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0;
+  border-left: 0;
+  background: transparent;
+}
+
+@media (max-width: 1100px) {
+  .contact-hero {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .contact-hero .enquiry-form {
+    grid-column: 1 / -1;
+    padding: 3.5rem 7vw;
+  }
+}
+
+@media (max-width: 850px) {
+  .contact-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-hero-image {
+    min-height: 420px;
+    background-position: center 35%;
+  }
+
+  .contact-hero .enquiry-form {
+    grid-column: auto;
+  }
+
+  .contact-page {
+    padding: 3.5rem 7vw;
+  }
+
+  .contact-page .enquiry-form {
+    padding: 0;
+    border: 0;
+  }
+}
+
+@media (max-width: 500px) {
+  .contact-hero-copy {
+    padding: 3.5rem 7vw;
+  }
+
+  .contact-hero-image {
+    min-height: 420px;
+  }
+
+  .contact-page .enquiry-form {
+    padding: 0;
+  }
+}
+
+@media (max-width: 1050px) {
+  .qt-pricing-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 620px) {
+  .qt-pricing-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .qt-pricing-grid article {
+    min-height: 0;
+  }
+
+  .nz-page .section {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
+}
+
+.japan-why-heading > p:not(.eyebrow) {
+  max-width: 470px;
+  margin-top: 1.5rem;
+  color: var(--muted);
+  font-size: 0.84rem;
+  line-height: 1.85;
+}
+
+.japan-why-heading .destination-intro strong {
+  display: block;
+  margin-bottom: 0.55rem;
+  color: var(--navy);
+  font: 500 1.3rem/1.35 var(--display);
+}
+
+/* Keep the Queenstown reasons and pricing visually connected. */
+.nz-page .nz-why {
+  padding-bottom: 2rem;
+}
+
+.nz-page .qt-pricing {
+  padding-top: 2.5rem;
+}
+
+.japan-why-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-top: 1px solid #acd1e5;
+  border-left: 1px solid #acd1e5;
+}
+
+.japan-why-grid article {
+  min-height: 205px;
+  padding: 1.8rem;
+  border-right: 1px solid #acd1e5;
+  border-bottom: 1px solid #acd1e5;
+  background: #ffffffa8;
+}
+
+.japan-why-grid article > span {
+  color: var(--gold);
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+}
+
+.japan-why-grid h3 {
+  margin-top: 1.7rem;
+}
+
+.japan-why-grid p {
+  margin-top: 0.6rem;
+  color: var(--muted);
+  font-size: 0.75rem;
+  line-height: 1.7;
+}
+
+@media (max-width: 850px) {
+  .japan-why {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .japan-why-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .japan-why-grid article {
+    min-height: 175px;
+  }
+
+  .japan-page .section {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
+}
+
+.menu-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  padding: 10px;
+  border: 1px solid #ffffff70;
+  background: transparent;
+  cursor: pointer;
+}
+
+.site-header .nav-cta {
+  border: 1px solid white;
+  background: transparent;
+  color: white !important;
+}
+
+.site-header nav a[aria-current="page"] {
+  position: relative;
+}
+
+.site-header nav a[aria-current="page"]::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: -0.45rem;
+  left: 0;
+  height: 1px;
+  background: white;
+}
+
+.menu-toggle span {
+  display: block;
+  height: 2px;
+  margin: 5px 0;
+  background: white;
+  transition: transform 0.25s, opacity 0.2s;
+}
+
+@media (max-width: 600px) {
+  .site-header {
+    position: relative;
+    z-index: 100;
+  }
+
+  .home-header {
+    position: absolute;
+  }
+
+  .menu-toggle {
+    display: block;
+    margin-left: auto;
+  }
+
+  .site-header nav {
+    position: absolute;
+    top: 74px;
+    right: 0;
+    left: 0;
+    display: flex;
+    visibility: hidden;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 0.7rem 5vw 1.2rem;
+    background: #0b466bf7;
+    opacity: 0;
+    transform: translateY(-8px);
+    pointer-events: none;
+    transition: opacity 0.2s, transform 0.2s, visibility 0.2s;
+  }
+
+  .site-header nav a,
+  .site-header nav a:not(.nav-cta) {
+    display: block;
+    padding: 1rem 0;
+    border-bottom: 1px solid #ffffff24;
+  }
+
+  .site-header nav .nav-cta {
+    margin-top: 0.8rem;
+    padding: 0.9rem 1rem;
+    border-bottom: 0;
+    text-align: center;
+  }
+
+  .site-header nav a[aria-current="page"]::after {
+    right: auto;
+    bottom: 0.55rem;
+    width: 2.5rem;
+  }
+
+  .site-header.menu-open nav {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .site-header.menu-open .menu-toggle span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .site-header.menu-open .menu-toggle span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .site-header.menu-open .menu-toggle span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+}
