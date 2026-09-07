@@ -746,6 +746,10 @@ footer,
   min-height: 48px;
 }
 
+.enquiry-form .full-width {
+  grid-column: 1 / -1;
+}
+
 @media (max-width: 600px) {
   .site-header nav a.nav-whatsapp,
   .site-header nav a.nav-whatsapp:not(.nav-cta) {
@@ -793,6 +797,18 @@ footer,
   color: #d4e5ee;
   font-size: 0.86rem;
   line-height: 1.85;
+}
+
+.contact-socials {
+  display: flex;
+  gap: 0.85rem;
+  margin-top: 1.6rem;
+}
+
+.contact-socials .footer-social {
+  width: 34px;
+  height: 34px;
+  background-size: 17px, cover;
 }
 
 .contact-hero-image {
