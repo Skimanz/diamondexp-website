@@ -819,7 +819,7 @@ footer,
 .contact-socials {
   display: flex;
   align-items: center;
-  gap: 0;
+  column-gap: 0.9rem;
   margin-top: 2rem;
 }
 
@@ -829,8 +829,9 @@ footer,
   background-size: 17px, cover;
 }
 
-.contact-socials .footer-social + .footer-social {
-  margin-left: 1.25rem;
+.contact-socials .footer-social {
+  flex: 0 0 34px;
+  margin: 0;
 }
 
 a:focus-visible,
