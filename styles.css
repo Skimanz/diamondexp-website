@@ -521,6 +521,13 @@ footer,
   }
 }
 
+@media (min-width: 901px) {
+  .career-grid img {
+    height: clamp(180px, 15vw, 260px) !important;
+    aspect-ratio: auto;
+  }
+}
+
 @media (max-width: 900px) {
   .career-heading {
     grid-template-columns: 1fr;
