@@ -141,10 +141,62 @@
 <li>Lesson availability is limited and cannot be guaranteed until your booking is confirmed.</li>
 </ul>
 </div>
-<div class="pricing-enquiry"><a class="button" href="mailto:asjohns@me.com?subject=Website%20Enquiry">Check Availability</a></div>
+<div class="pricing-enquiry"><a class="button" href="#enquire">Check Availability on WhatsApp</a></div>
+</section>
+<section class="section" id="enquire">
+<p class="eyebrow">Japan booking enquiry</p>
+<h2>Check <em>availability.</em></h2>
+<p class="lead light-lead">Send the key details once and I can respond with the right options for your dates and group.</p>
+<form class="enquiry-form" id="japan-whatsapp-enquiry" style="max-width:900px;margin:3rem auto 0">
+<h2>WhatsApp Enquiry</h2>
+<p>Complete the details below. Tapping the button opens WhatsApp with your enquiry ready to send — nothing is sent until you tap Send in WhatsApp.</p>
+<label>Name *<input name="name" required autocomplete="name"></label>
+<label>Preferred dates *<input name="dates" required placeholder="e.g. 6–13 February 2027"></label>
+<label>Number of skiers *<input type="number" name="skiers" min="1" max="20" required inputmode="numeric"></label>
+<label>Ability level *
+<select name="ability" required>
+<option value="" selected disabled>Select level</option>
+<option>First time / Beginner</option>
+<option>Intermediate</option>
+<option>Advanced / Expert</option>
+<option>Instructor / Race training</option>
+<option>Mixed group</option>
+</select>
+</label>
+<label>Where are you staying?<input name="staying" placeholder="e.g. Hirafu, Niseko Village, Kutchan"></label>
+<label>What would you like from your ski day?<span class="field-hint">Goals, preferred resort, children in the group, powder, technique, guiding, or anything else that helps me plan.</span><textarea name="message"></textarea></label>
+<button type="submit">Open Enquiry in WhatsApp</button>
+</form>
 </section>
 </main>
 <footer class="home-footer"><a class="brand brand-ski" href="index.html"><span>Ash</span><em>Johns</em><small>Ski</small></a><span>Private Instruction · Ski Instructor Training · Race Coaching · Guiding · © 2026 Ash Johns Ski</span><span class="footer-meta"><a class="footer-social whatsapp-link" href="https://wa.me/6421754626" target="_blank" rel="noopener" aria-label="Chat with Ash on WhatsApp"><span class="visually-hidden">WhatsApp</span></a><a class="footer-social email-link" href="mailto:asjohns@me.com?subject=DiamondExp%20Website%20Enquiry" aria-label="Email Ash Johns Ski"><span class="visually-hidden">Email Ash</span></a><a class="footer-social instagram-link" href="https://www.instagram.com/skimanz/" target="_blank" rel="noopener" aria-label="Ash Johns Ski on Instagram"><span class="visually-hidden">Instagram</span></a></span></footer>
 <script src="menu.js"></script>
+<script>
+(function () {
+  const form = document.getElementById('japan-whatsapp-enquiry');
+  if (!form) return;
+
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
+    const data = new FormData(form);
+    const lines = [
+      "Hi Ash, I'd like to check availability for skiing in Japan.",
+      "",
+      "Name: " + data.get('name'),
+      "Preferred dates: " + data.get('dates'),
+      "Number of skiers: " + data.get('skiers'),
+      "Ability: " + data.get('ability')
+    ];
+
+    const staying = (data.get('staying') || '').trim();
+    const message = (data.get('message') || '').trim();
+    if (staying) lines.push("Staying: " + staying);
+    if (message) lines.push("Goals / request: " + message);
+
+    lines.push("", "Sent from diamondexp.nz");
+    window.location.href = "https://wa.me/6421754626?text=" + encodeURIComponent(lines.join("\n"));
+  });
+})();
+</script>
 </body>
 </html>
