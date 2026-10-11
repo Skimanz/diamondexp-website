@@ -40,7 +40,7 @@
         form.elements.dates.value = label(key);
         const pending = status === 'pending';
         const context = document.getElementById('availability-selection');
-        context.textContent = pending ? 'This date is pending. Your enquiry is for a backup place; it does not reserve the date.' : 'Ask Ash about this date. An enquiry does not reserve it.';
+        context.textContent = pending ? 'This date is pending. Contact Ash to request a backup place.' : 'Advise us of your preferred dates and group details. An enquiry does not reserve a date.';
         // Do not replace the guest's own message when choosing another day.
         form.dataset.availabilityContext = pending ? 'Backup enquiry for a pending date.' : '';
         document.getElementById('japan-enquiry-modal').showModal();
@@ -65,7 +65,7 @@
       data=value;
       month = today < data.seasonStart ? data.seasonStart.slice(0,7) : today > data.seasonEnd ? data.seasonEnd.slice(0,7) : today.slice(0,7);
       draw();
-      notice.textContent = `Availability updated ${label(value.updatedAt)}. Japan time. Available dates are open for enquiries and subject to Ash's confirmation.`;
+      notice.textContent = `Availability updated ${label(value.updatedAt)}. Japan time. Dates remain provisional until your booking is confirmed.`;
     }).catch(() => {
       grid.replaceChildren(); previous.disabled=true; next.disabled=true;
       monthLabel.textContent='Please check with Ash';
