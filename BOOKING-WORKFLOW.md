@@ -24,4 +24,6 @@ node tools/availability-admin.mjs deadline ISSUE_TIMESTAMP_WITH_OFFSET LESSON_TI
 
 An expired pending date intentionally stays pending until checked and explicitly released. No expiry timestamp, guest identifier or private booking reference is published.
 
+Ash may also explicitly pencil in an existing guest arrangement before invoicing. Record it as a provisional Held booking privately and Pending publicly, with no invented payment or invoice date. The seven-day or 48-hour payment clock starts only when the actual invoice is issued. Check Ash's existing commitments before releasing any such date.
+
 For an invoice covering multiple days, cancellation bands apply separately to each lesson. More than 14 days: 90% refund; from 7 to 14 days inclusive: 50%; less than 7 days: no guest-cancellation refund, subject to applicable law. Preserve the terms issued to each guest rather than applying future website edits retroactively.

@@ -18,6 +18,21 @@
 .availability-key{display:inline-block;width:11px;height:11px;margin-right:6px;border-radius:2px;background:#d4eada}.availability-key.pending{background:#f4d791}.availability-key.unavailable{background:#c9d1d8}
 .availability-help{line-height:1.75;font-size:.82rem}.availability-help h3{margin-bottom:.8rem}.availability-help p{margin-bottom:1rem}
 .availability-notice{font-size:.7rem;line-height:1.6;margin:1rem 0 0;color:#526777}
-#booking-terms{scroll-margin-top:100px}#booking-terms .notes{max-width:1000px;line-height:1.8}#booking-terms h3{margin:1.5rem 0 .6rem}#booking-terms p{margin-bottom:1rem}
+.terms-link{display:inline;padding:0;border:0;background:none;color:#345d72;font:inherit;text-decoration:underline;text-underline-offset:3px;cursor:pointer;text-align:left}
+.terms-link:focus-visible,.terms-close:focus-visible{outline:2px solid #187da0;outline-offset:4px}
+.terms-modal{width:min(760px,calc(100% - 2rem));max-height:85vh;max-height:85dvh;padding:0;border:1px solid #dce3e8;border-radius:5px;background:#fff;color:#243746;box-shadow:0 20px 70px #102a4350;overflow:auto}
+.terms-modal::backdrop{background:#0d253b99}
+.terms-document{position:relative;padding:2.5rem}
+.terms-close{position:sticky;top:.4rem;display:block;margin:-1.5rem -1.5rem 0 auto;width:44px;height:44px;border:0;border-radius:50%;background:#f1f4f6;color:#243746;font:28px/1 Arial,sans-serif;cursor:pointer;z-index:1}
+#booking-terms h2{font:500 1.85rem var(--display);margin:0 0 .5rem;text-transform:none;letter-spacing:normal}
+#booking-terms .eyebrow{font-size:.65rem;margin-bottom:.8rem}
+#booking-terms .terms-version{font-size:11px;color:#667783;border-bottom:1px solid #dce3e8;padding-bottom:1rem}
+#booking-terms .notes{max-width:none;background:none;border:0;margin:0;padding:0;font:14px/1.75 Arial,sans-serif;color:#344753}
+#booking-terms h3{font:600 15px/1.5 Arial,sans-serif;margin:1.5rem 0 .6rem}
+#booking-terms p{margin:0 0 1rem}
+#booking-terms ul{padding-left:1.3rem;margin:0 0 1rem}
+#booking-terms li{font:inherit;margin-bottom:.6rem}
+body:has(dialog[open]){overflow:hidden}
+@media(max-width:480px){.terms-document{padding:1.5rem}.terms-close{margin:-.8rem -.8rem .2rem auto}}
 @media(max-width:900px){.availability-layout{grid-template-columns:1fr}}
 @media(max-width:480px){.availability-calendar{padding:.65rem}.availability-week,.availability-grid{gap:3px}.availability-day{min-height:64px}.availability-day span{font-size:8px;letter-spacing:-.25px}.availability-navigation h3{font-size:1.2rem}.availability-navigation button{font-size:.7rem;padding:.5rem}}

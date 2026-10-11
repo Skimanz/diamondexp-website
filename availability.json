@@ -2,5 +2,30 @@
   "seasonStart": "2026-12-01",
   "seasonEnd": "2027-03-31",
   "updatedAt": "2026-10-12",
-  "days": {}
+  "days": {
+    "2027-02-06": {
+      "status": "pending"
+    },
+    "2027-02-07": {
+      "status": "pending"
+    },
+    "2027-02-08": {
+      "status": "pending"
+    },
+    "2027-02-09": {
+      "status": "pending"
+    },
+    "2027-02-10": {
+      "status": "pending"
+    },
+    "2027-02-11": {
+      "status": "pending"
+    },
+    "2027-02-12": {
+      "status": "pending"
+    },
+    "2027-02-13": {
+      "status": "pending"
+    }
+  }
 }
