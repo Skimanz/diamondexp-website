@@ -2,6 +2,13 @@
   'use strict';
   const root = document.getElementById('availability');
   if (!root) return;
+  const openCalendar = () => { if (!root.open) root.showModal(); document.getElementById('availability-title').focus(); };
+  document.querySelectorAll('[data-open-availability]').forEach(button => button.addEventListener('click', openCalendar));
+  root.querySelector('[data-close-availability]').addEventListener('click', () => root.close());
+  root.addEventListener('click', event => { if (event.target === root) root.close(); });
+  const followHash = () => { if (location.hash === '#availability') openCalendar(); };
+  window.addEventListener('hashchange', followHash);
+  followHash();
   const grid = root.querySelector('[data-calendar]');
   const monthLabel = root.querySelector('[data-month]');
   const previous = root.querySelector('[data-previous]');
@@ -65,7 +72,7 @@
       data=value;
       month = today < data.seasonStart ? data.seasonStart.slice(0,7) : today > data.seasonEnd ? data.seasonEnd.slice(0,7) : today.slice(0,7);
       draw();
-      notice.textContent = `Availability updated ${label(value.updatedAt)}. Japan time. Dates remain provisional until your booking is confirmed.`;
+      notice.textContent = `Japan time · Updated ${label(value.updatedAt)}`;
     }).catch(() => {
       grid.replaceChildren(); previous.disabled=true; next.disabled=true;
       monthLabel.textContent='Please check with Ash';

@@ -36,3 +36,16 @@ body:has(dialog[open]){overflow:hidden}
 @media(max-width:480px){.terms-document{padding:1.5rem}.terms-close{margin:-.8rem -.8rem .2rem auto}}
 @media(max-width:900px){.availability-layout{grid-template-columns:1fr}}
 @media(max-width:480px){.availability-calendar{padding:.65rem}.availability-week,.availability-grid{gap:3px}.availability-day{min-height:64px}.availability-day span{font-size:8px;letter-spacing:-.25px}.availability-navigation h3{font-size:1.2rem}.availability-navigation button{font-size:.7rem;padding:.5rem}}
+
+.availability-modal{width:min(680px,calc(100% - 1.5rem));max-height:90vh;max-height:90dvh;margin:auto;padding:1.5rem;border:0;border-radius:8px;background:#fff;color:#17344a;overflow:auto;box-sizing:border-box}
+.availability-modal::backdrop{background:#0d253b99}
+.availability-modal h2{font:500 2rem var(--display);margin:0 0 1.2rem;padding-right:3rem}
+.availability-close{position:absolute;right:.7rem;top:.6rem;width:44px;height:44px;border:0;background:transparent;color:#17344a;font:30px Arial;cursor:pointer}
+.availability-modal .availability-calendar{padding:0;border:0}
+.availability-modal .availability-day{min-height:52px;gap:.2rem}
+.availability-modal .availability-intro{font-size:.75rem;line-height:1.5;margin:.8rem 0 0}
+.availability-modal .availability-legend{margin:.9rem 0;font-size:.75rem}
+.jp-contact-actions{flex-direction:column}
+.jp-contact-actions .button,.jp-contact-actions button{flex:0 0 auto;width:100%}
+.jp-contact-actions .availability-open{background:#fff;color:#0d5b87;border:1px solid #2380b0}
+@media(max-width:480px){.availability-modal{padding:1rem}.availability-modal .availability-day{min-height:48px}.availability-modal .availability-legend{gap:.7rem}}
