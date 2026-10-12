@@ -69,3 +69,14 @@ body:has(dialog[open]){overflow:hidden}
 .japan-hero .jp-hero-actions button.button:hover{background:#fff;color:#0d5b87}
 .japan-hero .jp-hero-actions button.button:focus-visible{outline-color:#fff}
 @media(max-width:540px){.japan-hero .jp-hero-actions{max-width:360px}.japan-hero .jp-hero-actions button.button{flex-basis:100%;width:100%}}
+
+.enquiry-form .enquiry-send-actions{grid-column:1/-1;margin-top:1rem}
+.enquiry-form .enquiry-send-actions button.button{background:transparent;color:#0d5b87;border:2px solid #0d5b87;letter-spacing:0;text-transform:none;padding:14px 20px}
+.enquiry-form .enquiry-send-actions button.button:hover{background:#0d5b87;color:white}
+.contact-body .contact-hero{grid-template-columns:1fr 1fr}
+.contact-body .enquiry-form button.terms-link{background:none;border:0;padding:0;color:#345d72;font:inherit;text-transform:none;letter-spacing:normal;text-align:left}
+@media(max-width:760px){.contact-body .contact-hero{grid-template-columns:1fr}}
+
+.contact-body .enquiry-form .enquiry-send-actions button.button{border-color:#fff;color:#fff;background:transparent}
+.contact-body .enquiry-form .enquiry-send-actions button.button:hover{background:#fff;color:#0d5b87}
+.contact-body .enquiry-form .terms-link{color:#fff}
