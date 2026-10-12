@@ -19,6 +19,31 @@
   const label = key => date(key).toLocaleDateString('en-NZ', {timeZone:'UTC', day:'numeric', month:'long', year:'numeric'});
   const today = new Intl.DateTimeFormat('en-CA', {timeZone:'Asia/Tokyo', year:'numeric', month:'2-digit', day:'2-digit'}).format(new Date());
   let data, month;
+  const selected = new Set();
+  const nextStep = root.querySelector('[data-continue-dates]');
+  const summary = root.querySelector('[data-selection-summary]');
+  const form = document.getElementById('japan-whatsapp-enquiry');
+  function updateSelection() {
+    const keys = [...selected].sort();
+    summary.textContent = keys.length ? keys.map(label).join(' · ') : 'No dates selected';
+    nextStep.disabled = !keys.length;
+  }
+  nextStep.addEventListener('click', () => {
+    const keys = [...selected].sort();
+    if (!keys.length) return;
+    form.elements.dates.value = keys.map(label).join('; ');
+    const pending = keys.filter(key => data.days[key]?.status === 'pending');
+    const note = pending.length ? 'Backup request: ' + pending.map(label).join('; ') : '';
+    form.dataset.availabilityContext = note;
+    document.getElementById('availability-selection').textContent = note;
+    root.close();
+    document.getElementById('japan-enquiry-modal').showModal();
+    form.elements.name.focus();
+  });
+  form.elements.dates.addEventListener('input', () => {
+    form.dataset.availabilityContext = '';
+    document.getElementById('availability-selection').textContent = '';
+  });
   function draw() {
     const first = date(`${month}-01`);
     const year = first.getUTCFullYear(), m = first.getUTCMonth();
@@ -42,16 +67,13 @@
       const number = document.createElement('strong'); number.textContent = day;
       const tag = document.createElement('span'); tag.textContent = state;
       button.append(number,tag);
+      button.setAttribute('aria-pressed', String(selected.has(key)));
+      if (selected.has(key)) button.classList.add('selected');
       if (!button.disabled) button.addEventListener('click', () => {
-        const form = document.getElementById('japan-whatsapp-enquiry');
-        form.elements.dates.value = label(key);
-        const pending = status === 'pending';
-        const context = document.getElementById('availability-selection');
-        context.textContent = pending ? 'This date is pending. Contact Ash to request a backup place.' : 'Advise us of your preferred dates and group details. An enquiry does not reserve a date.';
-        // Do not replace the guest's own message when choosing another day.
-        form.dataset.availabilityContext = pending ? 'Backup enquiry for a pending date.' : '';
-        document.getElementById('japan-enquiry-modal').showModal();
-        form.elements.name.focus();
+        if (selected.has(key)) selected.delete(key); else selected.add(key);
+        button.setAttribute('aria-pressed', String(selected.has(key)));
+        button.classList.toggle('selected', selected.has(key));
+        updateSelection();
       });
       grid.append(button);
     }

@@ -49,3 +49,11 @@ body:has(dialog[open]){overflow:hidden}
 .jp-contact-actions .button,.jp-contact-actions button{flex:0 0 auto;width:100%}
 .jp-contact-actions .availability-open{background:#fff;color:#0d5b87;border:1px solid #2380b0}
 @media(max-width:480px){.availability-modal{padding:1rem}.availability-modal .availability-day{min-height:48px}.availability-modal .availability-legend{gap:.7rem}}
+
+.jp-modal .enquiry-form button.terms-link{display:inline;width:auto;padding:0;margin:0;border:0;background:transparent;color:#345d72;font:inherit;letter-spacing:normal;text-transform:none;box-shadow:none;min-height:0}
+.jp-modal .enquiry-form .enquiry-terms{margin:.25rem 0 1rem}
+#availability-selection:empty{display:none}
+.availability-day.selected{outline:3px solid #0d5b87;outline-offset:-3px;box-shadow:inset 0 0 0 1px #fff}
+[data-selection-summary]{font-size:.75rem;line-height:1.6;margin:1rem 0}
+[data-continue-dates]{width:100%;border:0;cursor:pointer}
+[data-continue-dates]:disabled{opacity:.4;cursor:default}

@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css?v=20260911-1">
-<link rel="stylesheet" href="availability.css?v=20261012-3">
+<link rel="stylesheet" href="availability.css?v=20261012-4">
 </head>
 <body class="japan-page">
 <header class="site-header">
@@ -189,7 +189,8 @@
 <div class="availability-week" aria-hidden="true"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span></div>
 <div class="availability-grid" data-calendar aria-label="Lesson dates"></div>
 <div class="availability-legend"><span><i class="availability-key" aria-hidden="true"></i>Available</span><span><i class="availability-key pending" aria-hidden="true"></i>Pending</span><span><i class="availability-key unavailable" aria-hidden="true"></i>Unavailable</span></div>
-<p class="availability-intro">Select a date to enquire. For pending dates, contact Ash to request a backup place.</p>
+<p class="availability-intro">Select one or more dates. Pending dates are for backup enquiries.</p>
+<p data-selection-summary aria-live="polite">No dates selected</p><button type="button" class="button" data-continue-dates disabled>Continue</button>
 <p class="availability-notice" data-calendar-notice role="status">Checking dates. You can also <a href="https://wa.me/6421754626">message Ash</a>.</p>
 <noscript><p>Please enable JavaScript to see the calendar, or message Ash to check your dates.</p></noscript>
 </div>
@@ -228,11 +229,12 @@
 <button class="jp-modal-close" type="button" aria-label="Close WhatsApp enquiry form">×</button>
 <form class="enquiry-form" id="japan-whatsapp-enquiry">
 <h2 id="japan-enquiry-title">WhatsApp Enquiry</h2>
-<p>Complete the details below. Tapping the button opens WhatsApp with your enquiry ready to send — nothing is sent until you tap Send in WhatsApp.</p>
+<p>Choose your dates and lesson, then send your enquiry in WhatsApp.</p>
 <p id="availability-selection"></p>
-<p>An enquiry does not reserve dates. <button type="button" class="terms-link" data-open-terms>Read the terms &amp; conditions</button> before booking.</p>
+<p class="enquiry-terms"><button type="button" class="terms-link" data-open-terms>Terms &amp; conditions</button></p>
 <label>Name *<input name="name" required autocomplete="name"></label>
 <label>Preferred dates *<input name="dates" required placeholder="e.g. 6–13 February 2027"></label>
+<label>Lesson / experience *<select name="product" required><option value="" selected disabled>Select a lesson</option><option>Niseko Full-Day Private — 7 Hours</option><option>Niseko Full-Day Private — 6 Hours</option><option>Niseko Half-Day Private — 3 Hours</option><option>Niseko Twilight Private — 2 Hours</option><option>Rusutsu/Kiroro Day Trip — 8 Hours</option><option>Sapporo Kokusai/Teine Day Trip — 10 Hours</option><option>Different lessons on different days / please advise</option></select></label>
 <label>Number of skiers *<input type="number" name="skiers" min="1" max="20" required inputmode="numeric"></label>
 <label>Ability level *
 <select name="ability" required>
@@ -253,7 +255,7 @@
 </main>
 <footer class="home-footer"><a class="brand brand-ski" href="index.html"><span>Ash</span><em>Johns</em><small>Ski</small></a><span>Private Instruction · Ski Instructor Training · Race Coaching · Guiding · © 2026 Ash Johns Ski</span><span class="footer-meta"><a class="footer-social whatsapp-link" href="https://wa.me/6421754626" target="_blank" rel="noopener" aria-label="Chat with Ash on WhatsApp"><span class="visually-hidden">WhatsApp</span></a><a class="footer-social instagram-link" href="https://www.instagram.com/skimanz/" target="_blank" rel="noopener" aria-label="Ash Johns Ski on Instagram"><span class="visually-hidden">Instagram</span></a></span></footer>
 <script src="menu.js"></script>
-<script src="availability.js?v=20261012-3" defer></script>
+<script src="availability.js?v=20261012-4" defer></script>
 <script src="terms.js?v=20261012-1" defer></script>
 <script>
 (function () {
@@ -265,8 +267,6 @@
 
   openButtons.forEach(function (button) {
     button.addEventListener('click', function () {
-      form.dataset.availabilityContext = '';
-      document.getElementById('availability-selection').textContent = '';
       if (modal && typeof modal.showModal === 'function') modal.showModal();
     });
   });
@@ -283,6 +283,7 @@
       "",
       "Name: " + data.get('name'),
       "Preferred dates: " + data.get('dates'),
+      "Lesson / experience: " + data.get('product'),
       "Number of skiers: " + data.get('skiers'),
       "Ability: " + data.get('ability')
     ];
