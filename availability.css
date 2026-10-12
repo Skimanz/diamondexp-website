@@ -63,3 +63,9 @@ body:has(dialog[open]){overflow:hidden}
 .jp-contact-actions button.button:focus-visible{outline:3px solid #0d5b87;outline-offset:4px}
 .jp-contact-actions .contact-button-icon{display:block;width:24px;height:24px;flex:0 0 24px}
 .jp-contact-actions .contact-whatsapp-icon{background:currentColor;-webkit-mask:url('images/whatsapp.svg') center/contain no-repeat;mask:url('images/whatsapp.svg') center/contain no-repeat}
+
+.japan-hero .jp-hero-actions{display:flex;flex-direction:row;flex-wrap:wrap;gap:12px;margin:24px 0 0;width:100%;max-width:600px}
+.japan-hero .jp-hero-actions button.button{flex:1 1 240px;width:auto;border-color:#fff;color:#fff;background:transparent}
+.japan-hero .jp-hero-actions button.button:hover{background:#fff;color:#0d5b87}
+.japan-hero .jp-hero-actions button.button:focus-visible{outline-color:#fff}
+@media(max-width:540px){.japan-hero .jp-hero-actions{max-width:360px}.japan-hero .jp-hero-actions button.button{flex-basis:100%;width:100%}}
