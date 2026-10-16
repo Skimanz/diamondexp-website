@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css?v=20260911-1">
-<link rel="stylesheet" href="availability.css?v=20261012-7">
+<link rel="stylesheet" href="availability.css?v=20261017-1">
 </head>
 <body class="japan-page">
 <header class="site-header">
@@ -234,11 +234,10 @@
 <form class="enquiry-form" id="japan-whatsapp-enquiry" data-booking-enquiry action="https://formspree.io/f/mykvrjgn" method="POST">
 <input type="hidden" name="destination" value="Japan"><input type="hidden" name="_subject" value="Ash Johns Ski booking enquiry"><input type="hidden" name="availability_note">
 <h2 id="japan-enquiry-title">Booking enquiry</h2>
-<p>Share your dates and lesson preference, then choose email or WhatsApp.</p>
 <p id="availability-selection"></p>
 <p class="enquiry-terms"><button type="button" class="terms-link" data-open-terms>Terms &amp; conditions</button></p>
 <label>Name *<input name="name" required autocomplete="name"></label>
-<label>Email address <span class="field-hint">Required for an email reply</span><input type="email" name="email" autocomplete="email"></label>
+<label>Email address *<input type="email" name="email" required autocomplete="email"></label>
 <label>Preferred dates *<input name="dates" required placeholder="e.g. 6–13 February 2027"></label>
 <label>Lesson / experience *<select name="product" required><option value="" selected disabled>Select a lesson</option><option>Niseko Full-Day Private — 7 Hours</option><option>Niseko Full-Day Private — 6 Hours</option><option>Niseko Half-Day Private — 3 Hours</option><option>Niseko Twilight Private — 2 Hours</option><option>Rusutsu/Kiroro Day Trip — 8 Hours</option><option>Sapporo Kokusai/Teine Day Trip — 10 Hours</option><option>Different lessons on different days / please advise</option></select></label>
 <label>Number of skiers *<input type="number" name="skiers" min="1" max="20" required inputmode="numeric"></label>
@@ -253,8 +252,8 @@
 </select>
 </label>
 <label>Where are you staying?<input name="staying" placeholder="e.g. Hirafu, Niseko Village, Kutchan"></label>
-<label>What would you like from your ski day?<span class="field-hint">Goals, preferred resort, children in the group, powder, technique, guiding, or anything else that helps me plan.</span><textarea name="message"></textarea></label>
-<div class="jp-contact-actions enquiry-send-actions"><button class="button" type="submit" name="channel" value="email"><svg class="contact-button-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 6 9 7 9-7"/></svg><span>Send by email</span></button><button class="button" type="submit" name="channel" value="whatsapp"><span class="contact-button-icon contact-whatsapp-icon" aria-hidden="true"></span><span>Open WhatsApp</span></button></div>
+<label>Further information…<span class="field-hint">For example: preferred resort, children’s ages, ability levels or what you’d like to work on.</span><textarea name="message"></textarea></label>
+<div class="jp-contact-actions enquiry-send-actions"><button class="button" type="submit" name="channel" value="email"><svg class="contact-button-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 6 9 7 9-7"/></svg><span>Email</span></button><button class="button" type="submit" name="channel" value="whatsapp"><span class="contact-button-icon contact-whatsapp-icon" aria-hidden="true"></span><span>WhatsApp</span></button></div>
 </form>
 </div>
 </dialog>
@@ -283,6 +282,6 @@
 
 })();
 </script>
-<script src="booking-enquiry.js?v=20261012-1" defer></script>
+<script src="booking-enquiry.js?v=20261017-1" defer></script>
 </body>
 </html>

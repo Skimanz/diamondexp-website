@@ -1,8 +1,6 @@
 document.querySelectorAll('[data-booking-enquiry]').forEach(form => {
   const email = form.elements.email;
-  form.querySelectorAll('[name="channel"]').forEach(button => {
-    button.addEventListener('click', () => { email.required = button.value === 'email'; });
-  });
+  email.required = true;
   const destination = form.elements.destination;
   const product = form.elements.product;
   const japanOptions = product.innerHTML;
@@ -17,14 +15,13 @@ document.querySelectorAll('[data-booking-enquiry]').forEach(form => {
   }
   form.addEventListener('submit', event => {
     const channel = event.submitter?.value || 'email';
-    email.required = channel === 'email';
     if (!form.reportValidity()) { event.preventDefault(); return; }
     form.elements.availability_note.value = form.dataset.availabilityContext || '';
     if (channel === 'email') return; // Existing email service handles the POST and delivery result.
     event.preventDefault();
     const data = new FormData(form);
     const lines = ["Hi Ash, I'd like to enquire about skiing.", ''];
-    for (const [key, label] of [['name','Name'],['email','Email'],['destination','Destination'],['dates','Preferred dates'],['product','Lesson / experience'],['skiers','Number of skiers'],['ability','Ability'],['staying','Staying'],['message','Goals / request'],['availability_note','Availability']]) {
+    for (const [key, label] of [['name','Name'],['email','Email'],['destination','Destination'],['dates','Preferred dates'],['product','Lesson / experience'],['skiers','Number of skiers'],['ability','Ability'],['staying','Staying'],['message','Further information'],['availability_note','Availability']]) {
       const value = String(data.get(key) || '').trim();
       if (value) lines.push(label + ': ' + value);
     }
