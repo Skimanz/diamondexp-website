@@ -24,6 +24,19 @@ h1{font-size:clamp(2.7rem,4.9vw,5.1rem)}h2{font-size:clamp(2.25rem,3.8vw,3.75rem
   border-bottom: 1px solid #d9dee2;
 }
 
+/* Standalone About Ash page */
+.home-about-copy h1 {
+  font-size: clamp(2.75rem, 4.2vw, 4.4rem);
+}
+
+.about-page-profile {
+  background: #f3f8fc;
+}
+
+.about-page-profile .home-about {
+  padding-top: 7rem;
+}
+
 .about-credentials span {
   display: flex;
   flex: 1;
