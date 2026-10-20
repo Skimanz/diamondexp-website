@@ -86,6 +86,11 @@ h1{font-size:clamp(2.7rem,4.9vw,5.1rem)}h2{font-size:clamp(2.25rem,3.8vw,3.75rem
   --muted: #587185;
 }
 
+.brand em,
+.page-hero h1 em {
+  color: #f4ae35;
+}
+
 body {
   background: #f5f9fc;
 }
@@ -376,6 +381,12 @@ footer,
 
 .qt-pricing-grid li {
   margin-bottom: 0.45rem;
+}
+
+.nz-card-availability {
+  margin-top: 1.4rem;
+  border: 0;
+  cursor: pointer;
 }
 
 .qt-pricing-grid .qt-price-featured strong,
