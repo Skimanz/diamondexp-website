@@ -14,6 +14,9 @@
   root.addEventListener('click', event => { if (event.target === root) root.close(); });
   enquiry.querySelector('.jp-modal-close').addEventListener('click', () => enquiry.close());
   enquiry.addEventListener('click', event => { if (event.target === enquiry) enquiry.close(); });
+  const followHash = () => { if (location.hash === '#nz-availability') openCalendar(); };
+  window.addEventListener('hashchange', followHash);
+  followHash();
 
   const grid = root.querySelector('[data-calendar]');
   const monthLabel = root.querySelector('[data-month]');

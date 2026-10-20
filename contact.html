@@ -18,7 +18,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20261020-3">
+<link rel="stylesheet" href="styles.css?v=20261020-4">
 <link rel="stylesheet" href="availability.css?v=20261017-1">
 </head>
 <body class="contact-body">
@@ -42,17 +42,19 @@
 <div class="contact-hero-copy">
 <p class="eyebrow">Contact · Booking enquiry</p>
 <h1>Let’s plan your <em>mountain experience.</em></h1>
-<p>Share your destination, dates and goals, and I’ll be in touch to shape the right experience for you.</p>
-<div class="contact-socials"><a class="footer-social whatsapp-link" href="https://wa.me/6421754626" target="_blank" rel="noopener" aria-label="Chat with Ash on WhatsApp"><span class="visually-hidden">WhatsApp</span></a><a class="footer-social instagram-link" href="https://www.instagram.com/skimanz/" target="_blank" rel="noopener" aria-label="Ash Johns Ski on Instagram"><span class="visually-hidden">Instagram</span></a></div>
+<p>Choose Japan or New Zealand, then share your dates, group and goals. I’ll help you identify the right coaching experience and next booking step.</p>
+<div class="contact-destinations" aria-label="Season locations"><span><strong>Japan</strong> · Niseko &amp; Hokkaido</span><span><strong>New Zealand</strong> · Queenstown</span></div>
+<div class="contact-socials"><a class="footer-social whatsapp-link" href="https://wa.me/6421754626" target="_blank" rel="noopener" aria-label="Chat with Ash on WhatsApp"><span class="visually-hidden">WhatsApp</span></a><a class="footer-social email-link" href="mailto:ashjohns@me.com?subject=DiamondExp%20Website%20Enquiry" aria-label="Email Ash Johns Ski"><span class="visually-hidden">Email Ash</span></a><a class="footer-social facebook-link" href="https://www.facebook.com/skimanz/" target="_blank" rel="noopener" aria-label="Ash Johns Ski on Facebook"><span class="visually-hidden">Facebook</span></a><a class="footer-social instagram-link" href="https://www.instagram.com/skimanz/" target="_blank" rel="noopener" aria-label="Ash Johns Ski on Instagram"><span class="visually-hidden">Instagram</span></a></div>
 </div>
 <form class="enquiry-form" id="contact-booking-enquiry" data-booking-enquiry action="https://formspree.io/f/mykvrjgn" method="POST">
-<label>Destination *<select name="destination" required><option value="Japan">Japan</option><option value="New Zealand">New Zealand</option><option value="Not sure yet">Not sure yet</option></select></label><input type="hidden" name="_subject" value="Ash Johns Ski booking enquiry"><input type="hidden" name="availability_note">
-<h2 id="contact-enquiry-title">Booking enquiry</h2>
-
-<p class="enquiry-terms"><a class="terms-link" href="japan.html#booking-terms">Japan terms &amp; conditions</a></p>
+<input type="hidden" name="_subject" value="Ash Johns Ski booking enquiry"><input type="hidden" name="availability_note">
+<h2 id="contact-enquiry-title">Tell me about your trip</h2>
+<p class="contact-form-intro">Select a destination and the form will show the relevant experiences and availability calendar.</p>
+<label class="full-width">Destination *<select name="destination" required><option value="Japan">Japan</option><option value="New Zealand">New Zealand</option><option value="Not sure yet">Not sure yet</option></select></label>
+<p class="enquiry-terms"><a class="terms-link" href="japan.html#booking-terms" data-contact-terms>Japan terms &amp; conditions</a></p>
 <label>Name *<input name="name" required autocomplete="name"></label>
 <label>Email address *<input type="email" name="email" required autocomplete="email"></label>
-<button type="button" class="terms-link" data-contact-calendar>Check Japan availability</button><label>Preferred dates *<input name="dates" required placeholder="e.g. 6–13 February 2027"></label>
+<button type="button" class="contact-calendar-link" data-contact-calendar><svg class="contact-button-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 3v4m10-4v4M3 11h18m-14 4h3m4 0h3"/></svg><span>Check Japan availability</span></button><label>Preferred dates *<input name="dates" required placeholder="e.g. 6–13 February 2027"></label>
 <label>Lesson / experience *<select name="product" required><option value="" selected disabled>Select a lesson</option><option>Niseko Door-to-Door Private — 7 Hours</option><option>Niseko Resort Private — 6 Hours</option><option>Niseko Half-Day Private — 3 Hours</option><option>Niseko Twilight Private — 2 Hours</option><option>Rusutsu/Kiroro Day Trip — 8 Hours</option><option>Sapporo Kokusai/Teine Day Trip — 10 Hours</option><option>Different lessons on different days / please advise</option></select></label>
 <label>Number of skiers *<input type="number" name="skiers" min="1" max="20" required inputmode="numeric"></label>
 <label>Ability level *
@@ -74,6 +76,6 @@
 <footer class="home-footer"><a class="brand brand-ski" href="index.html"><span>Ash</span><em>Johns</em><small>Ski</small></a><span>Private Instruction · Ski Instructor Training · Race Coaching · Guiding · © 2026 Ash Johns Ski</span><span class="footer-meta"><a class="footer-social whatsapp-link" href="https://wa.me/6421754626" target="_blank" rel="noopener" aria-label="Chat with Ash on WhatsApp"><span class="visually-hidden">WhatsApp</span></a><a class="footer-social email-link" href="mailto:ashjohns@me.com?subject=DiamondExp%20Website%20Enquiry" aria-label="Email Ash Johns Ski"><span class="visually-hidden">Email Ash</span></a><a class="footer-social facebook-link" href="https://www.facebook.com/skimanz/" target="_blank" rel="noopener" aria-label="Ash Johns Ski on Facebook"><span class="visually-hidden">Facebook</span></a><a class="footer-social instagram-link" href="https://www.instagram.com/skimanz/" target="_blank" rel="noopener" aria-label="Ash Johns Ski on Instagram"><span class="visually-hidden">Instagram</span></a></span></footer>
 <script src="menu.js">
 </script>
-<script src="booking-enquiry.js?v=20261017-1" defer></script>
+<script src="booking-enquiry.js?v=20261020-2" defer></script>
 </body>
 </html>

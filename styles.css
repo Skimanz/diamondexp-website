@@ -91,6 +91,13 @@ h1{font-size:clamp(2.7rem,4.9vw,5.1rem)}h2{font-size:clamp(2.25rem,3.8vw,3.75rem
   color: #f4ae35;
 }
 
+/* Keep every decorative gold treatment on the same brand colour. */
+.home-destination b,
+.home-service-grid,
+.home-service-grid article {
+  border-color: #f4ae3570;
+}
+
 body {
   background: #f5f9fc;
 }
@@ -392,6 +399,36 @@ footer,
 .qt-pricing-grid .qt-price-featured li,
 .qt-pricing-grid .qt-price-featured strong span {
   color: #d4e5ee;
+}
+
+.qt-pricing-grid .qt-good-to-know {
+  background: #eaf5fb;
+  border-top: 3px solid var(--gold);
+}
+
+.qt-good-to-know .eyebrow {
+  margin-bottom: 0.7rem;
+}
+
+.qt-pricing-grid .qt-good-to-know h3 {
+  min-height: 0;
+  font-size: 2.2rem;
+}
+
+.qt-good-to-know h3 em {
+  color: var(--gold);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.qt-pricing-grid .qt-good-to-know ul {
+  margin-top: 1.7rem;
+}
+
+.qt-good-to-know a {
+  color: #0d5b87;
+  font-weight: 600;
+  text-underline-offset: 3px;
 }
 
 .qt-price-note {
@@ -830,7 +867,7 @@ footer,
 .contact-hero {
   min-height: 42vh;
   display: grid;
-  grid-template-columns: 0.72fr 0.92fr 1.18fr;
+  grid-template-columns: minmax(0, 0.82fr) minmax(520px, 1.18fr);
   background: var(--navy);
   color: white;
 }
@@ -866,6 +903,24 @@ footer,
   align-items: center;
   column-gap: 0.9rem;
   margin-top: 2rem;
+}
+
+.contact-destinations {
+  display: grid;
+  gap: 0.55rem;
+  margin-top: 1.8rem;
+  color: #d4e5ee;
+  font-size: 0.72rem;
+  line-height: 1.5;
+}
+
+.contact-destinations span {
+  padding-left: 0.8rem;
+  border-left: 2px solid var(--gold);
+}
+
+.contact-destinations strong {
+  color: white;
 }
 
 .contact-socials .footer-social {
@@ -917,6 +972,38 @@ select:focus-visible {
 .contact-hero .enquiry-form > p,
 .contact-hero .enquiry-form label {
   color: #d4e5ee;
+}
+
+.contact-hero .contact-form-intro {
+  margin: -0.35rem 0 0.6rem;
+  color: #d4e5ee;
+  line-height: 1.6;
+}
+
+.contact-body .enquiry-form .contact-calendar-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  width: 100%;
+  min-height: 48px;
+  padding: 0.75rem 1rem;
+  border: 1px solid #ffffffaa;
+  background: transparent;
+  color: white;
+  font: 600 0.72rem var(--body);
+  letter-spacing: 0.04em;
+  text-transform: none;
+}
+
+.contact-body .enquiry-form .contact-calendar-link:hover {
+  border-color: white;
+  background: #ffffff14;
+}
+
+.contact-calendar-link .contact-button-icon {
+  width: 20px;
+  height: 20px;
 }
 
 .contact-page {
