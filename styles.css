@@ -431,6 +431,10 @@ footer,
   text-underline-offset: 3px;
 }
 
+.qt-good-to-know .jp-contact-actions {
+  margin-top: 1.5rem;
+}
+
 .qt-price-note {
   margin-top: 1rem;
   color: var(--muted);
