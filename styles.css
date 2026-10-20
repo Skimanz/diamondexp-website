@@ -24,6 +24,166 @@ h1{font-size:clamp(2.7rem,4.9vw,5.1rem)}h2{font-size:clamp(2.25rem,3.8vw,3.75rem
   border-bottom: 1px solid #d9dee2;
 }
 
+/* Simplified contact page: direct contact first, enquiry form second. */
+.contact-intro-section {
+  background: linear-gradient(135deg, #0b466b, #155f8b);
+  color: white;
+}
+
+.contact-intro-section .contact-hero-copy {
+  min-height: 440px;
+  padding: 5.5rem 8vw;
+  background: none;
+}
+
+.contact-intro-section .contact-hero-copy h1 {
+  max-width: 850px;
+}
+
+.contact-primary-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 300px));
+  gap: 1rem;
+  margin-top: 2.3rem;
+}
+
+.contact-primary-action {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  min-height: 82px;
+  padding: 1rem 1.2rem;
+  border: 1px solid #ffffff70;
+  color: white;
+  text-decoration: none;
+  transition: border-color .2s, background .2s, transform .2s;
+}
+
+.contact-primary-action:hover {
+  border-color: white;
+  background: #ffffff12;
+  transform: translateY(-2px);
+}
+
+.contact-primary-action > span:last-child {
+  display: grid;
+  gap: .3rem;
+}
+
+.contact-primary-action small {
+  color: var(--gold);
+  font-size: .58rem;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.contact-primary-action strong {
+  font: 500 1rem var(--display);
+}
+
+.contact-action-icon {
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+  border-radius: 50%;
+  background-size: 20px;
+}
+
+.contact-form-section {
+  display: grid;
+  grid-template-columns: minmax(260px, .65fr) minmax(560px, 1.35fr);
+  gap: 6vw;
+  padding: 5.5rem 8vw 6.5rem;
+  background: #eaf5fb;
+  align-items: start;
+}
+
+.contact-form-heading {
+  position: sticky;
+  top: 110px;
+  padding-top: 1rem;
+}
+
+.contact-form-heading h2 {
+  margin-top: .7rem;
+  font-size: clamp(2.8rem, 4.5vw, 4.6rem);
+}
+
+.contact-form-heading h2 em {
+  color: var(--gold);
+  font-weight: 400;
+}
+
+.contact-form-heading > p:last-child {
+  max-width: 430px;
+  margin-top: 1.2rem;
+  color: var(--muted);
+  font-size: .82rem;
+  line-height: 1.8;
+}
+
+.contact-form-section .enquiry-form {
+  padding: 2.8rem;
+  background: white;
+  box-shadow: 0 18px 50px #0b466b10;
+}
+
+.contact-form-section .enquiry-form label,
+.contact-form-section .enquiry-form > p {
+  color: var(--muted);
+}
+
+.contact-form-section .enquiry-form .terms-link {
+  color: #345d72;
+}
+
+.contact-form-section .enquiry-send-actions {
+  grid-template-columns: 1fr;
+}
+
+.contact-form-section .enquiry-form .enquiry-send-actions button.button {
+  border-color: var(--navy);
+  background: var(--navy);
+  color: white;
+}
+
+.contact-form-section .enquiry-form .enquiry-send-actions button.button:hover {
+  border-color: #0b466b;
+  background: #0b466b;
+}
+
+@media (max-width: 900px) {
+  .contact-form-section {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .contact-form-heading {
+    position: static;
+    max-width: 650px;
+  }
+}
+
+@media (max-width: 600px) {
+  .contact-intro-section .contact-hero-copy {
+    min-height: 0;
+    padding: 4rem 7vw;
+  }
+
+  .contact-primary-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-form-section {
+    padding: 4rem 6vw 5rem;
+  }
+
+  .contact-form-section .enquiry-form {
+    padding: 1.6rem;
+  }
+}
+
 /* Standalone About Ash page */
 .home-about-copy h1 {
   font-size: clamp(2.75rem, 4.2vw, 4.4rem);

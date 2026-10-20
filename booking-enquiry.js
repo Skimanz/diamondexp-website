@@ -15,11 +15,12 @@ document.querySelectorAll('[data-booking-enquiry]').forEach(form => {
     calendar.addEventListener('click', () => {
       window.location.href = destination.value === 'New Zealand' ? 'new-zealand.html#nz-availability' : 'japan.html#availability';
     });
-    const updateDestination = () => {
+  }
+  const updateDestination = () => {
       const value = destination.value;
       const isJapan = value === 'Japan';
       const isNZ = value === 'New Zealand';
-      calendar.hidden = !isJapan && !isNZ;
+      if (calendar) calendar.hidden = !isJapan && !isNZ;
       if (calendarLabel) calendarLabel.textContent = isNZ ? 'Check New Zealand availability' : 'Check Japan availability';
       product.innerHTML = isJapan ? japanOptions : isNZ ? nzOptions : generalOptions;
       if (dates) dates.placeholder = isNZ ? 'e.g. 14–18 July 2027' : isJapan ? 'e.g. 6–13 February 2027' : 'Tell me your preferred dates';
@@ -31,10 +32,9 @@ document.querySelectorAll('[data-booking-enquiry]').forEach(form => {
         terms.target = isNZ ? '_blank' : '';
         terms.rel = isNZ ? 'noopener' : '';
       }
-    };
-    destination.addEventListener('change', updateDestination);
-    updateDestination();
-  }
+  };
+  destination.addEventListener('change', updateDestination);
+  updateDestination();
   form.addEventListener('submit', event => {
     const channel = event.submitter?.value || 'email';
     if (!form.reportValidity()) { event.preventDefault(); return; }

@@ -83,3 +83,6 @@ body:has(dialog[open]){overflow:hidden}
 
 .enquiry-form .enquiry-send-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
 .enquiry-form .enquiry-send-actions button.button{width:100%;min-width:0;gap:8px;padding:14px 10px}
+.contact-body .contact-form-section .enquiry-form .terms-link{color:#345d72}
+.contact-body .contact-form-section .enquiry-form .enquiry-send-actions button.button{border-color:#0d527d;color:#fff;background:#0d527d}
+.contact-body .contact-form-section .enquiry-form .enquiry-send-actions button.button:hover{border-color:#0b466b;color:#fff;background:#0b466b}
