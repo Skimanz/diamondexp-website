@@ -756,6 +756,25 @@ footer,
   background-repeat: no-repeat;
 }
 
+.facebook-link {
+  border-color: #1877f2;
+  background: #1877f2 url('images/facebook.svg') center/17px no-repeat;
+}
+
+.home-footer .brand-ski {
+  font-size: 1.5rem;
+}
+
+.home-footer .brand-ski small {
+  color: #fff;
+  font-size: 0.58rem;
+  letter-spacing: 0.24em;
+}
+
+.home-footer > span:not(.footer-meta) {
+  color: #fff;
+}
+
 .nav-whatsapp {
   width: 34px;
   height: 34px;
