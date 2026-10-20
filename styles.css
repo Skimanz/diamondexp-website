@@ -383,12 +383,6 @@ footer,
   margin-bottom: 0.45rem;
 }
 
-.nz-card-availability {
-  margin-top: 1.4rem;
-  border: 0;
-  cursor: pointer;
-}
-
 .qt-pricing-grid .qt-price-featured strong,
 .qt-pricing-grid .qt-price-featured h3 {
   color: white;
