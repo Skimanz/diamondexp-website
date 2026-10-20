@@ -86,3 +86,5 @@ body:has(dialog[open]){overflow:hidden}
 .contact-body .contact-form-section .enquiry-form .terms-link{color:#345d72}
 .contact-body .contact-form-section .enquiry-form .enquiry-send-actions button.button{border-color:#0d527d;color:#fff;background:#0d527d}
 .contact-body .contact-form-section .enquiry-form .enquiry-send-actions button.button:hover{border-color:#0b466b;color:#fff;background:#0b466b}
+.contact-body .contact-form-section .enquiry-form .contact-calendar-link{grid-column:1/-1;border-color:#0d527d;color:#0d527d;background:transparent}
+.contact-body .contact-form-section .enquiry-form .contact-calendar-link:hover{border-color:#0d527d;color:#0d527d;background:#eaf5fb}
