@@ -247,8 +247,8 @@
 <dialog class="jp-modal" id="japan-enquiry-modal" aria-labelledby="japan-enquiry-title">
 <div class="jp-modal-inner">
 <button class="jp-modal-close" type="button" aria-label="Close WhatsApp enquiry form">×</button>
-<form class="enquiry-form" id="japan-whatsapp-enquiry" data-booking-enquiry action="https://formspree.io/f/mykvrjgn" method="POST">
-<input type="hidden" name="destination" value="Japan"><input type="hidden" name="_subject" value="Ash Johns Ski booking enquiry"><input type="hidden" name="availability_note">
+<form class="enquiry-form" id="japan-whatsapp-enquiry" data-booking-enquiry action="/api/contact" method="POST">
+<input type="hidden" name="destination" value="Japan"><input type="hidden" name="availability_note"><input type="hidden" name="form_id" value="japan-whatsapp-enquiry"><div hidden aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div>
 <h2 id="japan-enquiry-title">Booking enquiry</h2>
 <p id="availability-selection"></p>
 <p class="enquiry-terms"><button type="button" class="terms-link" data-open-terms>Terms &amp; conditions</button></p>
@@ -298,6 +298,6 @@
 
 })();
 </script>
-<script src="booking-enquiry.js?v=20261023-1" defer></script>
+<script src="booking-enquiry.js?v=20261023-2" defer></script>
 </body>
 </html>
