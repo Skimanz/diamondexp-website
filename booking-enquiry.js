@@ -35,12 +35,46 @@ document.querySelectorAll('[data-booking-enquiry]').forEach(form => {
   };
   destination.addEventListener('change', updateDestination);
   updateDestination();
-  form.addEventListener('submit', event => {
+  form.addEventListener('submit', async event => {
     const channel = event.submitter?.value || 'email';
     if (!form.reportValidity()) { event.preventDefault(); return; }
     form.elements.availability_note.value = form.dataset.availabilityContext || '';
-    if (channel === 'email') return; // Existing email service handles the POST and delivery result.
     event.preventDefault();
+    if (form.dataset.submitting === 'true') return;
+    if (channel === 'email') {
+      form.dataset.submitting = 'true';
+      const buttons = [...form.querySelectorAll('[type="submit"]')];
+      const previousDisabled = buttons.map(button => button.disabled);
+      let status = form.querySelector('[data-enquiry-status]');
+      if (!status) {
+        status = document.createElement('p');
+        status.dataset.enquiryStatus = '';
+        status.setAttribute('role', 'status');
+        form.append(status);
+      }
+      status.textContent = '';
+      buttons.forEach(button => { button.disabled = true; });
+      try {
+        const data = new FormData(form);
+        data.set('channel', 'email');
+        const response = await fetch(form.action, {
+          method: 'POST', body: data, headers: {Accept: 'application/json'}
+        });
+        if (!response.ok) throw new Error('Submission failed');
+        // Acceptance by Formspree is a lead, not a confirmed booking or delivery receipt.
+        form.dispatchEvent(new CustomEvent('enquiry:success', {bubbles: true}));
+        status.textContent = 'Thanks, your enquiry has been submitted.';
+        form.reset();
+        updateDestination();
+      } catch {
+        status.textContent = 'Your enquiry could not be confirmed. Please try again or email skiwithash@gmail.com.';
+      } finally {
+        delete form.dataset.submitting;
+        buttons.forEach((button, index) => { button.disabled = previousDisabled[index]; });
+      }
+      return;
+    }
+    window.trackSkiEnquiry?.('whatsapp_click', form);
     const data = new FormData(form);
     const lines = ["Hi Ash, I'd like to enquire about skiing.", ''];
     for (const [key, label] of [['name','Name'],['email','Email'],['destination','Destination'],['dates','Preferred dates'],['product','Lesson / experience'],['skiers','Number of skiers'],['ability','Ability'],['staying','Staying'],['message','Further information'],['availability_note','Availability']]) {
