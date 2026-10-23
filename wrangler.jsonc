@@ -2,8 +2,26 @@
   "name": "diamondexp-website",
   "pages_build_output_dir": "./dist",
   "compatibility_date": "2026-10-23",
-  "vars": {"CONTACT_MODE": "resend"}
-  // Before deployment: add Diamond TURNSTILE_SITE_KEY, verified CONTACT_FROM,
-  // and ENQUIRIES D1 binding (database_id from the Diamond database).
-  // Keep TURNSTILE_SECRET_KEY and RESEND_API_KEY in Pages secrets.
+  "vars": {
+    "CONTACT_MODE": "resend",
+    "CONTACT_FROM": "Ash Johns Ski <website@forms.diamondexp.nz>",
+    "TURNSTILE_SITE_KEY": "0x4AAAAAAFhvLrsbMpOzBgyN"
+  },
+  "env": {
+    "preview": {
+      "vars": {
+        "CONTACT_MODE": "resend",
+        "CONTACT_FROM": "Ash Johns Ski <website@forms.diamondexp.nz>",
+        "TURNSTILE_SITE_KEY": "0x4AAAAAAFhvLrsbMpOzBgyN"
+      },
+      "d1_databases": [
+        {
+          "binding": "ENQUIRIES",
+          "database_name": "diamondexp-enquiries-preview",
+          "database_id": "cadeab4f-6913-4f63-be9a-7aa5f3502f23",
+          "migrations_dir": "migrations"
+        }
+      ]
+    }
+  }
 }
