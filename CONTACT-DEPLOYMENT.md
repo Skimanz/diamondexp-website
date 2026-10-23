@@ -4,7 +4,7 @@ Adapted from `Skimanz/basalt-capital-website`, branch `temporary-contact`.
 
 ## Current release state
 
-Prepared on `migrate-contact`. Do not promote to production until the resources below are configured and a preview is verified. Production still uses its existing Formspree integration until promotion.
+Implemented on `migrate-contact`. Resources are configured and preview submission, D1 persistence, Resend acceptance and Gmail inbox receipt were verified before production promotion. Production is deployed through GitHub main.
 
 ## Cloudflare Pages configuration
 
@@ -20,7 +20,7 @@ Project: `diamondexp-website`, account `4f4fa76589be91184a6b9e16502c5226`.
 8. On a configured preview, submit a clearly labelled test enquiry with a fresh real Turnstile token. Confirm its D1 reference, Resend receipt and inbox delivery separately. Replay of the consumed token must fail. Do not solve an interactive challenge through automation.
 9. Promote only after preview checks pass, then verify production again.
 
-No keys or placeholder resource IDs are committed. No changes to iCloud, unrelated email accounts, Basalt resources, pricing, SEO or sitemap are required.
+No secret keys or placeholder resource IDs are committed. Public site key, verified sender and separate D1 IDs are configured in Wrangler. No changes to iCloud, unrelated email accounts, Basalt resources, pricing, SEO or sitemap are required.
 
 ## Behaviour
 
@@ -32,4 +32,20 @@ GA4 receives only the existing fixed event/location labels; reference and form v
 
 - `node --test tests/*.test.js`: backend validation, persistence before delivery, Resend failures, config gating, frontend failure/success handling, duplicate-submit protection and Turnstile reset.
 - `python3 scripts/build.py`: produces static output and API-only `_routes.json`.
-- Real Cloudflare binding, Turnstile, notification and inbox checks remain pending until account configuration is available.
+- Real preview checks passed: Turnstile accepted a fresh token, D1 saved the enquiry, Resend accepted notification and Gmail inbox receipt was verified. An explicit consumed-token replay test remains unverified.
+
+## Provisioned resources (23 October 2026)
+
+- Production D1: `diamondexp-enquiries` (`9dad7749-563d-4513-addd-e64e486ec763`).
+- Preview D1: `diamondexp-enquiries-preview` (`cadeab4f-6913-4f63-be9a-7aa5f3502f23`).
+- Enquiry table and index initialized in both through the Cloudflare D1 console using the checked migration SQL.
+- Managed Turnstile widget: `Diamond Experiences contact`, allowing `diamondexp.nz` and `diamondexp-website.pages.dev` (including subdomains). No pre-clearance.
+- Resend domain `forms.diamondexp.nz` verified. Sender: `Ash Johns Ski <website@forms.diamondexp.nz>`.
+- Pages production and preview store `TURNSTILE_SECRET_KEY` and domain-restricted sending-only `RESEND_API_KEY` as encrypted secrets.
+- Pages build: `python3 scripts/build.py`, output `dist`.
+
+Preview storage was verified with reference `24bfe55c-1e60-4d0d-9046-85cbea6cdd76`; this first test recorded `not_sent`, correctly preserving the enquiry and showing a notification warning. The credential transfer was corrected afterward. Do not treat that first test as evidence of email delivery.
+
+## Successful preview validation
+
+Reference `7f09fb7e-975c-4909-a737-5b6b151d4206`: real Turnstile-backed submission succeeded, notification was accepted, and the matching message was independently found in the `skiwithash@gmail.com` Gmail inbox. Test message explicitly stated that no booking was requested. The guest email is used as Reply-To. Automated backend/client tests: 7 passed.
