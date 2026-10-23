@@ -17,6 +17,44 @@ const spamReady = fetch('/api/form-config', {cache: 'no-store'})
   });
 // Attach a rejection handler immediately, including while a modal is still closed.
 spamReady.catch(() => {});
+function showEnquiryConfirmation(form, receipt) {
+  const modal = form.closest('dialog');
+  if (!modal) return;
+  const confirmation = document.createElement('section');
+  confirmation.className = 'enquiry-success';
+  confirmation.innerHTML = `
+    <span class="enquiry-success-check" aria-hidden="true">✓</span>
+    <p class="eyebrow">Ash Johns Ski</p>
+    <h2>Enquiry received!</h2>
+    <p>Thank you for getting in touch. Ash will be in touch to discuss your ski experience.</p>
+    <p class="enquiry-success-reference">Your reference<br><strong></strong></p>
+    <p class="enquiry-success-notice">This is an enquiry, not a confirmed booking.</p>
+    <p class="enquiry-success-warning" hidden></p>
+    <button class="button" type="button">Close</button>`;
+  const heading = confirmation.querySelector('h2');
+  heading.id = form.id + '-success-title';
+  heading.tabIndex = -1;
+  // The server reference is text, never HTML, and is displayed without alteration.
+  confirmation.querySelector('strong').textContent = receipt.reference;
+  if (receipt.notification !== 'accepted') {
+    const warning = confirmation.querySelector('.enquiry-success-warning');
+    warning.hidden = false;
+    warning.textContent = receipt.message;
+  }
+  const previousLabel = modal.getAttribute('aria-labelledby');
+  form.after(confirmation);
+  form.hidden = true;
+  modal.setAttribute('aria-labelledby', heading.id);
+  confirmation.querySelector('button').addEventListener('click', () => modal.close());
+  modal.addEventListener('close', () => {
+    confirmation.remove();
+    form.hidden = false;
+    if (previousLabel === null) modal.removeAttribute('aria-labelledby');
+    else modal.setAttribute('aria-labelledby', previousLabel);
+  }, {once: true});
+  modal.scrollTop = 0;
+  heading.focus();
+}
 document.querySelectorAll('[data-booking-enquiry]').forEach(form => {
   let widget;
   const status = document.createElement('p');
@@ -104,13 +142,14 @@ document.querySelectorAll('[data-booking-enquiry]').forEach(form => {
           method: 'POST', body: data, headers: {Accept: 'application/json'}
         });
         const receipt = await response.json();
-        if (!response.ok || !receipt.reference) throw new Error(receipt.error || 'Submission could not be confirmed.');
+        if (!response.ok || typeof receipt.reference !== 'string' || !receipt.reference.trim()) throw new Error(receipt.error || 'Submission could not be confirmed.');
         // A durable D1 save is a lead, not a confirmed booking or email delivery receipt.
         form.dispatchEvent(new CustomEvent('enquiry:success', {bubbles: true}));
         status.textContent = receipt.message + ' Reference: ' + receipt.reference;
         form.reset();
         form.dataset.availabilityContext = '';
         updateDestination();
+        showEnquiryConfirmation(form, receipt);
       } catch (error) {
         status.textContent = error.message || 'Your enquiry could not be confirmed. Please try again or email skiwithash@gmail.com.';
       } finally {
