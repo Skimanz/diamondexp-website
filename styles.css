@@ -1512,3 +1512,16 @@ select:focus-visible {
     margin-top: 2rem;
   }
 }
+
+/* Server-confirmed booking enquiry receipt, within the existing modal. */
+.jp-modal .enquiry-form[hidden] { display: none !important; }
+.enquiry-success { text-align: center; padding: 1.25rem .5rem; color: var(--navy); }
+.enquiry-success-check { display: grid; place-items: center; width: 4rem; height: 4rem; margin: 0 auto 1.5rem; border-radius: 50%; background: #e6f4e9; color: #237a3b; font: 600 2rem var(--body); }
+.enquiry-success .eyebrow { margin-bottom: .75rem; }
+.enquiry-success h2 { margin: 0 0 1rem; color: #0d5b87; font: 500 clamp(2rem, 6vw, 3rem) var(--display); }
+.enquiry-success > p:not(.eyebrow) { margin: 1rem auto; max-width: 32rem; font-size: .85rem; line-height: 1.7; }
+.enquiry-success-reference { padding: 1rem; background: #e6f4fb; }
+.enquiry-success-reference strong { display: inline-block; margin-top: .25rem; overflow-wrap: anywhere; font-size: .85rem; }
+.enquiry-success-notice { font-weight: 600; }
+.enquiry-success-warning { color: #785311; }
+.enquiry-success .button { margin-top: .75rem; min-width: 10rem; border: 0; cursor: pointer; }
