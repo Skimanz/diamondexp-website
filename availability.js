@@ -62,7 +62,7 @@
       const button = document.createElement('button');
       button.type = 'button'; button.className = `availability-day ${outside?'past':status}`;
       button.disabled = outside || status === 'unavailable';
-      const state = outside ? 'Past / closed' : {available:'Available',pending:'Pending',unavailable:'Unavailable'}[status];
+      const state = outside ? 'Past / closed' : {available:'Enquire',pending:'Pending',unavailable:'Unavailable'}[status];
       button.setAttribute('aria-label', `${label(key)}: ${state}${status==='pending'?', enquire as backup':''}`);
       const number = document.createElement('strong'); number.textContent = day;
       const tag = document.createElement('span'); tag.textContent = state;
