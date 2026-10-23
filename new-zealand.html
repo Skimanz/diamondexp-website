@@ -125,8 +125,8 @@
 <dialog class="jp-modal" id="nz-enquiry-modal" aria-labelledby="nz-enquiry-title">
 <div class="jp-modal-inner">
 <button class="jp-modal-close" type="button" aria-label="Close booking enquiry form">×</button>
-<form class="enquiry-form" id="nz-booking-enquiry" data-booking-enquiry action="https://formspree.io/f/mykvrjgn" method="POST">
-<input type="hidden" name="destination" value="New Zealand"><input type="hidden" name="_subject" value="Ash Johns Ski New Zealand booking enquiry"><input type="hidden" name="availability_note">
+<form class="enquiry-form" id="nz-booking-enquiry" data-booking-enquiry action="/api/contact" method="POST">
+<input type="hidden" name="destination" value="New Zealand"><input type="hidden" name="availability_note"><input type="hidden" name="form_id" value="nz-booking-enquiry"><div hidden aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div>
 <h2 id="nz-enquiry-title">Booking enquiry</h2>
 <p id="nz-availability-selection"></p>
 <label>Name *<input name="name" required autocomplete="name"></label>
@@ -145,6 +145,6 @@
 <footer class="home-footer"><a class="brand brand-ski" href="index.html"><span>Ash</span><em>Johns</em><small>Ski</small></a><span>Private Instruction · Ski Instructor Training · Race Coaching · Guiding · © 2026 Ash Johns Ski</span><span class="footer-meta"><a class="footer-social whatsapp-link" href="https://wa.me/6421754626" target="_blank" rel="noopener" aria-label="Chat with Ash on WhatsApp"><span class="visually-hidden">WhatsApp</span></a><a class="footer-social email-link" href="mailto:skiwithash@gmail.com?subject=DiamondExp%20Website%20Enquiry" aria-label="Email Ash Johns Ski"><span class="visually-hidden">Email Ash</span></a><a class="footer-social facebook-link" href="https://www.facebook.com/skimanz/" target="_blank" rel="noopener" aria-label="Ash Johns Ski on Facebook"><span class="visually-hidden">Facebook</span></a><a class="footer-social instagram-link" href="https://www.instagram.com/skimanz/" target="_blank" rel="noopener" aria-label="Ash Johns Ski on Instagram"><span class="visually-hidden">Instagram</span></a></span></footer>
 <script src="menu.js"></script>
 <script src="nz-availability.js?v=20261020-2" defer></script>
-<script src="booking-enquiry.js?v=20261023-1" defer></script>
+<script src="booking-enquiry.js?v=20261023-2" defer></script>
 </body>
 </html>

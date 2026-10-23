@@ -1,0 +1,7 @@
+{
+  "name": "diamondexp-website",
+  "private": true,
+  "type": "module",
+  "scripts": {"build": "python3 scripts/build.py", "test": "node --test tests/*.test.js"},
+  "devDependencies": {"wrangler": "4.130.0"}
+}
