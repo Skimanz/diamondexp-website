@@ -23,5 +23,13 @@
         }
       ]
     }
-  }
+  },
+  "d1_databases": [
+    {
+      "binding": "ENQUIRIES",
+      "database_name": "diamondexp-enquiries",
+      "database_id": "9dad7749-563d-4513-addd-e64e486ec763",
+      "migrations_dir": "migrations"
+    }
+  ]
 }
