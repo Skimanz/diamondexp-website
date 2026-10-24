@@ -1525,3 +1525,14 @@ select:focus-visible {
 .enquiry-success-notice { font-weight: 600; }
 .enquiry-success-warning { color: #785311; }
 .enquiry-success .button { margin-top: .75rem; min-width: 10rem; border: 0; cursor: pointer; }
+
+/* Make Spring and Peak prices readable across all Japan experience cards. */
+.qt-pricing-grid article > p.qt-season-rates:not(.qt-time) {
+  color: #17344a;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.6;
+}
+.qt-pricing-grid article.qt-price-featured > p.qt-season-rates:not(.qt-time) {
+  color: #fff;
+}
