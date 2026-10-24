@@ -1529,7 +1529,7 @@ select:focus-visible {
 /* Make Spring and Peak prices readable across all Japan experience cards. */
 .qt-pricing-grid article > p.qt-season-rates:not(.qt-time) {
   color: #17344a;
-  font-size: 1rem;
+  font-size: .84rem;
   font-weight: 500;
   line-height: 1.6;
 }
