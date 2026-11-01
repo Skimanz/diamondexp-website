@@ -61,8 +61,8 @@
       const outside = key < data.seasonStart || key > data.seasonEnd || key < today;
       const button = document.createElement('button');
       button.type = 'button'; button.className = `availability-day ${outside?'past':status}`;
-      button.disabled = outside || status === 'unavailable';
-      const state = outside ? 'Past / closed' : {available:'Enquire',pending:'Pending',unavailable:'Unavailable'}[status];
+      button.disabled = outside || status === 'unavailable' || status === 'booked';
+      const state = outside ? 'Past / closed' : {available:'Enquire',pending:'Pending',booked:'Booked',unavailable:'Unavailable'}[status];
       button.setAttribute('aria-label', `${label(key)}: ${state}${status==='pending'?', enquire as backup':''}`);
       const number = document.createElement('strong'); number.textContent = day;
       const tag = document.createElement('span'); tag.textContent = state;
@@ -89,7 +89,7 @@
     .then(value => {
       if (!datePattern.test(value.seasonStart) || !datePattern.test(value.seasonEnd) || value.seasonStart>value.seasonEnd || !value.days || typeof value.days!=='object' || Array.isArray(value.days)) throw Error('Invalid calendar');
       for (const [key,entry] of Object.entries(value.days)) {
-        if (!datePattern.test(key) || !entry || !['pending','unavailable'].includes(entry.status)) throw Error('Invalid date status');
+        if (!datePattern.test(key) || !entry || !['pending','booked','unavailable'].includes(entry.status)) throw Error('Invalid date status');
       }
       data=value;
       month = today < data.seasonStart ? data.seasonStart.slice(0,7) : today > data.seasonEnd ? data.seasonEnd.slice(0,7) : today.slice(0,7);
