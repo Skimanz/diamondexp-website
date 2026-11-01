@@ -84,8 +84,29 @@
   }
   previous.addEventListener('click',()=>move(-1));
   next.addEventListener('click',()=>move(1));
-  fetch('availability.json', {cache:'no-store'})
-    .then(response => {if (!response.ok) throw Error('Availability unavailable');return response.json();})
+  async function fetchCalendarData(filename) {
+    const sources = [
+      new URL(filename, document.baseURI).href,
+      'https://raw.githubusercontent.com/Skimanz/diamondexp-website/main/' + filename
+    ];
+    let error;
+    for (const source of sources) {
+      try {
+        const url = new URL(source);
+        url.searchParams.set('v', String(Date.now()));
+        const response = await fetch(url.href, {cache:'no-store'});
+        if (!response.ok) throw Error('Calendar request failed: ' + response.status);
+        const value = await response.json();
+        if (!datePattern.test(value.seasonStart) || !datePattern.test(value.seasonEnd) || value.seasonStart > value.seasonEnd || !value.days || typeof value.days !== 'object' || Array.isArray(value.days)) throw Error('Invalid calendar data');
+        for (const [key, entry] of Object.entries(value.days)) {
+          if (!datePattern.test(key) || !entry || !['pending', 'booked', 'unavailable'].includes(entry.status)) throw Error('Invalid day status');
+        }
+        return value;
+      } catch (cause) { error = cause; }
+    }
+    throw error || Error('Calendar unavailable');
+  }
+  fetchCalendarData('availability.json')
     .then(value => {
       if (!datePattern.test(value.seasonStart) || !datePattern.test(value.seasonEnd) || value.seasonStart>value.seasonEnd || !value.days || typeof value.days!=='object' || Array.isArray(value.days)) throw Error('Invalid calendar');
       for (const [key,entry] of Object.entries(value.days)) {
@@ -95,7 +116,8 @@
       month = today < data.seasonStart ? data.seasonStart.slice(0,7) : today > data.seasonEnd ? data.seasonEnd.slice(0,7) : today.slice(0,7);
       draw();
       notice.textContent = `Japan time · Updated ${label(value.updatedAt)}`;
-    }).catch(() => {
+    }).catch(error => {
+      console.error('Japan availability calendar load failed', error);
       grid.replaceChildren(); previous.disabled=true; next.disabled=true;
       monthLabel.textContent='Please check with Ash';
       notice.textContent='The calendar could not be loaded. Please enquire directly to check your dates.';
