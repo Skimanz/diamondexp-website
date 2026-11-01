@@ -91,3 +91,6 @@ body:has(dialog[open]){overflow:hidden}
 
 /* Suppress the browser focus ring on the dialog shell; controls retain focus-visible rings. */
 .availability-modal:focus{outline:none}
+
+.availability-day.booked{background:#f7e4e4;border-color:#b85b5b;color:#762f2f;cursor:default}
+.availability-key.booked{background:#e9b1b1}
