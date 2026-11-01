@@ -20,6 +20,22 @@
  function draw(){const first=dayDate(month+'-01'),y=first.getUTCFullYear(),m=first.getUTCMonth();monthEl.textContent=first.toLocaleDateString('en-NZ',{month:'long',year:'numeric',timeZone:'UTC'});prev.disabled=month<=data.seasonStart.slice(0,7);next.disabled=month>=data.seasonEnd.slice(0,7);grid.replaceChildren();for(let i=0;i<(first.getUTCDay()+6)%7;i++){const gap=document.createElement('span');gap.setAttribute('aria-hidden','true');grid.append(gap)}const count=new Date(Date.UTC(y,m+1,0)).getUTCDate();for(let n=1;n<=count;n++){const key=month+'-'+String(n).padStart(2,'0'),outside=key<data.seasonStart||key>data.seasonEnd,status=outside?'past':(data.days[key]?.status||'available'),names={available:'Enquire',pending:'Pending',booked:'Booked',unavailable:'Unavailable',past:'—'};const tile=document.createElement('div');tile.className='availability-day '+status;tile.setAttribute('aria-label',key+': '+names[status]);const strong=document.createElement('strong');strong.textContent=n;const small=document.createElement('span');small.textContent=names[status];tile.append(strong,small);grid.append(tile)}}
  function move(delta){const d=dayDate(month+'-01');d.setUTCMonth(d.getUTCMonth()+delta);month=d.toISOString().slice(0,7);draw()}
  prev.addEventListener('click',()=>move(-1));next.addEventListener('click',()=>move(1));
- try{const response=await fetch('availability.json',{cache:'no-store'});if(!response.ok)throw Error();data=await response.json();if(!data.seasonStart||!data.seasonEnd||!data.days)throw Error();month=data.seasonStart.slice(0,7);draw();notice.textContent='Japan local dates · Last updated '+data.updatedAt}catch(e){monthEl.textContent='Availability unavailable';prev.disabled=next.disabled=true;notice.textContent='Please contact Ash to check your preferred dates.'}
+ try{
+  const sources=[new URL('availability.json',document.baseURI).href,'https://raw.githubusercontent.com/Skimanz/diamondexp-website/main/availability.json'];
+  let lastError;
+  for(const source of sources){
+    try{
+      const url=new URL(source);url.searchParams.set('v',String(Date.now()));
+      const response=await fetch(url.href,{cache:'no-store'});
+      if(!response.ok)throw Error('HTTP '+response.status);
+      const value=await response.json();
+      if(!value.seasonStart||!value.seasonEnd||!value.days)throw Error('Invalid calendar');
+      data=value;break;
+    }catch(e){lastError=e}
+  }
+  if(!data)throw lastError||Error('Calendar unavailable');
+  month=data.seasonStart.slice(0,7);draw();
+  notice.textContent='Japan local dates · Last updated '+data.updatedAt;
+}catch(e){console.error('Availability page load failed',e);monthEl.textContent='Availability unavailable';prev.disabled=next.disabled=true;notice.textContent='Please contact Ash to check your preferred dates.'}
 })();
 </script></body></html>
