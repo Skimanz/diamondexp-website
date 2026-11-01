@@ -76,8 +76,8 @@
       const button = document.createElement('button');
       button.type = 'button';
       button.className = `availability-day ${outside ? 'past' : status}`;
-      button.disabled = outside || status === 'unavailable';
-      const state = outside ? 'Season closed' : {available:'Available', pending:'Pending', unavailable:'Unavailable'}[status];
+      button.disabled = outside || status === 'unavailable' || status === 'booked';
+      const state = outside ? 'Season closed' : {available:'Available', pending:'Pending', booked:'Booked', unavailable:'Unavailable'}[status];
       button.setAttribute('aria-label', `${label(key)}: ${state}${status === 'pending' ? ', enquire as backup' : ''}`);
       const number = document.createElement('strong');
       number.textContent = day;
@@ -105,8 +105,29 @@
   previous.addEventListener('click', () => move(-1));
   next.addEventListener('click', () => move(1));
 
-  fetch('nz-availability.json', {cache:'no-store'})
-    .then(response => { if (!response.ok) throw Error('Availability unavailable'); return response.json(); })
+  async function fetchCalendarData(filename) {
+    const sources = [
+      new URL(filename, document.baseURI).href,
+      'https://raw.githubusercontent.com/Skimanz/diamondexp-website/main/' + filename
+    ];
+    let error;
+    for (const source of sources) {
+      try {
+        const url = new URL(source);
+        url.searchParams.set('v', String(Date.now()));
+        const response = await fetch(url.href, {cache:'no-store'});
+        if (!response.ok) throw Error('Calendar request failed: ' + response.status);
+        const value = await response.json();
+        if (!datePattern.test(value.seasonStart) || !datePattern.test(value.seasonEnd) || value.seasonStart > value.seasonEnd || !value.days || typeof value.days !== 'object' || Array.isArray(value.days)) throw Error('Invalid calendar data');
+        for (const [key, entry] of Object.entries(value.days)) {
+          if (!datePattern.test(key) || !entry || !['pending', 'booked', 'unavailable'].includes(entry.status)) throw Error('Invalid day status');
+        }
+        return value;
+      } catch (cause) { error = cause; }
+    }
+    throw error || Error('Calendar unavailable');
+  }
+  fetchCalendarData('nz-availability.json')
     .then(value => {
       if (!datePattern.test(value.seasonStart) || !datePattern.test(value.seasonEnd) || value.seasonStart > value.seasonEnd || !value.days || typeof value.days !== 'object' || Array.isArray(value.days)) throw Error('Invalid calendar');
       data = value;
@@ -114,7 +135,8 @@
       draw();
       notice.textContent = `New Zealand time · 14 June–10 October 2027 · Updated ${label(value.updatedAt)}`;
     })
-    .catch(() => {
+    .catch(error => {
+      console.error('NZ availability calendar load failed', error);
       grid.replaceChildren();
       previous.disabled = true;
       next.disabled = true;
