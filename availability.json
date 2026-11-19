@@ -100,13 +100,13 @@
       "status": "unavailable"
     },
     "2027-02-06": {
-      "status": "pending"
+      "status": "booked"
     },
     "2027-02-07": {
-      "status": "pending"
+      "status": "booked"
     },
     "2027-02-08": {
-      "status": "pending"
+      "status": "booked"
     },
     "2027-02-09": {
       "status": "booked"
@@ -121,7 +121,7 @@
       "status": "booked"
     },
     "2027-02-13": {
-      "status": "pending"
+      "status": "booked"
     },
     "2027-02-19": {
       "status": "unavailable"
