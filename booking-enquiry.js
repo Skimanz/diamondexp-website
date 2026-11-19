@@ -112,7 +112,7 @@ document.querySelectorAll('[data-booking-enquiry]').forEach(form => {
       if (terms) {
         terms.closest('.enquiry-terms').hidden = !isJapan && !isNZ;
         terms.textContent = isNZ ? 'NZSki terms & conditions' : 'Japan terms & conditions';
-        terms.href = isNZ ? 'https://www.coronetpeak.co.nz/footer/terms-conditions' : 'japan.html#booking-terms';
+        terms.href = isNZ ? 'https://www.coronetpeak.co.nz/footer/terms-conditions' : '/terms/';
         terms.target = isNZ ? '_blank' : '';
         terms.rel = isNZ ? 'noopener' : '';
       }
