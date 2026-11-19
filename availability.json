@@ -28,13 +28,13 @@
       "status": "unavailable"
     },
     "2026-12-30": {
-      "status": "pending"
+      "status": "booked"
     },
     "2027-01-01": {
-      "status": "unavailable"
+      "status": "booked"
     },
     "2027-01-02": {
-      "status": "pending"
+      "status": "booked"
     },
     "2027-01-06": {
       "status": "booked"
@@ -109,16 +109,16 @@
       "status": "pending"
     },
     "2027-02-09": {
-      "status": "pending"
+      "status": "booked"
     },
     "2027-02-10": {
-      "status": "pending"
+      "status": "booked"
     },
     "2027-02-11": {
-      "status": "pending"
+      "status": "booked"
     },
     "2027-02-12": {
-      "status": "pending"
+      "status": "booked"
     },
     "2027-02-13": {
       "status": "pending"
@@ -196,6 +196,15 @@
       "status": "booked"
     },
     "2026-12-15": {
+      "status": "booked"
+    },
+    "2027-01-03": {
+      "status": "booked"
+    },
+    "2027-01-04": {
+      "status": "booked"
+    },
+    "2027-01-05": {
       "status": "booked"
     }
   }
