@@ -1,7 +1,7 @@
 {
   "seasonStart": "2026-12-01",
   "seasonEnd": "2027-03-31",
-  "updatedAt": "2026-11-19",
+  "updatedAt": "2026-11-21",
   "days": {
     "2026-12-04": {
       "status": "unavailable"
@@ -64,10 +64,10 @@
       "status": "booked"
     },
     "2027-01-15": {
-      "status": "booked"
+      "status": "unavailable"
     },
     "2027-01-16": {
-      "status": "booked"
+      "status": "unavailable"
     },
     "2027-01-22": {
       "status": "unavailable"
