@@ -7,7 +7,10 @@ if out.exists():
     shutil.rmtree(out)
 out.mkdir()
 for source in root.iterdir():
-    if source.is_file() and (source.suffix in {'.html', '.css', '.js', '.xml', '.txt'} or source.name == 'availability.json'):
+    if source.is_file() and (
+        source.suffix in {'.html', '.css', '.js', '.xml', '.txt'}
+        or source.name in {'availability.json', 'nz-availability.json'}
+    ):
         shutil.copy2(source, out / source.name)
 shutil.copytree(root / 'images', out / 'images')
 shutil.copytree(root / 'terms', out / 'terms')
