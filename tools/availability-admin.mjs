@@ -13,11 +13,11 @@ export function paymentDeadline(issuedAt, firstLessonAt) {
 }
 
 export function updateDays(data, status, dates) {
-  if (!['pending','unavailable','available'].includes(status)||!dates.length) throw Error('Choose a status and at least one date.');
+  if (!['pending','booked','unavailable','available'].includes(status)||!dates.length) throw Error('Choose a status and at least one date.');
   const result=structuredClone(data);
   for (const day of dates) {
     if (!/^\d{4}-\d{2}-\d{2}$/.test(day)||!Number.isFinite(Date.parse(day))||new Date(day).toISOString().slice(0,10)!==day||day<data.seasonStart||day>data.seasonEnd) throw Error(`Invalid season date: ${day}`);
-    if(status==='pending'&&data.days[day]?.status==='unavailable') throw Error(`Already unavailable: ${day}. Resolve the existing booking first.`);
+    if((status==='pending'||status==='booked')&&data.days[day]?.status==='unavailable') throw Error(`Already unavailable: ${day}. Resolve the existing commitment first.`);
     if(status==='available') delete result.days[day];
     else result.days[day]={status};
   }

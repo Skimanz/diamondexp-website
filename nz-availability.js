@@ -1,9 +1,10 @@
 (() => {
   'use strict';
+  const calendar = window.AvailabilityCalendar;
   const root = document.getElementById('nz-availability');
   const form = document.getElementById('nz-booking-enquiry');
   const enquiry = document.getElementById('nz-enquiry-modal');
-  if (!root || !form || !enquiry) return;
+  if (!root || !form || !enquiry || !calendar) return;
 
   const openCalendar = () => {
     if (!root.open) root.showModal();
@@ -26,9 +27,7 @@
   const nextStep = root.querySelector('[data-continue-dates]');
   const summary = root.querySelector('[data-selection-summary]');
   const selected = new Set();
-  const datePattern = /^\d{4}-\d{2}-\d{2}$/;
-  const date = key => new Date(`${key}T00:00:00Z`);
-  const label = key => date(key).toLocaleDateString('en-NZ', {timeZone:'UTC', day:'numeric', month:'long', year:'numeric'});
+  const label = calendar.labelDate;
   let data, month;
 
   function updateSelection() {
@@ -56,80 +55,23 @@
   });
 
   function draw() {
-    const first = date(`${month}-01`);
-    const year = first.getUTCFullYear();
-    const monthIndex = first.getUTCMonth();
-    monthLabel.textContent = first.toLocaleDateString('en-NZ', {month:'long', year:'numeric', timeZone:'UTC'});
-    previous.disabled = month <= data.seasonStart.slice(0,7);
-    next.disabled = month >= data.seasonEnd.slice(0,7);
-    grid.replaceChildren();
-    for (let i = 0; i < (first.getUTCDay() + 6) % 7; i++) {
-      const gap = document.createElement('span');
-      gap.setAttribute('aria-hidden', 'true');
-      grid.append(gap);
-    }
-    const count = new Date(Date.UTC(year, monthIndex + 1, 0)).getUTCDate();
-    for (let day = 1; day <= count; day++) {
-      const key = `${month}-${String(day).padStart(2, '0')}`;
-      const status = data.days[key]?.status || 'available';
-      const outside = key < data.seasonStart || key > data.seasonEnd;
-      const button = document.createElement('button');
-      button.type = 'button';
-      button.className = `availability-day ${outside ? 'past' : status}`;
-      button.disabled = outside || status === 'unavailable' || status === 'booked';
-      const state = outside ? 'Season closed' : {available:'Available', pending:'Pending', booked:'Booked', unavailable:'Unavailable'}[status];
-      button.setAttribute('aria-label', `${label(key)}: ${state}${status === 'pending' ? ', enquire as backup' : ''}`);
-      const number = document.createElement('strong');
-      number.textContent = day;
-      const tag = document.createElement('span');
-      tag.textContent = state;
-      button.append(number, tag);
+    calendar.renderMonth({data, month, grid, monthLabel, previous, next, labels:{available:'Available',pending:'Pending',booked:'Booked',unavailable:'Unavailable'}, selected, pastLabel:'Season closed', onSelect:(key, button) => {
+      if (selected.has(key)) selected.delete(key); else selected.add(key);
       button.setAttribute('aria-pressed', String(selected.has(key)));
-      if (selected.has(key)) button.classList.add('selected');
-      if (!button.disabled) button.addEventListener('click', () => {
-        if (selected.has(key)) selected.delete(key); else selected.add(key);
-        button.setAttribute('aria-pressed', String(selected.has(key)));
-        button.classList.toggle('selected', selected.has(key));
-        updateSelection();
-      });
-      grid.append(button);
-    }
+      button.classList.toggle('selected', selected.has(key));
+      updateSelection();
+    }});
   }
 
   function move(amount) {
-    const value = date(`${month}-01`);
-    value.setUTCMonth(value.getUTCMonth() + amount);
-    month = value.toISOString().slice(0,7);
+    month = calendar.moveMonth(month, amount);
     draw();
   }
   previous.addEventListener('click', () => move(-1));
   next.addEventListener('click', () => move(1));
 
-  async function fetchCalendarData(filename) {
-    const sources = [
-      new URL(filename, document.baseURI).href,
-      'https://raw.githubusercontent.com/Skimanz/diamondexp-website/main/' + filename
-    ];
-    let error;
-    for (const source of sources) {
-      try {
-        const url = new URL(source);
-        url.searchParams.set('v', String(Date.now()));
-        const response = await fetch(url.href, {cache:'no-store'});
-        if (!response.ok) throw Error('Calendar request failed: ' + response.status);
-        const value = await response.json();
-        if (!datePattern.test(value.seasonStart) || !datePattern.test(value.seasonEnd) || value.seasonStart > value.seasonEnd || !value.days || typeof value.days !== 'object' || Array.isArray(value.days)) throw Error('Invalid calendar data');
-        for (const [key, entry] of Object.entries(value.days)) {
-          if (!datePattern.test(key) || !entry || !['pending', 'booked', 'unavailable'].includes(entry.status)) throw Error('Invalid day status');
-        }
-        return value;
-      } catch (cause) { error = cause; }
-    }
-    throw error || Error('Calendar unavailable');
-  }
-  fetchCalendarData('nz-availability.json')
+  calendar.fetchData('nz-availability.json')
     .then(value => {
-      if (!datePattern.test(value.seasonStart) || !datePattern.test(value.seasonEnd) || value.seasonStart > value.seasonEnd || !value.days || typeof value.days !== 'object' || Array.isArray(value.days)) throw Error('Invalid calendar');
       data = value;
       month = data.seasonStart.slice(0,7);
       draw();

@@ -1,7 +1,8 @@
 (() => {
   'use strict';
+  const calendar = window.AvailabilityCalendar;
   const root = document.getElementById('availability');
-  if (!root) return;
+  if (!root || !calendar) return;
   const openCalendar = () => { if (!root.open) root.showModal(); document.getElementById('availability-title').focus(); };
   document.querySelectorAll('[data-open-availability]').forEach(button => button.addEventListener('click', openCalendar));
   root.querySelector('[data-close-availability]').addEventListener('click', () => root.close());
@@ -14,10 +15,8 @@
   const previous = root.querySelector('[data-previous]');
   const next = root.querySelector('[data-next]');
   const notice = root.querySelector('[data-calendar-notice]');
-  const datePattern = /^\d{4}-\d{2}-\d{2}$/;
-  const date = key => new Date(`${key}T00:00:00Z`);
-  const label = key => date(key).toLocaleDateString('en-NZ', {timeZone:'UTC', day:'numeric', month:'long', year:'numeric'});
-  const today = new Intl.DateTimeFormat('en-CA', {timeZone:'Asia/Tokyo', year:'numeric', month:'2-digit', day:'2-digit'}).format(new Date());
+  const label = calendar.labelDate;
+  const today = calendar.todayIn('Asia/Tokyo');
   let data, month;
   const selected = new Set();
   const nextStep = root.querySelector('[data-continue-dates]');
@@ -45,73 +44,20 @@
     document.getElementById('availability-selection').textContent = '';
   });
   function draw() {
-    const first = date(`${month}-01`);
-    const year = first.getUTCFullYear(), m = first.getUTCMonth();
-    monthLabel.textContent = first.toLocaleDateString('en-NZ', {month:'long', year:'numeric', timeZone:'UTC'});
-    previous.disabled = month <= data.seasonStart.slice(0,7);
-    next.disabled = month >= data.seasonEnd.slice(0,7);
-    grid.replaceChildren();
-    for (let i=0; i<(first.getUTCDay()+6)%7; i++) {
-      const gap = document.createElement('span'); gap.setAttribute('aria-hidden','true'); grid.append(gap);
-    }
-    const count = new Date(Date.UTC(year,m+1,0)).getUTCDate();
-    for (let day=1; day<=count; day++) {
-      const key = `${month}-${String(day).padStart(2,'0')}`;
-      const status = data.days[key]?.status || 'available';
-      const outside = key < data.seasonStart || key > data.seasonEnd || key < today;
-      const button = document.createElement('button');
-      button.type = 'button'; button.className = `availability-day ${outside?'past':status}`;
-      button.disabled = outside || status === 'unavailable' || status === 'booked';
-      const state = outside ? 'Past / closed' : {available:'Enquire',pending:'Pending',booked:'Booked',unavailable:'Unavailable'}[status];
-      button.setAttribute('aria-label', `${label(key)}: ${state}${status==='pending'?', enquire as backup':''}`);
-      const number = document.createElement('strong'); number.textContent = day;
-      const tag = document.createElement('span'); tag.textContent = state;
-      button.append(number,tag);
+    calendar.renderMonth({data, month, grid, monthLabel, previous, next, labels:{available:'Enquire',pending:'Pending',booked:'Booked',unavailable:'Unavailable'}, selected, minimumDate:today, pastLabel:'Past / closed', onSelect:(key, button) => {
+      if (selected.has(key)) selected.delete(key); else selected.add(key);
       button.setAttribute('aria-pressed', String(selected.has(key)));
-      if (selected.has(key)) button.classList.add('selected');
-      if (!button.disabled) button.addEventListener('click', () => {
-        if (selected.has(key)) selected.delete(key); else selected.add(key);
-        button.setAttribute('aria-pressed', String(selected.has(key)));
-        button.classList.toggle('selected', selected.has(key));
-        updateSelection();
-      });
-      grid.append(button);
-    }
+      button.classList.toggle('selected', selected.has(key));
+      updateSelection();
+    }});
   }
   function move(amount) {
-    const d = date(`${month}-01`); d.setUTCMonth(d.getUTCMonth()+amount);
-    month = d.toISOString().slice(0,7); draw();
+    month = calendar.moveMonth(month, amount); draw();
   }
   previous.addEventListener('click',()=>move(-1));
   next.addEventListener('click',()=>move(1));
-  async function fetchCalendarData(filename) {
-    const sources = [
-      new URL(filename, document.baseURI).href,
-      'https://raw.githubusercontent.com/Skimanz/diamondexp-website/main/' + filename
-    ];
-    let error;
-    for (const source of sources) {
-      try {
-        const url = new URL(source);
-        url.searchParams.set('v', String(Date.now()));
-        const response = await fetch(url.href, {cache:'no-store'});
-        if (!response.ok) throw Error('Calendar request failed: ' + response.status);
-        const value = await response.json();
-        if (!datePattern.test(value.seasonStart) || !datePattern.test(value.seasonEnd) || value.seasonStart > value.seasonEnd || !value.days || typeof value.days !== 'object' || Array.isArray(value.days)) throw Error('Invalid calendar data');
-        for (const [key, entry] of Object.entries(value.days)) {
-          if (!datePattern.test(key) || !entry || !['pending', 'booked', 'unavailable'].includes(entry.status)) throw Error('Invalid day status');
-        }
-        return value;
-      } catch (cause) { error = cause; }
-    }
-    throw error || Error('Calendar unavailable');
-  }
-  fetchCalendarData('availability.json')
+  calendar.fetchData('availability.json')
     .then(value => {
-      if (!datePattern.test(value.seasonStart) || !datePattern.test(value.seasonEnd) || value.seasonStart>value.seasonEnd || !value.days || typeof value.days!=='object' || Array.isArray(value.days)) throw Error('Invalid calendar');
-      for (const [key,entry] of Object.entries(value.days)) {
-        if (!datePattern.test(key) || !entry || !['pending','booked','unavailable'].includes(entry.status)) throw Error('Invalid date status');
-      }
       data=value;
       month = today < data.seasonStart ? data.seasonStart.slice(0,7) : today > data.seasonEnd ? data.seasonEnd.slice(0,7) : today.slice(0,7);
       draw();

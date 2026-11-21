@@ -9,7 +9,7 @@ The private workbook remains the booking and payment record. This public reposit
 1. Check all sessions in the current workbook for clashes, including held dates. An enquiry or sample invoice does not reserve dates.
 2. On actual invoice issue, record a unique invoice number, issue timestamp, payment deadline in JST, PDF link, terms version/acceptance and Held status in the private records. Publish the lesson dates as pending.
 3. Invoices issued before 1 December 2026 JST get seven days. From 1 December they get 48 hours. Last-minute deadlines must be specifically agreed before the lesson start. Do not backdate from the sample invoice.
-4. On verified payment, record the receipt and written confirmation, then publish unavailable. Do not infer payment from a guest saying they paid.
+4. On verified payment, record the receipt and written confirmation, then publish the lesson dates as booked. Do not infer payment from a guest saying they paid.
 5. At expiry, check receipts and transfers in progress with Ash. Release a hold only on Ash's instruction and after checking no other booking blocks the date. Never release automatically in browser code.
 6. Review the local change, commit and publish, then verify the live date status. Updating the workbook alone does not update the website, and this tool neither sends invoices nor schedules reminders.
 
@@ -17,6 +17,7 @@ Examples (substitute real dates only after following the checks above):
 
 ```sh
 node tools/availability-admin.mjs pending YYYY-MM-DD YYYY-MM-DD
+node tools/availability-admin.mjs booked YYYY-MM-DD YYYY-MM-DD
 node tools/availability-admin.mjs unavailable YYYY-MM-DD
 node tools/availability-admin.mjs available YYYY-MM-DD
 node tools/availability-admin.mjs deadline ISSUE_TIMESTAMP_WITH_OFFSET LESSON_TIMESTAMP_WITH_OFFSET
