@@ -1,0 +1,18 @@
+name: Public access health check
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 18 * * *'
+
+permissions:
+  contents: read
+
+jobs:
+  check-public-booking-data:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check live availability and pricing
+        run: bash scripts/check-public-access.sh
