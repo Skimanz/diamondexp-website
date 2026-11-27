@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-site_url="${SITE_URL:-https://diamondexp.nz}"
+site_url="${SITE_URL:-https://skiwithash.com}"
 task_tmp_dir="$(mktemp -d)"
 live_json="$task_tmp_dir/availability.json"
 headers="$task_tmp_dir/headers.txt"

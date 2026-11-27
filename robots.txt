@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://diamondexp.nz/sitemap.xml
+Sitemap: https://skiwithash.com/sitemap.xml
