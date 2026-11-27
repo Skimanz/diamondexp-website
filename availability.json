@@ -1,7 +1,7 @@
 {
   "seasonStart": "2026-12-01",
   "seasonEnd": "2027-03-31",
-  "updatedAt": "2026-11-26",
+  "updatedAt": "2026-11-27",
   "days": {
     "2026-12-01": {
       "status": "unavailable"
@@ -54,26 +54,11 @@
     "2026-12-19": {
       "status": "unavailable"
     },
-    "2026-12-20": {
-      "status": "pending"
-    },
-    "2026-12-21": {
-      "status": "pending"
-    },
-    "2026-12-22": {
-      "status": "pending"
-    },
-    "2026-12-23": {
-      "status": "pending"
-    },
-    "2026-12-24": {
-      "status": "pending"
-    },
     "2026-12-25": {
-      "status": "pending"
+      "status": "unavailable"
     },
     "2026-12-26": {
-      "status": "pending"
+      "status": "unavailable"
     },
     "2026-12-30": {
       "status": "booked"
