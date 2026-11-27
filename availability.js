@@ -44,7 +44,7 @@
     document.getElementById('availability-selection').textContent = '';
   });
   function draw() {
-    calendar.renderMonth({data, month, grid, monthLabel, previous, next, labels:{available:'Enquire',pending:'Pending',booked:'Booked',unavailable:'Unavailable'}, selected, minimumDate:today, pastLabel:'Past / closed', onSelect:(key, button) => {
+    calendar.renderMonth({data, month, grid, monthLabel, previous, next, labels:{available:'Enquire',pending:'On Hold',booked:'Booked',unavailable:'Unavailable'}, selected, minimumDate:today, pastLabel:'Past / closed', onSelect:(key, button) => {
       if (selected.has(key)) selected.delete(key); else selected.add(key);
       button.setAttribute('aria-pressed', String(selected.has(key)));
       button.classList.toggle('selected', selected.has(key));

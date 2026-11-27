@@ -55,7 +55,7 @@
   });
 
   function draw() {
-    calendar.renderMonth({data, month, grid, monthLabel, previous, next, labels:{available:'Available',pending:'Pending',booked:'Booked',unavailable:'Unavailable'}, selected, pastLabel:'Season closed', onSelect:(key, button) => {
+    calendar.renderMonth({data, month, grid, monthLabel, previous, next, labels:{available:'Available',pending:'On Hold',booked:'Booked',unavailable:'Unavailable'}, selected, pastLabel:'Season closed', onSelect:(key, button) => {
       if (selected.has(key)) selected.delete(key); else selected.add(key);
       button.setAttribute('aria-pressed', String(selected.has(key)));
       button.classList.toggle('selected', selected.has(key));
