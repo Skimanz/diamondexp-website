@@ -15,7 +15,7 @@
   }
 
   async function fetchData(filename) {
-    const sources = [new URL(filename, document.baseURI).href, `https://raw.githubusercontent.com/Skimanz/diamondexp-website/main/${filename}`];
+    const sources = [new URL(filename, document.baseURI).href, `https://raw.githubusercontent.com/Skimanz/skiwithash-website/main/${filename}`];
     let error;
     for (const source of sources) {
       try {
