@@ -1533,3 +1533,17 @@ select:focus-visible {
 .qt-pricing-grid article.qt-price-featured > p.qt-season-rates:not(.qt-time) {
   color: #fff;
 }
+
+.home-hero-social .footer-social {
+  width: 42px;
+  height: 42px;
+  background-size: 21px;
+}
+
+.home-hero-social .instagram-link {
+  background-size: 21px, cover;
+}
+
+.home-hero-social .facebook-link {
+  background-size: 24px;
+}
